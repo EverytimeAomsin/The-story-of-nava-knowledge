@@ -452,7 +452,7 @@ label check2:
             show screen question2(x=None)
             $ ans_real = '1'
             if ans_g1 == '1':
-                show screen true 
+                 
                 $ ans_g1 = 'true'
             else:
                 show screen false
@@ -470,11 +470,11 @@ label check2:
         else:
             $ ans_real = '1'
             if ans_g1 == '1':
-                show screen true 
+                 
                 $ ans_g1 = 'true'
             else:
                 $ ans_g1 = 'false'
-                show screen false 
+                
             hide screen question1
             hide screen question2
             
@@ -488,7 +488,7 @@ label check2:
         
         else:
             if ans_g1 == '1':
-                show screen true 
+                 
                 $ ans_g1 = 'true'
 
             else:
@@ -508,7 +508,7 @@ label check2:
         
         else:
             if ans_g1 == '1':
-                show screen true 
+                 
                 $ ans_g1 = 'true'
             else:
                 show screen false
@@ -531,7 +531,7 @@ label check2:
             if ans_g1 == '1':
 
                 $ ans_g1 = 'true'
-                show screen true 
+                 
             else:
                 show screen false
                 $ ans_g1 = 'false'
@@ -553,9 +553,9 @@ label check2:
         else:
             if ans_g1 == '1':
                 $ ans_g1 = 'true'
-                show screen true 
+                 
             else:
-                show screen false 
+                
                 $ ans_g1 = 'false'
             hide screen question1
             hide screen question2
@@ -569,9 +569,9 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
-            show screen false 
+            
             $ ans_g1 = 'false'
         hide screen question2
         hide screen question3
@@ -599,9 +599,9 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
-            show screen false 
+            
             $ ans_g1 = 'false'
         hide screen question3
         hide screen question4
@@ -616,9 +616,9 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
-            show screen false 
+            
             $ ans_g1 = 'false'
         hide screen question4
         hide screen question5
@@ -633,9 +633,9 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
-            show screen false 
+            
             $ ans_g1 = 'false'
         hide screen question5
         hide screen question6
@@ -650,9 +650,9 @@ label check2:
        
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
-            show screen false 
+            
             $ ans_g1 = 'false'
         hide screen question6
         hide screen question7
@@ -669,7 +669,7 @@ label check2:
             $ ans_g1 = 'true'
             $ points = 14
             "[points]"
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -693,7 +693,7 @@ label check2:
         $ ans_g1 = 'null'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -711,7 +711,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -729,7 +729,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -748,7 +748,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -766,7 +766,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -784,7 +784,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -802,7 +802,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -820,7 +820,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -837,7 +837,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -854,7 +854,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -871,7 +871,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -888,7 +888,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -905,7 +905,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -922,7 +922,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -939,7 +939,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -956,7 +956,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -973,7 +973,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -992,7 +992,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1009,7 +1009,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1026,7 +1026,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1044,7 +1044,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1073,7 +1073,7 @@ label check2:
         show screen choice_menu
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1091,7 +1091,7 @@ label check2:
         show screen choice_menu
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1108,7 +1108,7 @@ label check2:
         show screen choice_menu
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1126,7 +1126,7 @@ label check2:
         show screen choice_menu
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1144,7 +1144,7 @@ label check2:
         show screen choice_menu
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1162,7 +1162,7 @@ label check2:
         show screen choice_menu
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1179,7 +1179,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1196,7 +1196,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1213,7 +1213,7 @@ label check2:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-            show screen true 
+             
         else:
             show screen false
             $ ans_g1 = 'false'
@@ -1249,12 +1249,12 @@ label point1:
     show test1 with dissolve  :
         linear 0 xpos 445 ypos 740
     if ans_g1 == '1':
-            show screen true 
+             
             $ ans_g1 = 'true'
     elif ans_g1 == 'null':
             jump end       
     else:
-            show screen false 
+            
             $ ans_g1 = 'false'
     
     jump Changeview
