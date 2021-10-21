@@ -398,19 +398,7 @@ label minigame2:
     $ ans_g1 = 'null'
     $ pass_minigame2 = 'true'
     $ roll = 0
-    menu:
-        "ได้เกรด S":
-            $ roll = roll + 6
-        "ได้เกรด A":
-            $ roll = roll + 5
-        "ได้เกรด B":
-            $ roll = roll + 4
-        "ได้เกรด C":
-            $ roll = roll + 3
-        "ได้เกรด D":
-            $ roll = roll + 2
-        "ได้เกรด F":
-            $ roll = roll + 1
+    jump inminigame2
     jump check
     return
 
