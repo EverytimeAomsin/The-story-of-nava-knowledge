@@ -392,7 +392,7 @@ label minigame1:
     $ ans_g1 = 'null'
     $ pass_minigame1 = 'true'
     $ roll = 0
-    jump hidden_object_example
+    jump hidden_object
     return
 label minigame2:
     $ ans_g1 = 'null'

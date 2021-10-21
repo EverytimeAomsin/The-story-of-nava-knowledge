@@ -59,7 +59,7 @@ default hidden_object = pncs(
 )
 
 
-label hidden_object_example:
+label hidden_object:
     "ยินดีต้อนรับสู่ minigame รอบที่ 1 นะ กติกาก็คือต้องช่วยฉันหาของต่อไปนี้คือ"
     "ของที่ต้องหา\nแอปเปิ้ล  หนังสือ  มีด  ขวด ขวดทรงกรวย และสมุดโน็ต\nถ้าหาได้ครบจะได้โอกาศเดินฟรี 4-8 ช่อง ถ้าไม่ครบจะได้แค่่ 1-4 ช่อง"
     hide img with dissolve
