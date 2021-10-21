@@ -53,12 +53,44 @@ define B_Relation    = 5 #ค่าความสัมพันธ์
 # The game starts here.
 
 label start:
+    scene bg room
+    jump intro
+label intro:
+
+        # Show a background. This uses a placeholder by default, but you can
+        # add a file (named either "bg room.png" or "bg room.jpg") to the
+        # images directory to show it.
+
+        scene bg room
+
+        # This shows a character sprite. A placeholder is used, but you can
+        # replace it by adding a file named "eileen happy.png" to the images
+        # directory.
+
+        show eileen happy
+
+        # These display lines of dialogue.
+
+        #จุดเริ่มต้น
+#วาดฉาก lobby
+        Unknown "ยินดีต้อนรับ ก่อนเริ่มเกมโปรดจำไว้ว่าการออกเกมโดยการกดปิดเกมที่ไม่ใช่วิธีปิดผ่านเมนูเกมอาจจะทำให้ความคืบหน้าหายได้"
+        "คุณคือใครเหรอ"
+        Unknown "ฉันคือผู้ที่บันทึกและจัดการระบบเกม / นายก็แค่เล่นตามที่นายอยากจะเล่นได้เลย"
+        Unknown "ว่าแต่นายชื่ออะไรเหรอ ฉันขอชื่อนายหน่อยนะ \n(ระบบจะบันทึกชื่อคุณ เพื่อที่จะบันทึกประวัติการเล่น)"
+
+        #ใส่ชื่อผู้เล่น
+        $ Player = renpy.input("ชื่อของคุณ \nกด Enter เพื่อเริ่ม", length=25)
+
+        Unknown "อ่า ชื่อ[Player] สินะ ยินดีต้อนรับนะ กดต่อเพื่อเริ่มเกมได้เลย ^^"
+        jump chapter1
+        return
+label chapter1 :
+    
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
     scene house
-    $ Player = renpy.input("ชื่อของคุณ \nกด Enter เพื่อเริ่ม", length=25)
     "ณ เวลา 8.40"
     Player  "อ่า....อากาศดีจัง"
     Player  "หลับเต็มอิ่มนี่มันรู้สึกดีจริงๆ"
@@ -467,44 +499,52 @@ label chapter3_0:
         return
 
 
-label chapter3_1 :
-#ฉากที่บ้าน
-#ฉากหน้าคอม
-        Player          "ก็ผ่านไปอีกวันแล้วสินะ"
+label chapter5_1 :
+#ฉากร้านอาหาร
+        #ตอนจบ
+        Bell            "นี่ๆหนึ่ง ทาง บ. เขาส่งคะแนนมาแล้วละ"
+        Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
+        Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
+        Player          "เอ๋....มีโทรศัพท์เข้า"
+        Player          "สวัสดีครับ นี้ผมหนึ่งครับ"
+        Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
 
-        #ฟังค์ชัน if
-        Bell            "เราคงต้องอ่านให้ดีกว่านี้สินะ"
-        Player          "ก็คงจะต้องเป็นอย่างนั้นสินะ"
-
-        Bell            "ว่าแต่ วันนี้นายตอบได้เยอะจังวันนี้ ยอดไปเลย"
-        Player          "ก็พวกเราเตรียมตัวมาดีนี่นะ"
-
-        Player          "เฮ้อ พน จะเป็นยังไงนะ ข้อมูลก็เยอะจัง ไม่รู้สถานการณ์จะเป็นแบบไหน"
-        Bell            "นี้เราทำสรุปมาให้ ข้อมูลน่าจะโอเคสำหรับวันพรุ่งนี้นะ"
-        Bell            "ส่งลิ้ง"
-        Player          "นี่เหรอ ข้อมูล"
-        Bell            "ใช่ อย่างนายทำได้อยู่แล้วสำหรับพรุ่งนี้"
-        Player          "ขอบใจนะ เจอกันพรุ่งนี้ ฝันดีๆ"
-        Player          "จะยากไหมนะ ไหนดูสิ"
-#สรุป code 
         return
 
-label chapter3_2 :
-#ฉากที่บ้าน
-#ฉากหน้าคอม
-        Player          "ก็ผ่านไปอีกวันแล้วสินะ"
+label chapter5_2 :
+#ฉากร้านอาหาร
+        #ตอนจบ
+        Bell            "นี่ๆหนึ่ง ทาง บ. เขาส่งคะแนนมาแล้วละ"
+        Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
+        Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
+        Player          "เอ๋....มีโทรศัพท์เข้า"
+        Player          "สวัสดีครับ นี้ผมหนึ่งครับ"
+        Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
 
-        #ฟังค์ชัน if
-        Bell            "นายรู้เยอะดีนิ วันนี้"
-        Player          "ก็เพราะเธอช่วยสอนฉันเหมือนคืนไง"
+        return
 
-        Bell            "ฉันบอกแล้วให้ขยันอ่าน"
-        Player          "ก็มันยากนิ"
-        Bell            "ไม่ขยันก็อย่างนี้ละ "
-        Bell            "นี้เราทำสรุปมาให้ ข้อมูลน่าจะโอเคสำหรับวันพรุ่งนี้นะ"
-        Bell            "ส่งลิ้ง"
-        Player          "นี่เหรอ ข้อมูล"
-        Bell            "โอเคตามนั้นนะ นายอ่านเอาเองเลย แล้วเจอกันพรุ่งนี้"
-        Player          "เฮ้อๆๆ ไหนดูสิ"
-#สรุป code 
+label fail_waiting :
+        return
+
+label fail_1 :          #ถ้าตกรอบครั้งที่ 1
+#วาดฉาก lobby
+        Unknown         "อืม นายตกรอบเหรอ ฉันจะให้โอกาสนายอีกครั้ง ฉันจะทำการย้อนเวลาให้นายไปตอนคืนก่อนวันทดสอบ"
+        "......ย้อนกลับไปคืนที่แล้ว......"
+        return
+
+
+
+label ending_fail :          #แพ้เกม
+#วาดฉาก lobby
+        Unknown         "ฉันให้โอกาศนายแล้ว แต่นายกลับแพ้ได้ยังไง"
+        Unknown         "มันจบละ เจอกันใหม่ครั้งหน้า ขอให้เตรียมให้ดีนะ"
+        ".............."
+        return
+
+label ending :
+#วาดฉาก lobby
+        #สรุปคะแนน
+        Unknown "เอาละ ยินดีต้อนรับกลับนะ  ยินดีด้วยพวกนายเอาชนะเกมนี้ได้"
+        Unknown "นี่คือสรุปคะแนนก็คือพวกนายทำได้"
+        Unknown "สุดท้ายนี้ก่อนลาจากกัน ขอบคุณที่เล่นมาถึงตรงนี้นะ @Chicken killer "
         return

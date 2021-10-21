@@ -192,8 +192,6 @@ label next:
 
 
 label game_2:
-    $ pass_minigame1 = 'false'
-    $ pass_minigame2 = 'false'
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -394,20 +392,7 @@ label minigame1:
     $ ans_g1 = 'null'
     $ pass_minigame1 = 'true'
     $ roll = 0
-    menu:
-        "ได้เกรด S":
-            $ roll = roll + 6
-        "ได้เกรด A":
-            $ roll = roll + 5
-        "ได้เกรด B":
-            $ roll = roll + 4
-        "ได้เกรด C":
-            $ roll = roll + 3
-        "ได้เกรด D":
-            $ roll = roll + 2
-        "ได้เกรด F":
-            $ roll = roll + 1
-    jump check
+    jump hidden_object_example
     return
 label minigame2:
     $ ans_g1 = 'null'
