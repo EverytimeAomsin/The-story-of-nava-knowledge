@@ -27,5 +27,10 @@ label inminigame2:
 
     $ num_hits, num_notes = _return
     e "You hit [num_hits] notes out of [num_notes]. Good work!"
+    show screen choice_menu(x=None) 
+    show screen scoreboard_g2
+    show img with dissolve:
+        xpos -110 ypos -1900 zoom 1.6
+    jump check
 
     return

@@ -33,8 +33,7 @@ define NPC10_Score   = 0 #ตัวละครอื่นตัวที่ 10
 define NPC11_Score   = 0 #ตัวละครอื่นตัวที่ 11
 define NPC12_Score   = 0 #ตัวละครอื่นตัวที่ 12
 define NPC13_Score   = 0 #ตัวละครอื่นตัวที่ 13
-define NPC14_Score   = 0 #ตัวละครอื่นตัวที่ 14
-define NPC15_Score   = 0 #ตัวละครอื่นตัวที่ 15
+
 
 
 #ค่าคะแนนด่าน 2
@@ -49,7 +48,7 @@ define Currently_Score = 0
 define B_Relation = 5 #ค่าความสัมพันธ์
 define B_Intelligent = 0 #ต่าความฉลา
 #ค่าตัวละคร Kai
-define B_Relation    = 5 #ค่าความสัมพันธ์
+define K_Relation    = 5 #ค่าความสัมพันธ์
 # The game starts here.
 
 label start:
@@ -81,7 +80,7 @@ label intro:
         #ใส่ชื่อผู้เล่น
         $ Player = renpy.input("ชื่อของคุณ \nกด Enter เพื่อเริ่ม", length=25)
 
-        Unknown "อ่า ชื่อ[Player] สินะ ยินดีต้อนรับนะ กดต่อเพื่อเริ่มเกมได้เลย ^^"
+        Unknown "สวัสดี คุณ[Player] ยินดีต้อนรับ สามารถคลิกเพื่อเริ่มเกมได้เลย ^^"
         jump chapter1
         return
 label chapter1 :
@@ -358,7 +357,7 @@ label chapter1 :
         "ก็เหนื่อยอยู่นะ เจอเรื่องอะไรหลายๆอย่างเลยกว่าจะถึงจุดนี้":
                 Bell "เหมือนกันเลย เราคิดว่าสกิลเราเยอะกว่าแต่ก่อนมากเลย 555"
                 Bell "เออ...ใช่"
-                $ B_Relation = B_Relation - 1
+                $ B_Relation = B_Relation + 1
                 
         "สบายๆอยู่แล้ว ระดับเราแล้ว":
                 Bell "จริงสิ อย่างนายเก่งอยู่แล้วละ ระดับนายละนะ"
@@ -414,8 +413,25 @@ label chapter2_1_1:
         Yuri            "สำหรับผลการแข่งขันโปรดดูในเมล์ของผู้เข้าแข่งขันได้เลยค่ะ"
 #วาดมุมเห็นกางเกงเกม + ส่งเสียง
         #หน้าประกาศผล
-
-        jump chapter2_2
+        $ NPC1_Score = renpy.random.randint(1, 20)
+        $ NPC2_Score = renpy.random.randint(1, 20)
+        $ NPC3_Score = renpy.random.randint(1, 20)
+        $ NPC4_Score = renpy.random.randint(1, 20)
+        $ NPC5_Score = renpy.random.randint(1, 20)
+        $ NPC6_Score = renpy.random.randint(1, 20)
+        $ NPC7_Score = renpy.random.randint(1, 20)
+        $ NPC8_Score = renpy.random.randint(1, 20)
+        $ NPC9_Score = renpy.random.randint(1, 20)
+        $ NPC10_Score = renpy.random.randint(1, 20)
+        $ NPC11_Score = renpy.random.randint(1, 20)
+        $ NPC12_Score = renpy.random.randint(1, 20)
+        $ Bell_Score1 = renpy.random.randint(1, 20)
+        $ Kai_Score1 = renpy.random.randint(1, 20)
+        if B_Relation >= 0:
+            jump chapter2_2
+        elif B_Relation < 0:
+            jump chapter2_3
+        
         return
 
 label chapter2_2 :
@@ -423,7 +439,7 @@ label chapter2_2 :
         scene restaurant
         Bell            "วันแรกเป็นไงบ้างละ"
         Player          "อืม..ก็ยากอยู่นะ วันนี้"
-        Bell            "วันนี้เขาจะประกาศคู่ใช่ไหมคืนนี้"
+        Bell            "วันนี้เขาจะประกาศผลใช่ไหมคืนนี้"
         menu :
                 "ใช่แล้ว รอดูประกาศคืนนี้ได้เลย" :
                         Bell "ได้เลยๆ แล้วเราจะรอดู"
@@ -435,21 +451,18 @@ label chapter2_2 :
                         $ B_Relation = B_Relation - 1
       
         "เสียง discord"
-
+        Player          "ทาง บ. เขาได้ส่งคู่มาแล้ว"
         Bell            "นายคิดว่านายจะได้คู่แบบไหน"
         Player          "ก็คงได้คนทั่วไป คงไม่ได้คนเก่งหรอก"
-        Player          "เอ๊ะ เสียงแจ้งเตือน"
-        Player          "ทาง บ. เขาได้ส่งผลมาแล้ว"
+
         Bell            "นายคิดว่าคู่ของนายจะเป็นคนแบบไหนเหรอ"
         Player          "ก็น่าจะเป็นจะเป็นธรรมดาทั่วไปละ คงไม่ได้เป็นคนเก่งอะไรหรอก"
         Bell            "ก็อยู่ที่ดวงแล้วอะนะ ^^"
         Player          "ไม่จริงน่า ฉันกับเธอเนี่ยนะ บังเอิญไปป่าว"
         Bell            "นั้นสินะ บังเอิญจังแต่ก็ดีแล้วละ"
         Player          "นั้นเรามาคุยกันพรุ่งนี้กันดีกว่า คำถามพรุ่งนี้เกียวกับอะไรนะ"
-        Bell            "เหมือนจะเป็นเกี่ยวกับพวกสถานที่ภายในสวนน้ำนะ ถ้าเราจำได้ก็คงไม่อยากหรอก"
-        Bell            "เรามีหนังสือรวมข้อมูลสถานที่ด้วย อยากรู้ตรงไหนเป็นพิเศษไหม"
-        Bell            "อ่าฮะ"
-        jump chapter2_3
+        Bell            "เหมือนจะเป็นเกี่ยวกับพวกสถานที่ภายในสวนน้ำนะ ถ้าเราจำได้ก็คงไม่ยากหรอก"
+        jump chapter3
 #วาดหนังสือ img maping
         return
 
@@ -503,10 +516,10 @@ label chapter3:
                 "เราพลาดหลายข้อไปหน่อย":
                         Kai "ระวังคะแนนนายจะถูกเรานำนะ 555 "
                         Kai "แค่ตอนนี้คะแนนเรายังมากกว่านายเยอะ"
-                        $ B_Relation = B_Relation - 1
+                        $ K_Relation = K_Relation - 1
                 "เราพลาดแค่ครั้งนี้ละ ครั้งต่อไปคะแนนเราก็นำนายอยู่ดี":
                         Kai "แล้วเราจะเคยดูละ แค่ตอนนี้คะแนนเรายังกว่านาย"
-                        $ B_Relation = B_Relation - 2
+                        $ K_Relation = K_Relation - 2
         
         Yuri            "เอาละคะๆ ก่อนอื่นก็ขอต้อนรับและยินดีทุนคนที่ผ่านเข้ารอบนะค่ะ ยินดีด้วย เย้"
         Npc             "เย้....."
@@ -521,32 +534,51 @@ label chapter3:
 label chapter3_0:
     
         Yuri            "สำหรับการแข่งขันวันนี้ก็จบลงแล้ว ขอบคุณทุกคนมาก"
-        jump chapter3_1
+        if B_Relation >=3 :
+            jump chapter4_1
+        elif B_Relation >=1 and B_Relation <=2  :
+            jump chapter4_2
+        else:
+            jump chapter4_3
+        
         return
 
 
-label chapter5_1 :
+label chapter4_1 :
 #ฉากร้านอาหาร
         #ตอนจบ
         Bell            "นี่ๆหนึ่ง ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
         Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
         Player          "เอ๋....มีโทรศัพท์เข้า"
-        Player          "สวัสดีครับ นี้ผมหนึ่งครับ"
+        Player          "สวัสดีครับ นี่ [player]"
         Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
-
+        Bell            "ได้เลยค่ะ ขอบคุณมากเลยนะคะ"
+        jump ending
         return
-
-label chapter5_2 :
+label chapter4_2 :
 #ฉากร้านอาหาร
         #ตอนจบ
-        Bell            "นี่ๆหนึ่ง ทาง บ. เขาส่งคะแนนมาแล้วละ"
+        Bell            "นี่ๆ[player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
         Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
         Player          "เอ๋....มีโทรศัพท์เข้า"
-        Player          "สวัสดีครับ นี้ผมหนึ่งครับ"
+        Player          "สวัสดี นี้[player]ครับ"
         Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
-
+        Bell            "ขอบคุณนะคะ"
+        jump ending
+        return
+label chapter4_3 :
+#ฉากร้านอาหาร
+        #ตอนจบ
+        Bell            "นี่ๆ[player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
+        Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
+        Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
+        Player          "เอ๋....มีโทรศัพท์เข้า"
+        Player          "สวัสดี นี้[player]ครับ"
+        Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
+        Bell            "ก็หวังว่านะ....."
+        jump ending
         return
 
 label fail_waiting :
