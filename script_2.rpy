@@ -32,7 +32,7 @@ define question = [
 ["4.วานา วันเดอร์แลนด์ผู้เล่นจะต้องสูงไม่เกินเท่าไร","140 เซนติเมตร","145 เซนติเมตร","150 เซนติเมตร","155 เซนติเมตร"],#4
 ["5.วานา วันเดอร์แลนด์มีพื้นที่มั้งหมดเท่าไร","450 ตารางเมตร","500 ตารางเมตร","550 ตารางเมตร","600 ตารางเมตร"],#1
 ["7.ช้างเซิร์ฟโซนเล่นพร้อมกันได้สูงสุดกี่คน","ไม่สามารถพร้อมกันได้","2 คน","3 คน","4 คน"],#2
-["7.วานามีร้านขายเสื้อผ้า อุปกรณ์และเครื่องประดับมีชื่อว่าอะไร","Ripcurl","Ripcure","Rapcurl","Rapcube"],#1
+["8.วานามีร้านขายเสื้อผ้า อุปกรณ์และเครื่องประดับมีชื่อว่าอะไร","Ripcurl","Ripcure","Rapcurl","Rapcube"],#1
 ["8.ประเภทอาหารต่อไปนี้ไม่มีขายในเดอะโกรฟ","อาหารญี่ปุ่น","อาหารจีน","อาหารประเภทเส้น","อาหารซีฟู๊ด"],#1
 ["9.เดอะโกรฟเปิดเวลาใด","11.00 น.- 16.00 น.","10.00 น.- 15.00 น.","11.00 น.- 15.00 น.","10.00 น.- 17.00 น."],#1
 ["10.ล็อกเกอร์ให้บริการทั้งหมดกี่จุด","1 จุด","2 จุด","3 จุด","4 จุด"],#2
@@ -392,6 +392,9 @@ label minigame1:
     $ ans_g1 = 'null'
     $ pass_minigame1 = 'true'
     $ roll = 0
+    hide screen question15
+    hide screen question16
+    hide screen question17
     jump hidden_object
     return
 label minigame2:
@@ -501,7 +504,7 @@ label check2:
             jump end
         
         else:
-            if ans_g1 == '1':
+            if ans_g1 == '2':
 
                 $ ans_g1 = 'true'
                  
@@ -523,7 +526,7 @@ label check2:
             jump end
         
         else:
-            if ans_g1 == '1':
+            if ans_g1 == '2':
                 $ ans_g1 = 'true'
                  
             else:
@@ -657,6 +660,9 @@ label check2:
         hide screen question11
         hide screen question12
         hide screen question13
+        hide screen question15
+        hide screen question16
+        hide screen question17
         # show screen question14(x=None)
         hide screen choice_menu
         jump point14
