@@ -84,6 +84,8 @@ label start:
     scene bg room
     jump intro
 label intro:
+        play sound "audio/mumei_bgm.mp3" volume 0.2 loop
+        
         # Show a background. This uses a placeholder by default, but you can
         # add a file (named either "bg room.png" or "bg room.jpg") to the
         # images directory to show it.
@@ -413,13 +415,14 @@ label chapter1 :
     Player          "หืม จริงเหรอ หมอนั้นไม่รู้ตอนนี้เก่งขนาดไหนแล้วนี่สิ"
     Bell            "แต่ก็คงไม่เก่งไปกว่านายหรอก 555"
     Player          "ถ้าเป็นอย่างนั้นก็ดีสินะ"
-
+    stop sound fadeout 1.0
     jump chapter2_1
     return
 
 label chapter2_1 :
 
 #วาดฉากห้องแข่ง
+        play sound "audio/gura_bgm.mp3" volume 0.5 loop
         scene matchroom
         #การทดสอบครั้งที่ 1
         Yuri            "เอาละคะ ขอแนะนำก่อนนะคะ พี่ชื่อยูริ พี่จะมาแนะนำวิธีการแข่งขันนะค่ะ"
@@ -448,7 +451,8 @@ label chapter2_1 :
                         # 13.คาบาร่าวาน่าและบีตฮัทแตกต่างกันอย่างไร
         jump game_1                
 label chapter2_1_1:
-
+        
+        
         Yuri            "สำหรับการแข่งวันนี้ก็เสร็จสิ้นแล้ว ขอบคุณทุกคนมากค่ะ"
         Yuri            "สำหรับผลการแข่งขันโปรดดูในเมล์ของผู้เข้าแข่งขันได้เลยค่ะ"
 #วาดมุมเห็นกางเกงเกม + ส่งเสียง

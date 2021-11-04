@@ -401,6 +401,7 @@ label minigame2:
     $ ans_g1 = 'null'
     $ pass_minigame2 = 'true'
     $ roll = 0
+    stop  sound 
     jump inminigame2
     jump check
     return
