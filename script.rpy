@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define Player  =    Character("[Player]")
+define Player  =    Character("[Player] (ผู้เล่น)")
 define Bell    =    Character("เบล")
 define Kai     =    Character("กาย")
 define Fah     =    Character("ฟ้า")
@@ -41,7 +41,7 @@ define Player_Score2 = 0 #คะแนนตัวผู้เล่น
 define Bell_Score2   = 0 #คะแนนเบล
 define Kai_Score2    = 0 #คะแนนผู้เล่นกา
 
-
+define skip = 0
 #ค่าตัวละคร Player 
 define Currently_Score = 0
 #ค่าตัวละคร Bell
@@ -51,41 +51,60 @@ define B_Intelligent = 0 #ต่าความฉลา
 define K_Relation    = 5 #ค่าความสัมพันธ์
 # The game starts here.
 
-screen Bell:
-    imagebutton:
-        xalign 0.5 yalign 0.5 
-        
-
-        idle "bell_a.png"
-
-screen Kai:
-    imagebutton:
-        xalign 0.5 yalign 0.5 
-        
-
-        idle "kai_a.png"
-
-screen Fah:
-    imagebutton:
-        xalign 0.5 yalign 0.5 
-        
-
-        idle "fah_a.png"
-
-screen Yuri:
-    imagebutton:
-        xalign 0.5 yalign 0.5 
-        
-
-        idle "yuri_a.png"
+#animation ตัวละคร
+image bell_idle = Movie(play="images/movies/bell_idle.webm", mask="images/movies/bell_idle2.webm")
+image fah_idle = Movie(play="images/movies/fah_idle.webm", mask="images/movies/fah_idle2.webm")
+image fah1 = Movie(play="images/movies/fah1.webm", mask="images/movies/fah12.webm")
+image fah2 = Movie(play="images/movies/fah2.webm", mask="images/movies/fah22.webm")
+image fah3 = Movie(play="images/movies/fah3.webm", mask="images/movies/fah32.webm")
+image yuri1 = Movie(play="images/movies/yuri1.webm", mask="images/movies/yuri12.webm")
+image yuri_idle = Movie(play="images/movies/yuri_idle.webm", mask="images/movies/yuri_idle2.webm")
 
 
 label start:
     scene bg room
+    jump menu0
+screen mainmenu:
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "menu_story.png"
+        hover "menu_story2.png"
+        action Jump("menu1") alt "ejection"
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "menu_jigsaw.png"
+        hover "menu_jigsaw2.png"
+        action Jump("menu2") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "menu_quiz.png"
+        hover "menu_quiz2.png"
+        action Jump("menu3") alt "ejection"
+label menu0:
+    scene menu_bg
+    show screen mainmenu
+    pause
+    jump menu0
+label menu1:
+    show screen mainmenu
+    hide screen mainmenu
     jump intro
+label menu2:
+    scene menu_bg2
+    $ skip = 1
+    hide screen mainmenu
+    $ Player = renpy.input("ใส่ชื่อของคุณ \nกด Enter เพื่อเริ่ม", length=25)
+    jump game_1
+label menu3:
+    scene menu_bg
+    $ skip = 1
+    hide screen mainmenu
+    $ Player = renpy.input("ใส่ชื่อของคุณ \nกด Enter เพื่อเริ่ม", length=25)
+    jump game_2
+
 label intro:
         play sound "audio/mumei_bgm.mp3" volume 0.2 loop
-        
+      
         # Show a background. This uses a placeholder by default, but you can
         # add a file (named either "bg room.png" or "bg room.jpg") to the
         # images directory to show it.
@@ -152,31 +171,24 @@ label chapter1 :
     Player          "รอดแล้ว"
     Player          "เท่านี้ก็ทันเวลา"
     Player          "แล้วเราจะทำยังไงต่อดีละเนี่ย"
-    menu:
-               
-                "เดินเข้าไปเลย":
-                        Player "เออ ว่าแต่ฉันจะต้องไปไหนต่อเนี่ย"
-                        Player "ถามพี่พนักงานดีกว่า"
-                        Player "รบกวนถามอะไรหน่อยครับ office ไปทางไหนหรือครับ"
-                        Mc "ตรงไปแล้วเลียวขวา จากนั้นขึ้นสองเลยค่ะ"
-
-
-                "โทรศัพท์จากเบอร์เขาให้มา":
-                        Player "พี่ ผมจะไปเจอพี่ที่ไหน"
-                        Fah "ให้ไปเจอที่ office อยู่ชั้นสองตึกข้างหน้าสุด"
 
                 #คำถาม
 #วาด / รูปหน้า office   4
     scene office   
-    show screen Fah
+    "ณ office"
+    show fah1 
     Fah             "สวัสดีน้อง คือคนที่มาฝึกงานที่นี่ใช่ไหมคะ "
     Player          "ผมคือผู้ที่ถูกเลือกให้มาฝึกงานที่นี่"
+    hide fah1
+    show fah2
     Fah             "สวัสดี พี่ชื่อฟ้า จะเป็นคนแนะนำสถานที่นี้ในองค์กรคร่าวๆให้นะ"
     Fah             "ถ้ามีอะไรไม่เข้าใจก็ถามได้เลยนะ"
     Player          "ได้เลย ยินดีที่ได้รู้จัก"
-    hide screen Fah
+    
     #--------------------------แนะนำสถานที่
     scene matchroom
+    hide fah2
+    show fah3 
 #รูปลานจอดรถ
     Fah             "พี่จะแนะนำสถานที่นะคะ เดินตามมาได้เลย"          
     Player          "ขอถามหน่อย\nมาสคอตหน้าทางเข้ามีชื่อเรียกไหม"
@@ -320,14 +332,23 @@ label chapter1 :
     scene matchroomaaqualoop
     Fah             "และเครื่องเล่นสุดท้าย อควาลูป สไลด์แห่งแรกของประเทศไทยที่มีสไลด์เหวี่ยงหมุน 360 องศา ด้วยความเร็วสูงสุดมากกว่า 60 กิโลเมตรต่อชั่วโมง\nผู้เล่นจะต้องมีส่วนสูงมากกว่า 122 เซนติเมตร และน้ำหนักไม่เกิน 136.4 กิโลกรัม"
     scene office
-    show screen Fah
-    Fah             "สำหรับการแนะนำสถานที่คร่าวๆเสร็จเป็นที่เรียบร้อยที่อะไรสอบถามไหมค่ะ"
 
-                        # 1.เครื่องเล่นสำหรับเด็ก
-                        # 2.tower A มีอะไรบ้าง
-                        # 3.ร้านอาหารทั้งหมด
-                        # 4.บริการในสวนน้ำ ล็อกเกอร์ ขายตั๋ว
-                        # 5.ประวัติของสวนน้ำ
+    jump chapter1_2
+label chapter1_2:
+    show fah3
+    Fah             "สำหรับการแนะนำสถานที่คร่าวๆเสร็จเป็นที่เรียบร้อยที่อะไรสอบถามไหมค่ะ"
+    menu:
+            "เครื่องเล่นสำหรับเด็กมีอะไรบ้าง":
+                jump chapter1_2
+            "tower A มีอะไรบ้าง":
+                jump chapter1_2
+            "ร้านอาหารทั้งหมด":
+                jump chapter1_2
+            "ประวัติของสวนน้ำ":
+                jump chapter1_2
+            "ไม่มีอะไรถามแล้ว":
+                "งั้นเรามาต่อกันเลยนะคะ"
+
 
     Fah             "สำหรับการฝึกงานของเทอมนี้จะมีระยะเวลา 4 เดือน "
     Fah             "หลังฝึกเสร็จจะมีการทดสอบเพื่อทำการคัดเลือกเข้าฝึกงาน ขอให้โชคดีค่ะ"
@@ -335,11 +356,12 @@ label chapter1 :
     scene computer
     Player          "วันแรกเหนื่อยจัง เอาจริงการทำงานที่นี่ก็เหมือนๆหลายๆที่นะ ไม่ได้ยากอย่างที่คิด"
     scene computer2
-    show screen Bell
+    
     Bell            "นี่ๆ "
     scene computer
-    Player          "เอ๋"
+    Player          "...."
     scene office
+    show bell_idle
     Bell            "เป็นอะไรหรือดู หน้าตาดูเครียดเลย"
     Player          "อ้อๆเปล่าเลยๆ สบายดีๆ มีอะไรหรอก"
     Player          "เอ๊ะ เบลเหรอ"
@@ -347,6 +369,7 @@ label chapter1 :
     scene officeb with dissolve
     "(แย่แล้วดันมาเจอมาตอนนี้ ถ้าเป็นคู่แข่งละก็ แย่แน่เลย)"
     scene office
+    show bell_idle
     Bell            "ว่าไง...เป็นไงบ้าง ไม่ได้เจอกันนานเลยนะ ^^"
     Player          "เออ คือ ก็สบายดีนะ แล้วเธอละ"
     Bell            "ก็สบายดี ฉันก็เริ่มฝึกงานเหมือนกับนายเลย"
@@ -355,8 +378,7 @@ label chapter1 :
     Bell            "เบล ก็ได้นะ"
     "เย้ สำเร็จ ชวนสำเร็จแล้ว"
     Player          "โอเค แล้วเราจะรอนะ"
-    hide screen Bell
-    show screen Fah
+
     #ตัวละครฟ้าด้านข้าง
     Fah             "นั้นแฟนเก่าเหรอจ๊ะ"
     Player          "จะเป็นไปได้ยังไงละครับ"
@@ -364,18 +386,19 @@ label chapter1 :
     Fah             "บังเอิญจังนะ"
     "ผมได้มองหน้าเบล"
     Player          "แล้วเบลมีอะไรหรืออะไรหรือเปล่า"
-    hide screen Fah
-    show screen Bell
-    Bell            "อ้อใช่ เกิอบ ลืมเลยนี่ค่ะงานอาร์ตที่พี่ฟ้าได้สั่งไว้คะ"
-    hide screen Bell
 
-    
+    Bell            "อ้อใช่ เกิอบ ลืมเลยนี่ค่ะงานอาร์ตที่พี่ฟ้าได้สั่งไว้คะ"
+
+
+    scene showdrawing
     #รูปวาดเบล
     "เมื่อเบลได้ให้งานให้ผมกับพี่ฟ้าดู ผมก็ได้เห็นความสามารถที่ของเบล ซึ่งมันเป็นงานที่ดีกว่าคนทั่วไปมาก"
     "เพราะงานดีมากๆ ไม่นึกว่าแค่ไม่เจอกัน 3-4 ปี จะเปลียนไปขนาดนี้"
 
     menu :
                 "ว้าว เบลนี้เปลี่ยนไปเยอะเลยนะ":
+                        scene office
+                        show bell_idle
                         Bell  "อ่า ขอบคุณมากๆนะ ที่ผ่านมาเบลได้ไปฝึกอย่างหนักหน่วง "
                         Fah   "งานดีมากๆเลยละ ขอบใจมากนะ"
                         Bell  "ขอบคุณค่ะ งั้นเบลไปก่อน"
@@ -383,6 +406,8 @@ label chapter1 :
                         $ B_Relation = B_Relation + 1
 
                 "ผลงานเธอยังเหมือนเดิมฮะ":
+                        scene office
+                        show bell_idle
                         Bell "ว่าไงนะ เราฝึกมาตั้งนานนะ"
                         Fah   "โอเคเลย ขอบใจมากๆเลยนะ"
                         Bell  "งั้นเจอกันตอนร้านอาหารแล้วกัน"
@@ -390,6 +415,7 @@ label chapter1 :
     
     #ฉากร้านอาหาร
     scene restaurant
+    show bell_idle
         #ที่ร้านอาหาร
     Player          "ใครมันจะไปคิดว่าจะมาเจอเธอที่นี่ละ"
 #ฉากในร้านอาหาร+เบล
@@ -424,6 +450,7 @@ label chapter2_1 :
 #วาดฉากห้องแข่ง
         play sound "audio/gura_bgm.mp3" volume 0.5 loop
         scene matchroom
+        show yuri1
         #การทดสอบครั้งที่ 1
         Yuri            "เอาละคะ ขอแนะนำก่อนนะคะ พี่ชื่อยูริ พี่จะมาแนะนำวิธีการแข่งขันนะค่ะ"
         Yuri            "เริ่มแรกจากผู้เข้าคัดเลือก 15 คน จะมีผู้เข้าผ่านการเข้าเลือก 2 คน ที่นอกจากจบการฝึกงานแล้วยังได้มีโอกาสเข้ารับการทำงาน"
@@ -481,6 +508,7 @@ label chapter2_1_1:
 label chapter2_2 :
 #รูปร้านอาหาร
         scene restaurant
+        show bell_idle
         Bell            "วันแรกเป็นไงบ้างละ"
         Player          "อืม..ก็ยากอยู่นะ วันนี้"
         Bell            "วันนี้เขาจะประกาศผลใช่ไหมคืนนี้"
@@ -513,6 +541,7 @@ label chapter2_2 :
 label chapter2_3 : 
 #รูปร้านอาหาร
         scene restaurant
+        show bell_idle
                 #ร้านอาหาร
         Bell            "เป็นไงบ้างละวันนี้"      
         Player          "เฮ้อออ ยากอยู่ แต่ก็ผ่านมาได้ "
@@ -565,7 +594,7 @@ label chapter3:
                 "เราพลาดแค่ครั้งนี้ละ ครั้งต่อไปคะแนนเราก็นำนายอยู่ดี":
                         Kai "แล้วเราจะเคยดูละ แค่ตอนนี้คะแนนเรายังกว่านาย"
                         $ K_Relation = K_Relation - 2
-        
+        show yuri1
         Yuri            "เอาละคะๆ ก่อนอื่นก็ขอต้อนรับและยินดีทุนคนที่ผ่านเข้ารอบนะค่ะ ยินดีด้วย เย้"
         Npc             "เย้....."
         Yuri            "ก่อนอื่นขออธิบายด่านนี้ซ้ำอีกรอบนะคะ"
@@ -577,7 +606,7 @@ label chapter3:
 
         jump game_2
 label chapter3_0:
-    
+        show yuri1
         Yuri            "สำหรับการแข่งขันวันนี้ก็จบลงแล้ว ขอบคุณทุกคนมาก"
         if B_Relation >=3 :
             jump chapter4_1

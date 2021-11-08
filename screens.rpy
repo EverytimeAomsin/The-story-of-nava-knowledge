@@ -139,10 +139,10 @@ style window:
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
-    xpos gui.name_xpos
+    xpos 0.165
     xanchor gui.name_xalign
     xsize gui.namebox_width
-    ypos gui.name_ypos
+    ypos -0.08
     ysize gui.namebox_height
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
@@ -158,18 +158,8 @@ style say_dialogue:
 
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
-    ypos gui.dialogue_ypos
+    ypos 0.25
 
-
-## Input screen ################################################################
-##
-## This screen is used to display renpy.input. The prompt parameter is used to
-## pass a text prompt in.
-##
-## This screen must create an input displayable with id "input" to accept the
-## various input parameters.
-##
-## https://www.renpy.org/doc/html/screen_special.html#input
 
 screen input(prompt):
     style_prefix "input"
@@ -301,7 +291,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("เริ่มเกม") action Start()
 
         else:
 
@@ -309,9 +299,9 @@ screen navigation():
 
             textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("โหลดเชพเกม") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("ตั้งค่า") action ShowMenu("preferences")
 
         if _in_replay:
 

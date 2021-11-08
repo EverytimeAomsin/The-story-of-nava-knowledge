@@ -12,7 +12,7 @@ label inminigame2:
 
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
-    
+    scene vana_fb
     call screen rhythm_game(
         'audio/my-music.mp3', 
         'audio/my-music.beatmap.txt'

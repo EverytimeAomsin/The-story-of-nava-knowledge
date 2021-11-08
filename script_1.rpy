@@ -125,8 +125,11 @@ screen finalscore:
 label realend:
     hide screen scoreboard_g1
     hide screen finalscore
-    scene matchroom
-    jump chapter2_1_1
+    if skip == 1:
+        return
+    elif skip == 0:
+        scene matchroom
+        jump chapter2_1_1
     return
 
 

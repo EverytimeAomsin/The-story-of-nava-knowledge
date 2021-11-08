@@ -31,8 +31,8 @@ define question = [
 ["3.วานา วันเดอร์แลนด์มีเครื่องเล่นกี่ชิด","5 ชนิด","7 ชนิด","9 ชนิด","10 ชนิด"],#4
 ["4.วานา วันเดอร์แลนด์ผู้เล่นจะต้องสูงไม่เกินเท่าไร","140 เซนติเมตร","145 เซนติเมตร","150 เซนติเมตร","155 เซนติเมตร"],#4
 ["5.วานา วันเดอร์แลนด์มีพื้นที่มั้งหมดเท่าไร","450 ตารางเมตร","500 ตารางเมตร","550 ตารางเมตร","600 ตารางเมตร"],#1
-["7.ช้างเซิร์ฟโซนเล่นพร้อมกันได้สูงสุดกี่คน","ไม่สามารถพร้อมกันได้","2 คน","3 คน","4 คน"],#2
-["8.วานามีร้านขายเสื้อผ้า อุปกรณ์และเครื่องประดับมีชื่อว่าอะไร","Ripcurl","Ripcure","Rapcurl","Rapcube"],#1
+["6.ช้างเซิร์ฟโซนเล่นพร้อมกันได้สูงสุดกี่คน","ไม่สามารถพร้อมกันได้","2 คน","3 คน","4 คน"],#2
+["7.วานามีร้านขายเสื้อผ้า อุปกรณ์และเครื่องประดับมีชื่อว่าอะไร","Ripcurl","Ripcure","Rapcurl","Rapcube"],#1
 ["8.ประเภทอาหารต่อไปนี้ไม่มีขายในเดอะโกรฟ","อาหารญี่ปุ่น","อาหารจีน","อาหารประเภทเส้น","อาหารซีฟู๊ด"],#1
 ["9.เดอะโกรฟเปิดเวลาใด","11.00 น.- 16.00 น.","10.00 น.- 15.00 น.","11.00 น.- 15.00 น.","10.00 น.- 17.00 น."],#1
 ["10.ล็อกเกอร์ให้บริการทั้งหมดกี่จุด","1 จุด","2 จุด","3 จุด","4 จุด"],#2
@@ -45,8 +45,8 @@ define question = [
 ["17.สตูดิโอใต้น้ำมีธีมให้เลือกกี่แบบ","10 แบบ","9 แบบ","8 แบบ","11 แบบ"],#1
 ["18.สตูดิโอใต้น้ำลึกกี่เมตร","1.8 เมตร","2 เมตร","2.5 เมตร","2.3 เมตร"],#-
 ["19.เครื่อง้ล่นที่มีการสร้างคลื่นจำลองคือเครื่องเล่นอะไร","โคโคนัทบีช","บีชฮัท","คาบาน่า","วานา บีช"],#1
-["20.คาบาน่ามีทั้งหมดกี่แห่ง ","ตอบ 1","ตอบ 2","ตอบ 3","ตอบ 4"],#-
-["21.ลูกค้าโรงแรมมีสายรัดข้อมือสีอะไร","ตอบ 1","ตอบ 2","ตอบ 3","ตอบ 4"],#-
+["20.คาบาน่ามีทั้งหมดกี่แห่ง ","5 แห่ง","6 แห่ง","7 แห่ง","8 แห่ง"],#-
+["21.ลูกค้าโรงแรมมีสายรัดข้อมือสีอะไร","สีน้ำเงินและสีส้ม","สีฟ้าและสีส้ม","ตอบ 3","ตอบ 4"],#-
 ["22.โคโคนัทบีชมีความลึกสูงสุดเท่าไร","150 เซนติเมตร","183 เซนติเมตร","200 เซนติเมตร","215 เซนติเมตร"],#2
 ["23.โคโคนัทมีพื้นที่กี่ตารางเมตร","1400 ตารางเมตร","1500 ตารางเมตร","1600 ตารางเมตร","1700 ตารางเมตร"],#3
 ["24.เลซี่ริเวอร์มีความยาวกี่เมตร","335 เมตร","345 เมตร","355 เมตร","365 เมตร"],#2
@@ -249,8 +249,9 @@ label process4:
 label end:
 
     window hide   
-    pause
+    
     if ans_g1 == 'null':
+        pause
         jump end
     else:
         jump check
@@ -309,6 +310,7 @@ screen showanswer:
         text "{color=#000000}คำตอบที่ถูกต้อง : [q2]{/color}" size 43
 label ans:
     if ans_g1 == 'true' and check_ans == 0:
+            
             $ ans_g1 = 'null'
             $ check_ans = check_ans * 0 
             $ score_g1 = score_g1 + 1
@@ -408,6 +410,7 @@ label minigame2:
 
 label check:
     if check_ans >=1:
+        pause
         jump end
     else:
         jump check2
@@ -415,21 +418,21 @@ label check2:
     
     $ points = points + roll
     if points == 1 :
-        
-        # $ points = str(points)
-        
-        python:
-            
-            renpy.jump("point1")
-    elif points == 2:
-        if check_ans >= 1:
-            jump end
+        show screen choice_menu
+        show screen question1(x=None)
+        if ans_g1 == '1':
+            $ ans_g1 = 'true'
+             
         else:
+            show screen false
+            $ ans_g1 = 'false'
+
+        jump point1
+                
+    elif points == 2:
             hide screen question1
             show screen question2(x=None)
-            $ ans_real = '1'
-            if ans_g1 == '1':
-                 
+            if ans_g1 == '3':
                 $ ans_g1 = 'true'
             else:
                 show screen false
@@ -438,13 +441,6 @@ label check2:
                 renpy.jump("point2")
         
     elif points == 3:
-        if check_ans >= 4 or ans_g1 == 'null':
-            ""
-            hide screen true 
-            hide screen false 
-            jump end
-        
-        else:
             $ ans_real = '1'
             if ans_g1 == '1':
                  
@@ -458,12 +454,6 @@ label check2:
             show screen question3(x=None)
             jump point3
     elif points == 4:
-        if check_ans >= 4 or ans_g1 == 'null':
-            hide screen true 
-            hide screen false 
-            jump end
-        
-        else:
             if ans_g1 == '1':
                  
                 $ ans_g1 = 'true'
@@ -477,13 +467,7 @@ label check2:
         
             show screen question4(x=None)
             jump point4
-    elif points == 5:
-        if check_ans >= 1 or ans_g1 == 'null':
-            hide screen true 
-            hide screen false 
-            jump end
-        
-        else:
+    elif points == 5: ################
             if ans_g1 == '1':
                  
                 $ ans_g1 = 'true'
@@ -498,13 +482,6 @@ label check2:
             show screen question5(x=None)
             jump point5
     elif points == 6:
-        if check_ans >= 1 or ans_g1 == 'null':
-            ""
-            hide screen true 
-            hide screen false 
-            jump end
-        
-        else:
             if ans_g1 == '2':
 
                 $ ans_g1 = 'true'
@@ -520,13 +497,7 @@ label check2:
             
             show screen question6(x=None)
             jump point6
-    elif points == 7:
-        if check_ans >= 2 or ans_g1 == 'null':
-            hide screen true 
-            hide screen false 
-            jump end
-        
-        else:
+    elif points == 7: ################
             if ans_g1 == '2':
                 $ ans_g1 = 'true'
                  
@@ -1224,17 +1195,9 @@ label check2:
 label point1:
     $ q1 = question[1][0]
     $ q2 = question[1][1]
-    $ ans_real = '1'
     show test1 with dissolve  :
         linear 0 xpos 445 ypos 740
-    if ans_g1 == '1':
-             
-            $ ans_g1 = 'true'
-    elif ans_g1 == 'null':
-            jump end       
-    else:
-            
-            $ ans_g1 = 'false'
+    
     
     jump Changeview
     return
@@ -1746,7 +1709,10 @@ label point_GG:
     return
 
 label realend2:
-    jump chapter3_0
+    if skip == 1:
+        return
+    elif skip == 0:
+        jump chapter3_0
     return
 
    
