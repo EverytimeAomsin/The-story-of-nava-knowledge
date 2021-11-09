@@ -9,6 +9,7 @@ define ans_real = 'null'
 define check_ans = 0
 define percent_g1 = 0
 define points = 1
+
 define score_g1 = 0
 define scorefail_g1 = 0
 define stack = 0
@@ -20,6 +21,8 @@ define pass_minigame2 = "false"
 define realpoints = 1
 define roll = 0
 define grade = 'null'
+
+define realscore = 1
 
 define q1 = 'null'
 define q2 = 'null'
@@ -45,8 +48,8 @@ define question = [
 ["17.สตูดิโอใต้น้ำมีธีมให้เลือกกี่แบบ","10 แบบ","9 แบบ","8 แบบ","11 แบบ"],#1
 ["18.สตูดิโอใต้น้ำลึกกี่เมตร","1.8 เมตร","2 เมตร","2.5 เมตร","2.3 เมตร"],#-
 ["19.เครื่อง้ล่นที่มีการสร้างคลื่นจำลองคือเครื่องเล่นอะไร","โคโคนัทบีช","บีชฮัท","คาบาน่า","วานา บีช"],#1
-["20.คาบาน่ามีทั้งหมดกี่แห่ง ","5 แห่ง","6 แห่ง","7 แห่ง","8 แห่ง"],#-
-["21.ลูกค้าโรงแรมมีสายรัดข้อมือสีอะไร","สีน้ำเงินและสีส้ม","สีฟ้าและสีส้ม","ตอบ 3","ตอบ 4"],#-
+["20.คาบาน่ามีทั้งหมดกี่แห่ง ","5 แห่ง","6 แห่ง","7 แห่ง","8 แห่ง"],#4
+["21.ลูกค้าโรงแรมมีสายรัดข้อมือสีอะไร","สีน้ำเงินและสีส้ม","สีฟ้าและสีส้ม","ตอบ 3","ตอบ 4"],#1
 ["22.โคโคนัทบีชมีความลึกสูงสุดเท่าไร","150 เซนติเมตร","183 เซนติเมตร","200 เซนติเมตร","215 เซนติเมตร"],#2
 ["23.โคโคนัทมีพื้นที่กี่ตารางเมตร","1400 ตารางเมตร","1500 ตารางเมตร","1600 ตารางเมตร","1700 ตารางเมตร"],#3
 ["24.เลซี่ริเวอร์มีความยาวกี่เมตร","335 เมตร","345 เมตร","355 เมตร","365 เมตร"],#2
@@ -88,7 +91,7 @@ screen final:
     vbox:
         xalign 0.5
         ypos 450
-        text "{color=#C65A77}{size=140}[score_g1] / [totalAns_g1]{/size}{/color}"
+        text "{color=#C65A77}{size=140}[realscore] / [totalAns_g1]{/size}{/color}"
     vbox:
         xalign 0.435
         ypos 630
@@ -126,7 +129,7 @@ screen scoreboard_g2:
     vbox:
         xpos 180
         ypos 15
-        text "[score_g1]" size 50
+        text "[realscore]" size 50
     vbox:
         xpos 180
         ypos 100
@@ -181,10 +184,140 @@ screen next:
 label next:
     hide screen showanswer
     hide screen answer
-    hide screen true 
-    hide screen false
-    hide screen next
     
+    $ roll = renpy.random.choice([2, 3,5,])
+    if points == 1:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 2:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 3:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 4:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 5:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 6:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 7:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 8:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 9:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 10:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 11:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 12:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 13:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 15:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 16:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 17:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 18:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 19:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 20:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 21:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 22:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 23:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 24:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 25:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 26:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 27:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 28:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 29:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 30:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 31:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 32:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 33:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 34:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 35:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 37:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 38:
+        if ans_g1 == '1':
+            $ realscore = realscore + 1
+    if points == 39:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 40:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 41:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+    if points == 42:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 43:
+        if ans_g1 == '3':
+            $ realscore = realscore + 1
+    if points == 44:
+        if ans_g1 == '2':
+            $ realscore = realscore + 1
+    if points == 45:
+        if ans_g1 == '4':
+            $ realscore = realscore + 1
+
+    
+    hide screen next
     $ check_ans = check_ans * 0
     jump ans
 
@@ -276,27 +409,6 @@ screen answer:
 
     
 
-screen true:
-
-    imagebutton:
-        xalign 0.39 yalign 0.32
-        idle "xt.png"
-    imagebutton:
-        xalign 0.613 yalign 0.32
-        idle "xt.png"
-    vbox:
-        xalign 0.5 yalign 0.31
-        text "{color=#10621A}คุณได้ตอบถูก{/color}" size 70
-screen false:
-    imagebutton:
-        xalign 0.368 yalign 0.31
-        idle "x.png"
-    imagebutton:
-        xalign 0.63 yalign 0.31
-        idle "x.png"
-    vbox:
-        xalign 0.5 yalign 0.31
-        text "{color=#CD1400}คุณตอบผิดข้อนี้{/color}" size 70
 
 screen showanswer:
     imagebutton:
@@ -311,7 +423,6 @@ screen showanswer:
 label ans:
     if ans_g1 == 'true' and check_ans == 0:
             
-            $ ans_g1 = 'null'
             $ check_ans = check_ans * 0 
             $ score_g1 = score_g1 + 1
             if stack > stack_fail:
@@ -322,7 +433,6 @@ label ans:
                 
             jump wait
     elif ans_g1 == 'false' and check_ans == 0:
-            $ ans_g1 = 'null'
             $ check_ans = check_ans * 0 
             $ scorefail_g1 = scorefail_g1 + 1
             if stack > stack_fail:
@@ -354,9 +464,9 @@ label wait:
         $ roll = roll
     jump processroll
 label processroll:
-    if ans_true == 'true':
+    if ans_g1 == 'true':
         $ roll = roll 
-    elif ans_true == 'false':
+    elif ans_g1 == 'false':
         $ roll = roll - 3
         if roll > 3:
             $ roll = roll + 0
@@ -422,9 +532,11 @@ label check2:
         show screen question1(x=None)
         if ans_g1 == '1':
             $ ans_g1 = 'true'
-             
+            jump ans
+        elif ans_g1 == 'null':
+            jump point1
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
 
         jump point1
@@ -432,63 +544,66 @@ label check2:
     elif points == 2:
             hide screen question1
             show screen question2(x=None)
-            if ans_g1 == '3':
+            if ans_g1 == '2':
                 $ ans_g1 = 'true'
+            elif ans_g1 == 'null':
+                jump point2
             else:
-                show screen false
+                
                 $ ans_g1 = 'false'
             python:
                 renpy.jump("point2")
         
     elif points == 3:
-            $ ans_real = '1'
-            if ans_g1 == '1':
-                 
-                $ ans_g1 = 'true'
-            else:
-                $ ans_g1 = 'false'
-                
             hide screen question1
             hide screen question2
             
             show screen question3(x=None)
-            jump point3
-    elif points == 4:
-            if ans_g1 == '1':
+            if ans_g1 == '3':
                  
                 $ ans_g1 = 'true'
-
+            elif ans_g1 == 'null':
+                jump point3
             else:
-        
                 $ ans_g1 = 'false'
+                
+            
+            jump point3
+    elif points == 4:
             hide screen question1
             hide screen question2
             hide screen question3
         
             show screen question4(x=None)
-            jump point4
-    elif points == 5: ################
             if ans_g1 == '1':
                  
                 $ ans_g1 = 'true'
+            elif ans_g1 == 'null':
+                jump point4
+
             else:
-                show screen false
+        
                 $ ans_g1 = 'false'
+            
+            jump point4
+    elif points == 5: ################
             hide screen question1
             hide screen question2
             hide screen question3
             hide screen question4
         
             show screen question5(x=None)
+            if ans_g1 == '2':
+                 
+                $ ans_g1 = 'true'
+            elif ans_g1 == 'null':
+                jump point5
+            else:
+                
+                $ ans_g1 = 'false'
+            
             jump point5
     elif points == 6:
-            if ans_g1 == '2':
-
-                $ ans_g1 = 'true'
-                 
-            else:
-                show screen false
-                $ ans_g1 = 'false'
             hide screen question1
             hide screen question2
             hide screen question3
@@ -496,14 +611,18 @@ label check2:
             hide screen question5
             
             show screen question6(x=None)
-            jump point6
-    elif points == 7: ################
-            if ans_g1 == '2':
+            if ans_g1 == '3':
+
                 $ ans_g1 = 'true'
+            elif ans_g1 == 'null':
+                jump point6
                  
             else:
                 
                 $ ans_g1 = 'false'
+           
+            jump point6
+    elif points == 7: ################
             hide screen question1
             hide screen question2
             hide screen question3
@@ -511,15 +630,17 @@ label check2:
             hide screen question5
             hide screen question6
             show screen question7(x=None)
+            if ans_g1 == '2':
+                $ ans_g1 = 'true'
+            elif ans_g1 == 'null':
+                jump point7
+                 
+            else:
+                
+                $ ans_g1 = 'false'
+            
             jump point7
     elif points == 8:
-        $ ans_real = '1'
-        if ans_g1 == '1':
-            $ ans_g1 = 'true'
-             
-        else:
-            
-            $ ans_g1 = 'false'
         hide screen question2
         hide screen question3
         hide screen question4
@@ -527,13 +648,17 @@ label check2:
         hide screen question6
         hide screen question7
         show screen question8(x=None)
-        jump point8
-    elif points == 9:
         $ ans_real = '1'
         if ans_g1 == '1':
             $ ans_g1 = 'true'
+        elif ans_g1 == 'null':
+                jump point8
         else:
+            
             $ ans_g1 = 'false'
+        
+        jump point8
+    elif points == 9:
         hide screen question3
         hide screen question4
         hide screen question5
@@ -541,6 +666,14 @@ label check2:
         hide screen question7
         hide screen question8
         show screen question9(x=None)
+        $ ans_real = '1'
+        if ans_g1 == '1':
+            $ ans_g1 = 'true'
+        elif ans_g1 == 'null':
+                jump point9
+        else:
+            $ ans_g1 = 'false'
+        
         jump point9
     elif points == 10:
         $ ans_real = '1'
@@ -615,10 +748,9 @@ label check2:
         if ans_g1 == '4':
             $ ans_g1 = 'true'
             $ points = 14
-            "[points]"
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
             $ points = 14
         
@@ -645,7 +777,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question8
@@ -663,7 +795,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question9
@@ -681,7 +813,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question10
@@ -700,7 +832,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question11
@@ -718,7 +850,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question12
@@ -736,7 +868,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question13
@@ -754,7 +886,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         show screen choice_menu
         hide screen question14
@@ -772,7 +904,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question15
         hide screen question16
@@ -789,7 +921,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question16
         hide screen question17
@@ -806,7 +938,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question17
         hide screen question18
@@ -823,7 +955,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question18
         hide screen question19
@@ -840,7 +972,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question19
         hide screen question20
@@ -857,7 +989,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question20
         hide screen question21
@@ -874,7 +1006,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question21
         hide screen question22
@@ -891,7 +1023,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question22
         hide screen question23
@@ -908,7 +1040,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question23
         hide screen question24
@@ -925,7 +1057,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
 
         hide screen question24
@@ -944,7 +1076,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question25
         hide screen question26
@@ -961,7 +1093,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question26
         hide screen question27
@@ -978,7 +1110,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question26
         hide screen question27
@@ -996,7 +1128,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question28
         hide screen question29
@@ -1025,7 +1157,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question30
         hide screen question31
@@ -1043,7 +1175,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question32
         hide screen question33
@@ -1060,7 +1192,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question32
         hide screen question33
@@ -1078,7 +1210,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question33
         hide screen question34
@@ -1096,7 +1228,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question34
         hide screen question35
@@ -1114,7 +1246,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question35
         hide screen question36
@@ -1131,7 +1263,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question36
         hide screen question37
@@ -1148,7 +1280,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question37
         hide screen question38
@@ -1165,7 +1297,7 @@ label check2:
             $ ans_g1 = 'true'
              
         else:
-            show screen false
+            
             $ ans_g1 = 'false'
         hide screen question38
         hide screen question39
@@ -1195,6 +1327,7 @@ label check2:
 label point1:
     $ q1 = question[1][0]
     $ q2 = question[1][1]
+    $ ans_real = '1'
     show test1 with dissolve  :
         linear 0 xpos 445 ypos 740
     
@@ -1332,8 +1465,8 @@ label point13_2:
   
     
 label point14:
-    hide screen true 
-    hide screen false
+  
+    
     show test1 with dissolve  :
         linear 0 xpos 445 ypos 515
     jump Changeview
@@ -1566,8 +1699,8 @@ label point35:
   
 
 label point36:
-    hide screen true 
-    hide screen false
+     
+    
     show test1 with dissolve  :
         linear 0 xpos 830 ypos 565
     jump Changeview
@@ -1684,7 +1817,7 @@ label point45:
 label point_GG:
     hide screen next
     $ scorefail_g1 =  scorefail_g1
-    $ percent_g1 = (score_g1 * 100) 
+    $ percent_g1 = (realscore * 100) 
     $ percent_g1 = percent_g1 / totalAns_g1
     $ scorefail_g1 = totalAns_g1 - score_g1
     hide screen choice_menu
