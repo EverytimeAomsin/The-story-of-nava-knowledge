@@ -76,116 +76,10 @@ define question = [
 ["45.วานา นาวามีสไลเดอร์และเครื่องเล่นกี่ชนิด","17 ชนิด","18 ชนิด","19 ชนิด","20 ชนิด"],#4
 ]
 
-screen final:
-    imagebutton:
-        xalign 0.5 yalign 0.3
-        idle "final.png"
-    vbox:
-        xalign 0.5
-        ypos -30
-        text "{color=#C65A77}{size=400}[grade]{/size}{/color}"
-    vbox:
-        xalign 0.5
-        ypos 400
-        text "{color=#000000}{size=70}คุณได้ตอบถูก{/size}{/color}"
-    vbox:
-        xalign 0.5
-        ypos 450
-        text "{color=#C65A77}{size=140}[realscore] / [totalAns_g1]{/size}{/color}"
-    vbox:
-        xalign 0.435
-        ypos 630
-        text "{color=#000000}{size=70}ได้ตอบผิด : [scorefail_g1]{/size}{/color}"
-    vbox:
-        xalign 0.43
-        ypos 720
-        text "{color=#000000}{size=70}เป็นเปอร์เซ็น : [percent_g1] %{/size}{/color}"
-    imagebutton:
-        xalign 0.4 yalign 0.84
-        idle "final_bt1.png"
-        hover "final_bt2.png"
-        action Jump("process2") alt "ejection"
-    vbox:
-        xalign 0.4 yalign 0.835
-        text "แสดงข้อถูก / ข้อผิด" size 45
-    imagebutton:
-        xalign 0.605 yalign 0.84
-        idle "final_bt1.png"
-        hover "final_bt2.png"
-        action Jump("realend2") alt "ejection"
-    vbox:
-        xalign 0.605 yalign 0.835
-        text "ดำเนินการต่อไป =>" size 45
-
-screen scoreboard_g2:
-    
-    imagebutton:
-        xpos 0 ypos 0
-        idle "scoreboard.png"
-    vbox:
-        xpos 10
-        ypos 15
-        text "คะแนน" size 50
-    vbox:
-        xpos 180
-        ypos 15
-        text "[realscore]" size 50
-    vbox:
-        xpos 180
-        ypos 100
-        text "[points]" size 50
-    vbox:
-        xpos 10
-        ypos 100
-        text "ตำแหน่ง" size 50
-
-
-screen choice_menu:
-    imagebutton:
-        xalign 0.228 yalign 0.99 
-        idle "menu.png"
-    imagebutton:
-        xalign 0.21 yalign 0.84
-        idle "ans1.png"
-        hover "ans1_2.png"
-        action Jump("process1") alt "ejection"
-
-    imagebutton:
-        xalign 0.8 yalign 0.84
-        idle "ans2.png"
-        hover "ans2_2.png"
-        action Jump("process2") alt "ejection"
-
-    imagebutton:
-        xalign 0.21 yalign 0.95
-        idle "ans3.png"
-        hover "ans3_2.png"
-        action Jump("process3") alt "ejection"
-
-    imagebutton:
-        xalign 0.8 yalign 0.95
-        idle "ans4.png"
-        hover "ans4_2.png"
-        action Jump("process4") alt "ejection"
-
-screen next:
-
-    imagebutton:
-        xalign 0.975 yalign 0.71
-        idle "final_bt1.png"
-        hover "final_bt2.png"
-        action Jump("next") alt "ejection"
-    vbox:
-        xalign 0.969 yalign 0.71
-        text "กดเพื่อไปข้อต่อไป =>" size 43
-
-
-
 label next:
     hide screen showanswer
     hide screen answer
     
-    $ roll = renpy.random.choice([2, 3,5,])
     if points == 1:
         if ans_g1 == '1':
             $ realscore = realscore + 1
@@ -316,10 +210,121 @@ label next:
         if ans_g1 == '4':
             $ realscore = realscore + 1
 
-    
+    $ roll = renpy.random.choice([1, 2, 3, 4,'c'])
+    if roll == 'c':
+        if roll == 'c':
+            $ roll = renpy.random.choice([2, 3,5,'c'])
+            if roll == 'c':
+                $ roll = renpy.random.choice([3, 4,5,6])
+            else:
+                $ roll = roll
+        else:
+            $ roll = roll
+    else:
+        $ roll = roll
     hide screen next
     $ check_ans = check_ans * 0
     jump ans
+
+screen final:
+    imagebutton:
+        xalign 0.5 yalign 0.3
+        idle "final.png"
+    vbox:
+        xalign 0.5
+        ypos -30
+        text "{color=#C65A77}{size=400}[grade]{/size}{/color}"
+    vbox:
+        xalign 0.5
+        ypos 400
+        text "{color=#000000}{size=70}คุณได้ตอบถูก{/size}{/color}"
+    vbox:
+        xalign 0.5
+        ypos 450
+        text "{color=#C65A77}{size=140}[realscore] / [totalAns_g1]{/size}{/color}"
+    vbox:
+        xalign 0.435
+        ypos 630
+        text "{color=#000000}{size=70}ได้ตอบผิด : [scorefail_g1]{/size}{/color}"
+    vbox:
+        xalign 0.43
+        ypos 720
+        text "{color=#000000}{size=70}เป็นเปอร์เซ็น : [percent_g1] %{/size}{/color}"
+
+    imagebutton:
+        xalign 0.605 yalign 0.84
+        idle "final_bt1.png"
+        hover "final_bt2.png"
+        action Jump("realend2") alt "ejection"
+    vbox:
+        xalign 0.605 yalign 0.835
+        text "ดำเนินการต่อไป =>" size 45
+
+screen scoreboard_g2:
+    
+    imagebutton:
+        xpos 0 ypos 0
+        idle "scoreboard.png"
+    vbox:
+        xpos 10
+        ypos 15
+        text "คะแนน" size 50
+    vbox:
+        xpos 180
+        ypos 15
+        text "[realscore]" size 50
+    vbox:
+        xpos 180
+        ypos 100
+        text "[points]" size 50
+    vbox:
+        xpos 10
+        ypos 100
+        text "ตำแหน่ง" size 50
+
+
+screen choice_menu:
+    imagebutton:
+        xalign 0.228 yalign 0.99 
+        idle "menu.png"
+    imagebutton:
+        xalign 0.21 yalign 0.84
+        idle "ans1.png"
+        hover "ans1_2.png"
+        action Jump("process1") alt "ejection"
+
+    imagebutton:
+        xalign 0.8 yalign 0.84
+        idle "ans2.png"
+        hover "ans2_2.png"
+        action Jump("process2") alt "ejection"
+
+    imagebutton:
+        xalign 0.21 yalign 0.95
+        idle "ans3.png"
+        hover "ans3_2.png"
+        action Jump("process3") alt "ejection"
+
+    imagebutton:
+        xalign 0.8 yalign 0.95
+        idle "ans4.png"
+        hover "ans4_2.png"
+        action Jump("process4") alt "ejection"
+
+screen next:
+
+    imagebutton:
+        xalign 0.975 yalign 0.71
+        idle "final_bt1.png"
+        hover "final_bt2.png"
+        action Jump("next") alt "ejection"
+    vbox:
+        xalign 0.969 yalign 0.71
+        text "กดเพื่อไปข้อต่อไป =>" size 43
+
+
+
+
 
 
 
