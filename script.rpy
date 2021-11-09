@@ -86,6 +86,7 @@ label menu0:
     pause
     jump menu0
 label menu1:
+    scene menu_bg2
     show screen mainmenu
     hide screen mainmenu
     jump intro
@@ -103,7 +104,7 @@ label menu3:
     jump game_2
 
 label intro:
-        play sound "audio/mumei_bgm.mp3" volume 0.2 loop
+        play sound "audio/mumei_bgm.mp3" volume 0.5 loop
       
         # Show a background. This uses a placeholder by default, but you can
         # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -212,7 +213,9 @@ label chapter1 :
     scene matchroom3_1
     Fah             "เมื่อเดินกลับมาจะเจอศูนย์อาหาร "
     scene matchroom4
-    Fah             "ที่นี่มีชื่อว่าเดอะโกรฟ ที่นี่จะขายอาหารนานาชาติ เช่น \nเวสเทิร์นคอร์เนอร์-มุมอาหารตะวันตก \nช้อปสติ๊กส์-มุมอาหารจีน \nนู้ดเดิ้ลบาร์-มุมอาหารเส้น \nไทยไรซ์” มุมอาหารไทย \nและ ซีฟู๊ดกริลล์-มุมอาหารซีฟู๊ด"
+    Fah             "ที่นี่มีชื่อว่าเดอะโกรฟ ที่นี่จะขายอาหารนานาชาติ เช่น "
+    Fah             "เวสเทิร์นคอร์เนอร์-มุมอาหารตะวันตก \nช้อปสติ๊กส์-มุมอาหารจีน \nนู้ดเดิ้ลบาร์-มุมอาหารเส้น \nไทยไรซ์” มุมอาหารไทย \n"
+    Fah             "และ ซีฟู๊ดกริลล์-มุมอาหารซีฟู๊ด"
     Fah             "ที่นี่สามารถจ่ายได้ผ่าน RFID จากริสแบนด์"
 
 #รูปล็อกเกอร์
@@ -606,6 +609,8 @@ label chapter3:
 
         jump game_2
 label chapter3_0:
+        hide screen scoreboard_g1
+        hide screen finalscore
         show yuri1
         Yuri            "สำหรับการแข่งขันวันนี้ก็จบลงแล้ว ขอบคุณทุกคนมาก"
         if B_Relation >=3 :
@@ -620,20 +625,24 @@ label chapter3_0:
 
 label chapter4_1 :
 #ฉากร้านอาหาร
+        scene house
+        show bell_idle
         #ตอนจบ
         Bell            "นี่ๆหนึ่ง ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
         Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
         Player          "เอ๋....มีโทรศัพท์เข้า"
-        Player          "สวัสดีครับ นี่ [player]"
+        Player          "สวัสดีครับ นี่ [Player]"
         Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
         Bell            "ได้เลยค่ะ ขอบคุณมากเลยนะคะ"
         jump ending
         return
 label chapter4_2 :
 #ฉากร้านอาหาร
+        scene house
+        show bell_idle
         #ตอนจบ
-        Bell            "นี่ๆ[player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
+        Bell            "นี่ๆ[Player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
         Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
         Player          "เอ๋....มีโทรศัพท์เข้า"
@@ -644,12 +653,15 @@ label chapter4_2 :
         return
 label chapter4_3 :
 #ฉากร้านอาหาร
+
+        scene house
+        show bell_idle
         #ตอนจบ
-        Bell            "นี่ๆ[player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
+        Bell            "นี่ๆ[Player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
         Bell            "ทีมเราผ่านการคัดเลือกได้คะแนนรวมทั้งสิ้น"
         Player          "เอ๋....มีโทรศัพท์เข้า"
-        Player          "สวัสดี นี้[player]ครับ"
+        Player          "สวัสดี นี้[Player]ครับ"
         Fah             "ยินดีด้วยนะพวกเธอ หวังว่าพวกเธอจะเป็นเพื่อนร่วมงานที่ดีนะ"
         Bell            "ก็หวังว่านะ....."
         jump ending
@@ -675,8 +687,74 @@ label ending_fail :          #แพ้เกม
 
 label ending :
 #วาดฉาก lobby
+        scene menu_bg
         #สรุปคะแนน
         Unknown "เอาละ ยินดีต้อนรับกลับนะ  ยินดีด้วยพวกนายเอาชนะเกมนี้ได้"
+        show screen final_g1
+        show screen  final_g2
         Unknown "นี่คือสรุปคะแนนก็คือพวกนายทำได้"
-        Unknown "สุดท้ายนี้ก่อนลาจากกัน ขอบคุณที่เล่นมาถึงตรงนี้นะ @Chicken killer "
+        Unknown "สุดท้ายนี้ก่อนลาจากกัน ขอบคุณที่เล่นมาถึงตรงนี้นะ @Chicken killer \nกด Enter หรือ คลิกเพือกลับสู่เมนูหลัก"
         return
+        # 
+screen final_g1:
+    imagebutton:
+        xalign 0.15 yalign 0.1
+        idle "final.png"
+    vbox:
+        xalign 0.26
+        ypos -80
+        text "{color=#C65A77}{size=400}[grade_g2]{/size}{/color}"
+    vbox:
+        xalign 0.23
+        ypos 350
+        text "{color=#000000}{size=70}คุณได้ตอบถูก{/size}{/color}"
+    vbox:
+        xalign 0.23
+        ypos 390
+        text "{color=#C65A77}{size=140}[scoreG2] / 100{/size}{/color}"
+    vbox:
+        xpos 0.15
+        ypos 550
+        text "{color=#000000}{size=55}ภาพที่ 1 : {color=#C65A77}[picture1]{/color}{/size}{/color}"
+    vbox:
+        xalign 0.35
+        ypos 550
+        text "{color=#000000}{size=55}ภาพที่ 2 : {color=#C65A77}[picture2]{/color}{/size}{/color}"
+    vbox:
+        xpos 0.15
+        ypos 630
+        text "{color=#000000}{size=55}ภาพที่ 3 : {color=#C65A77}[picture3]{/color}{/size}{/color}"
+    vbox:
+        xalign 0.35
+        ypos 630
+        text "{color=#000000}{size=55}ภาพที่ 4 : {color=#C65A77}[picture4]{/color} {/size}{/color}"
+    vbox:
+        xpos 0.23
+        ypos 700
+        text "{color=#000000}{size=55}ภาพที่ 5 : {color=#C65A77}[picture4]{/color} {/size}{/color}"
+
+
+screen final_g2:
+    imagebutton:
+        xalign 0.85 yalign 0.1
+        idle "final.png"
+    vbox:
+        xalign 0.76
+        ypos -80
+        text "{color=#C65A77}{size=400}[grade]{/size}{/color}"
+    vbox:
+        xalign 0.78
+        ypos 350
+        text "{color=#000000}{size=70}คุณได้ตอบถูก{/size}{/color}"
+    vbox:
+        xalign 0.76
+        ypos 390
+        text "{color=#C65A77}{size=140}[realscore] / [totalAns_g1]{/size}{/color}"
+    vbox:
+        xalign 0.76
+        ypos 550
+        text "{color=#000000}{size=70}ได้ตอบผิด : [scorefail_g1]{/size}{/color}"
+    vbox:
+        xalign 0.78
+        ypos 630
+        text "{color=#000000}{size=70}เป็นเปอร์เซ็น : [percent_g1] %{/size}{/color}"

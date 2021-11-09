@@ -524,6 +524,7 @@ label minigame2:
     return
 
 label check:
+    $ renpy.block_rollback()
     if check_ans >=1:
         pause
         jump end

@@ -235,22 +235,22 @@ screen quick_menu():
     ## Ensure this appears on top of other screens.
     zorder 100
 
-    if quick_menu:
+    # if quick_menu:
 
-        hbox:
-            style_prefix "quick"
+    #     hbox:
+    #         style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+    #         xalign 0.5
+    #         yalign 1.0
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+    #         textbutton _("Back") action Rollback()
+    #         textbutton _("History") action ShowMenu('history')
+    #         textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+    #         textbutton _("Auto") action Preference("auto-forward", "toggle")
+    #         textbutton _("Save") action ShowMenu('save')
+    #         textbutton _("Q.Save") action QuickSave()
+    #         textbutton _("Q.Load") action QuickLoad()
+    #         textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -297,9 +297,9 @@ screen navigation():
 
             textbutton _("History") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            # textbutton _("Save") action ShowMenu("save")
 
-        textbutton _("โหลดเชพเกม") action ShowMenu("load")
+        # textbutton _("โหลดเชพเกม") action ShowMenu("load")
 
         textbutton _("ตั้งค่า") action ShowMenu("preferences")
 
@@ -309,20 +309,20 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("กลับไปเมนูหลัก") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("เกียวกับ") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("คีย์บอร์ดและเมาส์") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("ออกจากโปรแกรม") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -546,14 +546,12 @@ screen about():
 
         vbox:
 
-            label "[config.name!t]"
+            label "The Story of Product knowledge"
             text _("Version [config.version!t]\n")
 
+            text _("สร้างโดย {a=https://www.renpy.org/}EverytimeAomsin{/a} สามารถติดต่อได้ที่ Sarin542@hotmail.com หรือ Facebook {a=https://web.facebook.com/Everytime.Aomsin/}Sarin khoonjun{/a}")
             ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
-
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            
 
 
 style about_label is gui_label

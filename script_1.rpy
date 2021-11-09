@@ -210,10 +210,11 @@ label random:
         
         $ ingame2_score = ingame2_score * 0
         $ ingame2_score = ingame2_score + 25
-        $ randomG2 = renpy.random.choice(['abyss', 'fisherman','ropes','fishermanstavern','cabana','wonderland','lockers','massage'])
+        $ randomG2 = renpy.random.choice(['abyss', 'fisherman','ropes','fishermanstavern','cabana','wonderland','lockers','massage','cabana'])
         if randomG2 == 'abyss':
             if abyss == 1:
                 scene abyss_background
+                $ abyss = 0
                 jump ans1
             elif abyss == 0:
                 jump random
@@ -221,48 +222,56 @@ label random:
         elif randomG2 == 'fisherman':
             if fisherman == 1:
                 scene fisherman_background
+                $ fisherman = 0
                 jump ans1
             elif fisherman == 0:
                 jump random
         elif randomG2 == 'fishermanstavern':
             if fishermanstavern == 1:
                 scene fishermanstavern_background
+                $ fishermanstavern = 0
                 jump ans1
             elif fishermanstavern == 0:
                 jump random
         elif randomG2 == 'cabana':
-            if fishermanstavern == 1:
+            if cabana == 1:
                 scene cabana_background
+                $ cabana = 0
                 jump ans1
-            elif fishermanstavern == 0:
+            elif cabana == 0:
                 jump random
         elif randomG2 == 'wonderland':
             if wonderland == 1:
                 scene wonderland_background
+                $ wonderland = 0
                 jump ans1
             elif wonderland == 0:
                 jump random
         elif randomG2 == 'coconut':
             if wonderland == 1:
                 scene coconut_background
+                $ wonderland = 0
                 jump ans1
             elif wonderland == 0:
                 jump random
         elif randomG2 == 'lockers':
-            if fishermanstavern == 1:
+            if lockers == 1:
                 scene lockers_background
+                $ fishermanstavern = 0
                 jump ans1
-            elif lockers_background == 0:
+            elif lockers == 0:
                 jump random
         elif randomG2 == 'massage':
             if massage == 1:
                 scene massage_background
+                $ massage = 0
                 jump ans1
             elif massage == 0:
                 jump random
         elif randomG2 == 'ropes':
             if ropes == 1:
                 scene ropes_background
+                $ ropes = 0
                 jump ans1
             elif ropes == 0:
                 jump random
@@ -293,6 +302,8 @@ label score:
     show screen cant_g1
     show screen cancel
     $ anscheck = anscheck + 1
+
+label choices1: 
     menu:
         "อะบิส":
             $ anscheck = anscheck * 0
@@ -335,56 +346,68 @@ label score:
                 $ ingame2_score = ingame2_score * 0
                 $ scoreG2 = scoreG2 + ingame2_score
                 show screen fail
-        "วานา วันเดอร์แลนด์":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'wonderland':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "โคโคนัทบีช":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'coconut':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "ล็อกเกอร์และห้องอาบน้ำ":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'lockers':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "ร้านนวดไทย":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'massage':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "โรพส์คอร์ส":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'ropes':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
+        "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 2)":
+            jump choices2
+    jump score2
+       
+
+label choices2:
+    menu:
+            "วานา วันเดอร์แลนด์":
+                $ anscheck = anscheck * 0
+                if randomG2 == 'wonderland':
+                    $ ingame2_score = ingame2_score + 5
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen true
+                else:
+                    $ ingame2_score = ingame2_score * 0
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen fail
+            "โคโคนัทบีช":
+                $ anscheck = anscheck * 0
+                if randomG2 == 'coconut':
+                    $ ingame2_score = ingame2_score + 5
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen true
+                else:
+                    $ ingame2_score = ingame2_score * 0
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen fail
+            "ล็อกเกอร์และห้องอาบน้ำ":
+                $ anscheck = anscheck * 0
+                if randomG2 == 'lockers':
+                    $ ingame2_score = ingame2_score + 5
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen true
+                else:
+                    $ ingame2_score = ingame2_score * 0
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen fail
+            "ร้านนวดไทย":
+                $ anscheck = anscheck * 0
+                if randomG2 == 'massage':
+                    $ ingame2_score = ingame2_score + 5
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen true
+                else:
+                    $ ingame2_score = ingame2_score * 0
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen fail
+            "โรพส์คอร์ส":
+                $ anscheck = anscheck * 0
+                if randomG2 == 'ropes':
+                    $ ingame2_score = ingame2_score + 5
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen true
+                else:
+                    $ ingame2_score = ingame2_score * 0
+                    $ scoreG2 = scoreG2 + ingame2_score
+                    show screen fail
+            "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 1)":
+                jump choices1
+    jump score2
+
+label score2:
     if anscheck > 0 :
         jump ans1
     else:
