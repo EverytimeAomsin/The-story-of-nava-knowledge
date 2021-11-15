@@ -14,6 +14,7 @@ label in2:
 label in1:
     $ ui.timer(1.5, ui.jumps("in1"))
     "จะเริ่มใน 1"
+    $ ui.timer(1.5, ui.jumps("in1"))
     # start the rhythm game
     # window hide
     $ quick_menu = False

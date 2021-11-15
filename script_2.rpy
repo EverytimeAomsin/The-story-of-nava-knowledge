@@ -1848,6 +1848,7 @@ label point_GG:
     return
 
 label realend2:
+    hide screen final
     if skip == 1:
         return
     elif skip == 0:
