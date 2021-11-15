@@ -177,11 +177,13 @@ label chapter1 :
 #วาด / รูปหน้า office   4
     scene office   
     "ณ office"
-    show fah1 
+    show fah1 :
+        xzoom 1.5 yzoom 1.5
     Fah             "สวัสดีน้อง คือคนที่มาฝึกงานที่นี่ใช่ไหมคะ "
     Player          "ผมคือผู้ที่ถูกเลือกให้มาฝึกงานที่นี่"
     hide fah1
-    show fah2
+    show fah2:
+        xzoom 1.5 yzoom 1.5
     Fah             "สวัสดี พี่ชื่อฟ้า จะเป็นคนแนะนำสถานที่นี้ในองค์กรคร่าวๆให้นะ"
     Fah             "ถ้ามีอะไรไม่เข้าใจก็ถามได้เลยนะ"
     Player          "ได้เลย ยินดีที่ได้รู้จัก"
@@ -189,7 +191,8 @@ label chapter1 :
     #--------------------------แนะนำสถานที่
     scene matchroom
     hide fah2
-    show fah3 
+    show fah3:
+        xzoom 1.5 yzoom 1.5
 #รูปลานจอดรถ
     Fah             "พี่จะแนะนำสถานที่นะคะ เดินตามมาได้เลย"          
     Player          "ขอถามหน่อย\nมาสคอตหน้าทางเข้ามีชื่อเรียกไหม"
@@ -338,10 +341,12 @@ label chapter1 :
 
     jump chapter1_2
 label chapter1_2:
-    show fah3
+    show fah3:
+        xzoom 1.5 yzoom 1.5
     Fah             "สำหรับการแนะนำสถานที่คร่าวๆเสร็จเป็นที่เรียบร้อยที่อะไรสอบถามไหมค่ะ"
     menu:
             "เครื่องเล่นสำหรับเด็กมีอะไรบ้าง":
+                "สำหรับครื่องเล่นสำหรับเด็กก็มี คิดดี้โคฟ และ วานา วันเดอร์แลนด์"
                 jump chapter1_2
             "tower A มีอะไรบ้าง":
                 jump chapter1_2
@@ -364,7 +369,8 @@ label chapter1_2:
     scene computer
     Player          "...."
     scene office
-    show bell_idle
+    show bell_idle:
+        xzoom 1.5 yzoom 1.5
     Bell            "เป็นอะไรหรือดู หน้าตาดูเครียดเลย"
     Player          "อ้อๆเปล่าเลยๆ สบายดีๆ มีอะไรหรอก"
     Player          "เอ๊ะ เบลเหรอ"
@@ -372,7 +378,8 @@ label chapter1_2:
     scene officeb with dissolve
     "(แย่แล้วดันมาเจอมาตอนนี้ ถ้าเป็นคู่แข่งละก็ แย่แน่เลย)"
     scene office
-    show bell_idle
+    show bell_idle:
+        xzoom 1.5 yzoom 1.5
     Bell            "ว่าไง...เป็นไงบ้าง ไม่ได้เจอกันนานเลยนะ ^^"
     Player          "เออ คือ ก็สบายดีนะ แล้วเธอละ"
     Bell            "ก็สบายดี ฉันก็เริ่มฝึกงานเหมือนกับนายเลย"
@@ -383,7 +390,7 @@ label chapter1_2:
     Player          "โอเค แล้วเราจะรอนะ"
 
     #ตัวละครฟ้าด้านข้าง
-    Fah             "นั้นแฟนเก่าเหรอจ๊ะ"
+    Fah             "นั้นแฟนเก่าเหรอ"
     Player          "จะเป็นไปได้ยังไงละครับ"
     Player          "คือว่าพวกเราเรียนที่เดียวกันตอนมัธยมต้นและปลายกัน"
     Fah             "บังเอิญจังนะ"
@@ -401,7 +408,8 @@ label chapter1_2:
     menu :
                 "ว้าว เบลนี้เปลี่ยนไปเยอะเลยนะ":
                         scene office
-                        show bell_idle
+                        show bell_idle:
+                            xzoom 1.5 yzoom 1.5
                         Bell  "อ่า ขอบคุณมากๆนะ ที่ผ่านมาเบลได้ไปฝึกอย่างหนักหน่วง "
                         Fah   "งานดีมากๆเลยละ ขอบใจมากนะ"
                         Bell  "ขอบคุณค่ะ งั้นเบลไปก่อน"
@@ -410,7 +418,8 @@ label chapter1_2:
 
                 "ผลงานเธอยังเหมือนเดิมฮะ":
                         scene office
-                        show bell_idle
+                        show bell_idle:
+                            xzoom 1.5 yzoom 1.5
                         Bell "ว่าไงนะ เราฝึกมาตั้งนานนะ"
                         Fah   "โอเคเลย ขอบใจมากๆเลยนะ"
                         Bell  "งั้นเจอกันตอนร้านอาหารแล้วกัน"
@@ -418,7 +427,8 @@ label chapter1_2:
     
     #ฉากร้านอาหาร
     scene restaurant
-    show bell_idle
+    show bell_idle:
+        xzoom 1.5 yzoom 1.5
         #ที่ร้านอาหาร
     Player          "ใครมันจะไปคิดว่าจะมาเจอเธอที่นี่ละ"
 #ฉากในร้านอาหาร+เบล
@@ -487,43 +497,30 @@ label chapter2_1_1:
         Yuri            "สำหรับผลการแข่งขันโปรดดูในเมล์ของผู้เข้าแข่งขันได้เลยค่ะ"
 #วาดมุมเห็นกางเกงเกม + ส่งเสียง
         #หน้าประกาศผล
-        $ NPC1_Score = renpy.random.randint(1, 20)
-        $ NPC2_Score = renpy.random.randint(1, 20)
-        $ NPC3_Score = renpy.random.randint(1, 20)
-        $ NPC4_Score = renpy.random.randint(1, 20)
-        $ NPC5_Score = renpy.random.randint(1, 20)
-        $ NPC6_Score = renpy.random.randint(1, 20)
-        $ NPC7_Score = renpy.random.randint(1, 20)
-        $ NPC8_Score = renpy.random.randint(1, 20)
-        $ NPC9_Score = renpy.random.randint(1, 20)
-        $ NPC10_Score = renpy.random.randint(1, 20)
-        $ NPC11_Score = renpy.random.randint(1, 20)
-        $ NPC12_Score = renpy.random.randint(1, 20)
-        $ Bell_Score1 = renpy.random.randint(1, 20)
-        $ Kai_Score1 = renpy.random.randint(1, 20)
-        if B_Relation >= 0:
+        if grade_g2 == 'F':
+            jump fail_1
+        else:
             jump chapter2_2
-        elif B_Relation < 0:
-            jump chapter2_3
-        
+  
         return
 
 label chapter2_2 :
 #รูปร้านอาหาร
         scene restaurant
-        show bell_idle
+        show bell_idle:
+            xzoom 1.5 yzoom 1.5
         Bell            "วันแรกเป็นไงบ้างละ"
         Player          "อืม..ก็ยากอยู่นะ วันนี้"
         Bell            "วันนี้เขาจะประกาศผลใช่ไหมคืนนี้"
-        menu :
-                "ใช่แล้ว รอดูประกาศคืนนี้ได้เลย" :
-                        Bell "ได้เลยๆ แล้วเราจะรอดู"
-                        Player "นี้น่าจะใกล้ประกาศผลแล้วนะ"
+        # menu :
+        #         "ใช่แล้ว รอดูประกาศคืนนี้ได้เลย" :
+        #                 Bell "ได้เลยๆ แล้วเราจะรอดู"
+        #                 Player "นี้น่าจะใกล้ประกาศผลแล้วนะ"
                         
-                "เดียวเขาก็ประกาศบอกเองแหละ":
-                        Bell "แล้วเราจะรู้ไหมเนี่ย ตอบแบบนี้...."
-                        Bell "เออๆ ช่างเถอะ"
-                        $ B_Relation = B_Relation - 1
+        #         "เดียวเขาก็ประกาศบอกเองแหละ":
+        #                 Bell "แล้วเราจะรู้ไหมเนี่ย ตอบแบบนี้...."
+        #                 Bell "เออๆ ช่างเถอะ"
+        #                 $ B_Relation = B_Relation - 1
       
         "เสียง discord"
         Player          "ทาง บ. เขาได้ส่งคู่มาแล้ว"
@@ -544,7 +541,8 @@ label chapter2_2 :
 label chapter2_3 : 
 #รูปร้านอาหาร
         scene restaurant
-        show bell_idle
+        show bell_idle:
+            xzoom 1.5 yzoom 1.5
                 #ร้านอาหาร
         Bell            "เป็นไงบ้างละวันนี้"      
         Player          "เฮ้อออ ยากอยู่ แต่ก็ผ่านมาได้ "
@@ -597,7 +595,8 @@ label chapter3:
                 "เราพลาดแค่ครั้งนี้ละ ครั้งต่อไปคะแนนเราก็นำนายอยู่ดี":
                         Kai "แล้วเราจะเคยดูละ แค่ตอนนี้คะแนนเรายังกว่านาย"
                         $ K_Relation = K_Relation - 2
-        show yuri1
+        show yuri1:
+            xzoom 1.5 yzoom 1.5
         Yuri            "เอาละคะๆ ก่อนอื่นก็ขอต้อนรับและยินดีทุนคนที่ผ่านเข้ารอบนะค่ะ ยินดีด้วย เย้"
         Npc             "เย้....."
         Yuri            "ก่อนอื่นขออธิบายด่านนี้ซ้ำอีกรอบนะคะ"
@@ -611,7 +610,8 @@ label chapter3:
 label chapter3_0:
         hide screen scoreboard_g1
         hide screen finalscore
-        show yuri1
+        show yuri1:
+            xzoom 1.5 yzoom 1.5
         Yuri            "สำหรับการแข่งขันวันนี้ก็จบลงแล้ว ขอบคุณทุกคนมาก"
         if B_Relation >=3 :
             jump chapter4_1
@@ -624,9 +624,10 @@ label chapter3_0:
 
 
 label chapter4_1 :
-#ฉากร้านอาหาร
+#ฉากร้านอาหารฑ
         scene house
-        show bell_idle
+        show bell_idle:
+            xzoom 1.5 yzoom 1.5
         #ตอนจบ
         Bell            "นี่ๆหนึ่ง ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
@@ -640,7 +641,8 @@ label chapter4_1 :
 label chapter4_2 :
 #ฉากร้านอาหาร
         scene house
-        show bell_idle
+        show bell_idle:
+            xzoom 1.5 yzoom 1.5
         #ตอนจบ
         Bell            "นี่ๆ[Player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
@@ -655,7 +657,8 @@ label chapter4_3 :
 #ฉากร้านอาหาร
 
         scene house
-        show bell_idle
+        show bell_idle:
+            xzoom 1.5 yzoom 1.5
         #ตอนจบ
         Bell            "นี่ๆ[Player] ทาง บ. เขาส่งคะแนนมาแล้วละ"
         Player          "แล้ว คะแนนของพวกเราเป็นยังไงบ้างละ"
@@ -673,7 +676,8 @@ label fail_waiting :
 label fail_1 :          #ถ้าตกรอบครั้งที่ 1
 #วาดฉาก lobby
         Unknown         "อืม นายตกรอบเหรอ ฉันจะให้โอกาสนายอีกครั้ง ฉันจะทำการย้อนเวลาให้นายไปตอนคืนก่อนวันทดสอบ"
-        "......ย้อนกลับไปคืนที่แล้ว......"
+        "......ย้อนกลับก่อนการทดสอบ......"
+        jump chapter2_1
         return
 
 

@@ -6,6 +6,14 @@ label inminigame2:
     "ถึงเวลาเล่นเกม minigame ที่สองแล้ว กติกาคือผู้เล่นจะต้องกดโน็ตตามจังหวะดนตรี ยิ่งกดถูกมากจะยิ่งได้แต้มเดินเยอะ"
     "ให้ใช้ปุ่ม ลูกศรบนคีย์บอร์ดในการควบคุม ( Arrow keys )"
     "งั้นเริ่มกันเลย"
+    $ ui.timer(1.5, ui.jumps("in2"))
+    "จะเริ่มใน 3"
+label in2:
+    $ ui.timer(1.5, ui.jumps("in1"))
+    "จะเริ่มใน 2"
+label in1:
+    $ ui.timer(1.5, ui.jumps("in1"))
+    "จะเริ่มใน 1"
     # start the rhythm game
     # window hide
     $ quick_menu = False

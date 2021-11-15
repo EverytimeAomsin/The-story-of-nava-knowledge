@@ -622,119 +622,119 @@ label ejection15 :
 screen my_button1:
     imagebutton:
         xalign 0.228 yalign 0.266
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_1.jpg"
+        hover "hide2_1.jpg"
         insensitive "hide3.png"
         action Jump("ejection1") alt "ejection"
 screen my_button2:
     imagebutton:
         xalign 0.364 yalign 0.266
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_2.jpg"
+        hover "hide2_2.jpg"
         insensitive "hide3.png"
         action Jump("ejection2") alt "ejection"
 
 screen my_button3:
     imagebutton:
         xalign 0.5 yalign 0.266
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_3.jpg"
+        hover "hide2_3.jpg"
         insensitive "hide3.png"
         action Jump("ejection3") alt "ejection"
 
 screen my_button4:
     imagebutton:
         xalign 0.636 yalign 0.266
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_4.jpg"
+        hover "hide2_4.jpg"
         insensitive "hide3.png"
         action Jump("ejection4") alt "ejection"
 
 screen my_button5:
     imagebutton:
         xalign 0.772 yalign 0.266
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_5.jpg"
+        hover "hide2_5.jpg"
         insensitive "hide3.png"
         action Jump("ejection5") alt "ejection"
 
 screen my_button6:
     imagebutton:
         xalign 0.228 yalign 0.537
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_6.jpg"
+        hover "hide2_6.jpg"
         insensitive "hide3.png"
         action Jump("ejection6") alt "ejection"
 
 screen my_button7:
     imagebutton:
         xalign 0.364 yalign 0.537
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_7.jpg"
+        hover "hide2_7.jpg"
         insensitive "hide3.png"
         action Jump("ejection7") alt "ejection"
 
 screen my_button8:
     imagebutton:
         xalign 0.5 yalign 0.537
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_8.jpg"
+        hover "hide2_8.jpg"
         insensitive "hide3.png"
         action Jump("ejection8") alt "ejection"
 
 screen my_button9:
     imagebutton:
         xalign 0.636 yalign 0.537
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_9.jpg"
+        hover "hide2_9.jpg"
         insensitive "hide3.png"
         action Jump("ejection9") alt "ejection"
 
 screen my_button10:
     imagebutton:
         xalign 0.772 yalign 0.537
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_10.jpg"
+        hover "hide2_10.jpg"
         insensitive "hide3.png"
         action Jump("ejection10") alt "ejection"
 
 screen my_button11:
     imagebutton:
         xalign 0.228 yalign 0.808
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_11.jpg"
+        hover "hide2_11.jpg"
         insensitive "hide3.png"
         action Jump("ejection11") alt "ejection"
 
 screen my_button12:
     imagebutton:
         xalign 0.364 yalign 0.808
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_12.jpg"
+        hover "hide2_12.jpg"
         insensitive "hide3.png"
         action Jump("ejection12") alt "ejection"
 
 screen my_button13:
     imagebutton:
         xalign 0.5 yalign 0.808
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_13.jpg"
+        hover "hide2_13.jpg"
         insensitive "hide3.png"
         action Jump("ejection13") alt "ejection"
 
 screen my_button14:
     imagebutton:
         xalign 0.636 yalign 0.808
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_14.jpg"
+        hover "hide2_14.jpg"
         insensitive "hide3.png"
         action Jump("ejection14") alt "ejection"
 
 screen my_button15:
     imagebutton:
         xalign 0.772 yalign 0.808
-        idle "hide.jpg"
-        hover "hide2.png"
+        idle "hide_15.jpg"
+        hover "hide2_15.jpg"
         insensitive "hide3.png"
         action Jump("ejection15") alt "ejection"
 
