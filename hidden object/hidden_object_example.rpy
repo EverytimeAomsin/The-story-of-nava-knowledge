@@ -18,10 +18,10 @@ default classroom_knife = pnco(
     items = ["Knife"]
     )
 default classroom_kobe = pnco(
-    "Kobe",
+    "Phone",
     "hidden object/classroom/kobe.png",
     (1317, 972),
-    items = ["Kobe"]
+    items = ["Phone"]
     )
 default classroom_lube = pnco(
     "Lube",
@@ -60,8 +60,10 @@ default hidden_object = pncs(
 
 
 label hidden_object:
+    show screen hide_item
     "ยินดีต้อนรับสู่ minigame รอบที่ 1 นะ กติกาก็คือต้องช่วยฉันหาของต่อไปนี้คือ"
-    "ของที่ต้องหา\nแอปเปิ้ล  หนังสือ  มีด  ขวด ขวดทรงกรวย และสมุดโน็ต\nถ้าหาได้ครบจะได้โอกาศเดินฟรี 4-8 ช่อง ถ้าไม่ครบจะได้แค่่ 1-4 ช่อง"
+    "ของที่ต้องหา\nแอปเปิ้ล  หนังสือ  มีด  ขวด มือถือ และกระดาษโน็ต\nถ้าหาได้ครบจะได้โอกาศเดินฟรี 4-8 ช่อง ถ้าไม่ครบจะได้แค่่ 1-4 ช่อง"
+    hide screen hide_item
     hide img with dissolve
     hide test1 with dissolve
     hide screen question8
@@ -97,4 +99,8 @@ label hidden_object:
         
         jump check
 
+    screen hide_item:
+        imagebutton:
+            xalign 0.8 yalign 0.84
+            idle "hide_item.png"
  

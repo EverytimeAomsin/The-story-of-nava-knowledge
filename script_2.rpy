@@ -335,7 +335,7 @@ label game_2:
     # images directory to show it.
     show screen choice_menu(x=None) 
     image img  = Image("images/map2.png", xpos = 0, ypos = 0)
-    image test1 = Image("images/test1.jpg", xpos = 0, ypos = 0)
+    image test1 = Image("images/test1.png", xpos = 0, ypos = 0)
     show screen scoreboard_g2
     show img with dissolve:
         xpos -110 ypos -1900 zoom 1.6

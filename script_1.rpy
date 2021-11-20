@@ -217,6 +217,7 @@ label random:
                 $ abyss = 0
                 jump ans1
             elif abyss == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
                 
         elif randomG2 == 'fisherman':
@@ -225,6 +226,7 @@ label random:
                 $ fisherman = 0
                 jump ans1
             elif fisherman == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'fishermanstavern':
             if fishermanstavern == 1:
@@ -232,6 +234,7 @@ label random:
                 $ fishermanstavern = 0
                 jump ans1
             elif fishermanstavern == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'cabana':
             if cabana == 1:
@@ -239,6 +242,7 @@ label random:
                 $ cabana = 0
                 jump ans1
             elif cabana == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'wonderland':
             if wonderland == 1:
@@ -246,6 +250,7 @@ label random:
                 $ wonderland = 0
                 jump ans1
             elif wonderland == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'coconut':
             if wonderland == 1:
@@ -253,6 +258,7 @@ label random:
                 $ wonderland = 0
                 jump ans1
             elif wonderland == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'lockers':
             if lockers == 1:
@@ -260,6 +266,7 @@ label random:
                 $ fishermanstavern = 0
                 jump ans1
             elif lockers == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'massage':
             if massage == 1:
@@ -267,6 +274,7 @@ label random:
                 $ massage = 0
                 jump ans1
             elif massage == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
         elif randomG2 == 'ropes':
             if ropes == 1:
@@ -274,6 +282,7 @@ label random:
                 $ ropes = 0
                 jump ans1
             elif ropes == 0:
+                $ picturecheck = picturecheck - 1
                 jump random
 
     

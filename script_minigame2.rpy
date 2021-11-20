@@ -12,9 +12,12 @@ label in2:
     $ ui.timer(1.5, ui.jumps("in1"))
     "จะเริ่มใน 2"
 label in1:
-    $ ui.timer(1.5, ui.jumps("in1"))
+    $ ui.timer(1.5, ui.jumps("in0"))
     "จะเริ่มใน 1"
-    $ ui.timer(1.5, ui.jumps("in1"))
+    $ ui.timer(1.0, ui.jumps("in0"))
+    
+label in0:
+    
     # start the rhythm game
     # window hide
     $ quick_menu = False
@@ -23,7 +26,7 @@ label in1:
     $ renpy.block_rollback()
     scene vana_fb
     call screen rhythm_game(
-        'audio/my-music.mp3', 
+        'audio/my-music.mp3' , 
         'audio/my-music.beatmap.txt'
         )
     # avoid rolling back and entering the game again

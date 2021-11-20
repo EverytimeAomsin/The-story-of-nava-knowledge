@@ -19,20 +19,7 @@ define Mc      =    Character("เจ้าหน้าที่")
 define Player_Score1 = 0 #คะแนนตัวผู้เล่น
 define Bell_Score1   = 0 #คะแนนเบล
 define Kai_Score1    = 0 #คะแนนผู้เล่นกา
-#ผู้เล่นไม่มีบท มีทั้งหมด 15 คน
-define NPC1_Score   = 0 #ตัวละครอื่นตัวที่ 1
-define NPC2_Score   = 0 #ตัวละครอื่นตัวที่ 2
-define NPC3_Score   = 0 #ตัวละครอื่นตัวที่ 3
-define NPC4_Score   = 0 #ตัวละครอื่นตัวที่ 4
-define NPC5_Score   = 0 #ตัวละครอื่นตัวที่ 5
-define NPC6_Score   = 0 #ตัวละครอื่นตัวที่ 6
-define NPC7_Score   = 0 #ตัวละครอื่นตัวที่ 7
-define NPC8_Score   = 0 #ตัวละครอื่นตัวที่ 8
-define NPC9_Score   = 0 #ตัวละครอื่นตัวที่ 9
-define NPC10_Score   = 0 #ตัวละครอื่นตัวที่ 10
-define NPC11_Score   = 0 #ตัวละครอื่นตัวที่ 11
-define NPC12_Score   = 0 #ตัวละครอื่นตัวที่ 12
-define NPC13_Score   = 0 #ตัวละครอื่นตัวที่ 13
+
 
 
 
@@ -104,20 +91,8 @@ label menu3:
     jump game_2
 
 label intro:
-        play sound "audio/mumei_bgm.mp3" volume 0.5 loop
-      
-        # Show a background. This uses a placeholder by default, but you can
-        # add a file (named either "bg room.png" or "bg room.jpg") to the
-        # images directory to show it.
+        play sound "audio/mumei_bgm.mp3" volume 1.0 loop
 
-        
-        # This shows a character sprite. A placeholder is used, but you can
-        # replace it by adding a file named "eileen happy.png" to the images
-        # directory.
-
-       
-
-        # These display lines of dialogue.
 
         #จุดเริ่มต้น
 #วาดฉาก lobby
@@ -135,10 +110,6 @@ label intro:
         return
 label chapter1 :
     
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene house
     "ณ เวลา 8.40"
     Player  "อ่า....อากาศดีจัง"
@@ -233,7 +204,7 @@ label chapter1 :
 
 #รูปโรพส์คอร์ส+วิธีการเล่น
     scene matchroom7
-    Fah             "ฝั่งซ้ายจะเป็นที่ชื่อว่าโรพส์คอร์ส () เป้าหมายของเครื่องเล่นนี้คือไต่เชือกจนไปถึงจุดบนสุดให้ได้ซึ่งสูงถึง 13.4 เมตร" 
+    Fah             "ฝั่งซ้ายจะเป็นที่ชื่อว่าโรพส์คอร์ส  เป้าหมายของเครื่องเล่นนี้คือไต่เชือกจนไปถึงจุดบนสุดให้ได้ซึ่งสูงถึง 13.4 เมตร" 
     Fah             "โดยผู้เล่นจะต้องมีส่วนสูงเกิน 122 เซนติเมตร \n น้ำหนักมากกว่า 136 เซนติเมตร \n และสวมรองเท้าหุ้มส้น"
     Fah             "โดยผู้เล่นจะต้องเชื่อฟังพี่ๆพนักงานอย่างเคร่งครัด"
 #รูปหน้าผมจำลอง+วิธีการเล่น
@@ -242,10 +213,10 @@ label chapter1 :
     Fah             "โดยผู้เล่นจะต้องเชื่อฟังพี่ๆพนักงานอย่างเคร่งครัดเช่นเดียวกัน"
 
 # #รูปริพเคิร์ล เซิร์ฟช้อป
-#     Fah             "เมื่อเดินต่อจะเจอร้านเสื้อผ้า ริพเคิร์ล เซิร์ฟช้อป เป็นร้านขายสินค้าแบรนด์แฟชั่นชั้นนำระดับโลกผู้จัดจำหน่ายผลิตภัณฑ์เสื้อผ้า อุปกรณ์และเครื่องประดับสำหรับกีฬาประเภทเซิร์ฟ"
+    Fah             "เมื่อเดินต่อจะเจอร้านเสื้อผ้า ริพเคิร์ล เซิร์ฟช้อป เป็นร้านขายสินค้าแบรนด์แฟชั่นชั้นนำระดับโลกผู้จัดจำหน่ายผลิตภัณฑ์เสื้อผ้า อุปกรณ์และเครื่องประดับสำหรับกีฬาประเภทเซิร์ฟ"
 
 # #รูปช้างเซิร์ฟโซน
-#     Fah             "ข้างๆชื่อว่า flow ridder บริเวณด้านข้างๆ ริพเคิร์ล เซิร์ฟช้อป สถานที่โต้คลื่นจำลอง สามารถรอบรับผู้เล่นเล่นมากถึงสองคนพร้อมกันได้ ซึ่งผู้เล่นต้องเช็นเอกสารยินยอมเพราะเครื่องเล่นมีความอันตรายเป็นอย่างมาก()"
+    Fah             "ข้างๆชื่อว่า flow ridder บริเวณด้านข้างๆ ริพเคิร์ล เซิร์ฟช้อป สถานที่โต้คลื่นจำลอง สามารถรอบรับผู้เล่นเล่นมากถึงสองคนพร้อมกันได้ ซึ่งผู้เล่นต้องเช็นเอกสารยินยอมเพราะเครื่องเล่นมีความอันตรายเป็นอย่างมาก()"
 
 #รูปแผนกนวด
     scene matchroom8_1
@@ -464,7 +435,7 @@ label chapter1_2:
 label chapter2_1 :
 
 #วาดฉากห้องแข่ง
-        play sound "audio/gura_bgm.mp3" volume 0.5 loop
+        play sound "audio/gura_bgm.mp3" volume 0.9 loop
         scene matchroom
         show yuri1 :
             xzoom 1.5 yzoom 1.5
@@ -479,20 +450,7 @@ label chapter2_1 :
         Yuri            "สำหรับในรอบนี้ ผู้เข้าแข่งขันจะต้องแข่งกันทายสถานที่ จากข้อความที่ถูกปิดไว้"
         Yuri            "ในรอบที่สอง จะเป็นด่านตอบคำถาม ในด่านตอบคำถามจะมีมินิเกมซ่อนไว้ เกมจะนำผู้เล่นเดินไปคามช่อง ถ้าตอบถูกจะเดินไปทอยลูกเต๋าซค่งจะเดินได้สูงสุด 6 ช่อง แต่ถ้าตอบผิดจะสุ่มลูกเต๋าเหมือนกัน แต่สุ่มได้สูงสุดคือ 1 - 3 แต้ม"
         Yuri            "ในสำหรับวันนี้วันแรกจะเป็นการแข่งด่านแรก เริ่มได้ ขอให้โชคดี"
-        
-                        # 1.เครื่องเล่น tower A มีอะไรบ้าง
-                        # 2.เครื่องเล่น tower B มีอะไรบ้าง
-                        # 3.ข้อปฏิบัติของการเครื่องเล่น abyss และบูมเบอร์แรงโก้
-                        # 4.ข้อปฏิบัติของการเครื่องเล่นของเครื่องเล่น freefall และ aqueloop
-                        # 5.ประเภทของห่วงยางมีอะไร มีชื่อเรียกว่าไร
-                        # 6.เครื่องเล่นที่ใช้ห่วงยาง tube มีอะไรบ้าง
-                        # 7.มาร์เตอร์มี vr slider มีกี่รูปแบบ
-                        # 8.เครื่องเล่นที่ไม่สัมผัสกับน้ำ
-                        # 9.ในเคพมีร้านอาหารอะไรบ้าง
-                        # 10.สไลเดอร์ของวานา นาวาคือเครื่องเล่นอะไร
-                        # 11.เครื่องเล่นที่มีความเร็วสูงที่สุดคือเครื่องเล่นอะไร
-                        # 12.เดอะโกรฟมีอาหารประเภทใดบ้าง
-                        # 13.คาบาร่าวาน่าและบีตฮัทแตกต่างกันอย่างไร
+
         jump game_1                
 label chapter2_1_1:
         
@@ -516,15 +474,7 @@ label chapter2_2 :
         Bell            "วันแรกเป็นไงบ้างละ"
         Player          "อืม..ก็ยากอยู่นะ วันนี้"
         Bell            "วันนี้เขาจะประกาศผลใช่ไหมคืนนี้"
-        # menu :
-        #         "ใช่แล้ว รอดูประกาศคืนนี้ได้เลย" :
-        #                 Bell "ได้เลยๆ แล้วเราจะรอดู"
-        #                 Player "นี้น่าจะใกล้ประกาศผลแล้วนะ"
-                        
-        #         "เดียวเขาก็ประกาศบอกเองแหละ":
-        #                 Bell "แล้วเราจะรู้ไหมเนี่ย ตอบแบบนี้...."
-        #                 Bell "เออๆ ช่างเถอะ"
-        #                 $ B_Relation = B_Relation - 1
+
       
         "เสียง discord"
         Player          "ทาง บ. เขาได้ส่งคู่มาแล้ว"
@@ -705,20 +655,24 @@ label ending :
 #วาดฉาก lobby
         scene menu_bg
         #สรุปคะแนน
-        Unknown "เอาละ ยินดีต้อนรับกลับนะ  ยินดีด้วยพวกนายเอาชนะเกมนี้ได้"
+        Unknown "เอาละ ยินดีต้อนรับกลับนะ  ยินดีด้วยที่สามารถเอาชนะเกมนี้ได้"
         show screen final_g1
         show screen  final_g2
-        Unknown "นี่คือสรุปคะแนนก็คือพวกนายทำได้"
-        Unknown "สุดท้ายนี้ก่อนลาจากกัน ขอบคุณที่เล่นมาถึงตรงนี้นะ @Chicken killer \nกด Enter หรือ คลิกเพือกลับสู่เมนูหลัก"
+        Unknown "นี่คือสรุปคะแนนที่ทำได้"
+        Unknown "สุดท้ายนี้ก่อนลาจากกัน ขอบคุณที่เล่นมาถึงตรงนี้นะ  \nกด Enter หรือ คลิกเพือกลับสู่เมนูหลัก"
         return
         # 
 screen final_g1:
+    
     imagebutton:
         xalign 0.15 yalign 0.1
         idle "final.png"
+    imagebutton:
+        xalign 0.155 yalign 0.02
+        idle "gamename1.png"
     vbox:
         xalign 0.26
-        ypos -80
+        ypos -40
         text "{color=#C65A77}{size=400}[grade_g2]{/size}{/color}"
     vbox:
         xalign 0.23
@@ -754,9 +708,12 @@ screen final_g2:
     imagebutton:
         xalign 0.85 yalign 0.1
         idle "final.png"
+    imagebutton:
+        xalign 0.845 yalign 0.02
+        idle "gamename2.png"
     vbox:
         xalign 0.76
-        ypos -80
+        ypos -40
         text "{color=#C65A77}{size=400}[grade]{/size}{/color}"
     vbox:
         xalign 0.78
