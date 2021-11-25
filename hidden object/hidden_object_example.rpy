@@ -2,44 +2,44 @@
 default classroom_apple = pnco(
     "Apple",
     "hidden object/classroom/apple.png",
-    (69, 727),
-    items = ["Apple"]
+    (69, 590),
+    items = ["ตุ๊กตา"]
     )
 default classroom_book = pnco(
     "Book",
     "hidden object/classroom/book.png",
-    (799, 806),
-    items = ["Book"]
+    (980, 780),
+    items = ["หนังสือ"]
     )
 default classroom_knife = pnco(
     "Knife",
     "hidden object/classroom/knife.png",
-    (1788, 1003),
-    items = ["Knife"]
+    (1588, 940),
+    items = ["ห่วงยาง"]
     )
 default classroom_kobe = pnco(
     "Phone",
     "hidden object/classroom/kobe.png",
     (1317, 972),
-    items = ["Phone"]
+    items = ["มือถือ"]
     )
 default classroom_lube = pnco(
     "Lube",
     "hidden object/classroom/lube.png",
-    (1182, 649),
-    items = ["Lube"]
+    (1182, 849),
+    items = ["ขวด"]
     )
 default classroom_note = pnco(
     "Note",
     "hidden object/classroom/note.png",
-    (1022, 513),
-    items = ["Note"]
+    (805, 513),
+    items = ["โปสเตอร์"]
     )
 default classroom_scissors = pnco(
     "Scissors",
     "hidden object/classroom/scissors.png",
-    (158, 961),
-    items = ["Scissors"]
+    (158, 901),
+    items = ["เสื้อชูชีพ"]
     )
 
 # Define a point and click location
@@ -74,7 +74,7 @@ label hidden_object:
     hide screen question13
     hide screen scoreboard_g2
     hide screen choice_menu
-    show bg classroom
+    show office
     call screen pnc(p = None, g=hidden_object)
     if _return:
         "นี้เจอหมดทุกอย่างเลยเหรอ"

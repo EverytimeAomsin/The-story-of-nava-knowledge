@@ -222,6 +222,8 @@ label next:
             $ roll = roll
     else:
         $ roll = roll
+
+    $ roll = roll
     hide screen next
     $ check_ans = check_ans * 0
     jump ans
@@ -338,7 +340,7 @@ label game_2:
     image test1 = Image("images/test1.png", xpos = 0, ypos = 0)
     show screen scoreboard_g2
     show img with dissolve:
-        xpos -110 ypos -1900 zoom 1.6
+        xpos -110 ypos -1900-200 zoom 1.6
     
     show screen question1(x=None)
     
@@ -482,24 +484,24 @@ label processroll:
     $ ans_g1 = 'null'
     jump minigamecheck
 
-
+# false
     
 label minigamecheck:
-    if points >= 14:
+    if points >= 15:
         if pass_minigame1 == 'false':
-            $ points = 14
-            jump point14
+            $ points = 15
+            jump point15
         elif pass_minigame1 == 'true':
-            if points >= 36 :
+            if points >= 30 :
                 if pass_minigame2 == 'false':
-                    $ points = 36
-                    jump point36
+                    $ points = 30
+                    jump point30
                 elif pass_minigame2 == 'true':
                     jump end
-                elif points < 36:
+                elif points < 30:
                     jump end
 
-    elif points  < 14:
+    elif points  < 15:
         jump end
     
     jump end
@@ -524,7 +526,7 @@ label minigame2:
     return
 
 label check:
-    $ renpy.block_rollback()
+    # $ renpy.block_rollback()
     if check_ans >=1:
         pause
         jump end
@@ -762,19 +764,27 @@ label check2:
         
         jump check
     elif points == 14:
-
+        $ ans_real = '1'
+        $ ans_g1 = 'null'
+        if ans_g1 == '2':
+            $ ans_g1 = 'true'
+             
+        else:
+            
+            $ ans_g1 = 'false'
         hide screen question7
         hide screen question8
         hide screen question9
         hide screen question10
         hide screen question11
         hide screen question12
+        show screen question14
         hide screen question13
         hide screen question15
         hide screen question16
         hide screen question17
         # show screen question14(x=None)
-        hide screen choice_menu
+        
         jump point14
     elif points == 15:
         $ ans_real = '1'
@@ -794,7 +804,7 @@ label check2:
         hide screen question13
         hide screen question14
         show screen question15(x=None)
-        jump point15
+        jump minigame1
     elif points == 16:
         $ ans_real = '1'
         if ans_g1 == '1':
@@ -1146,7 +1156,14 @@ label check2:
         show screen question35(x=None)
         jump point35
     elif points == 36:
-        
+        $ ans_real = '1'
+        show screen choice_menu
+        if ans_g1 == '2':
+            $ ans_g1 = 'true'
+             
+        else:
+            
+            $ ans_g1 = 'false'
         hide screen choice_menu
         hide screen question29
         hide screen question30
@@ -1335,7 +1352,7 @@ label point1:
     $ q2 = question[1][1]
     $ ans_real = '1'
     show test1 with dissolve  :
-        linear 0 xpos 445 ypos 740
+        linear 0 xpos 403 ypos 513
     
     
     jump Changeview
@@ -1345,7 +1362,7 @@ label point2:
     $ q1 = question[2][0]
     $ q2 = question[2][1]
     show test1 with dissolve  :
-        linear 0 xpos 447 ypos 565
+        linear 0 xpos 403 ypos 347
     $ realpoints = points
     jump Changeview
     return
@@ -1355,7 +1372,7 @@ label point3:
     $ q1 = question[3][0]
     $ q2 = question[3][1]
     show test1 with dissolve  :
-        linear 0 xpos 660 ypos 565
+        linear 0 xpos 620 ypos 347
     $ realpoints = points   
     jump Changeview
     return
@@ -1365,7 +1382,7 @@ label point4:
     $ q1 = question[4][0]
     $ q2 = question[4][1]
     show test1 with dissolve  :
-        linear 0 xpos 835+45 ypos 565
+        linear 0 xpos 835 ypos 347
     $ realpoints = points
     jump Changeview
     return
@@ -1375,7 +1392,7 @@ label point5:
     $ q1 = question[5][0]
     $ q2 = question[5][1]
     show test1 with dissolve  :
-        linear 0 xpos 1095 ypos 565
+        linear 0 xpos 1055 ypos 347
     $ realpoints = points
     jump Changeview
     return
@@ -1385,7 +1402,7 @@ label point6:
     $ q1 = question[6][0]
     $ q2 = question[6][1]
     show test1 with dissolve  :
-        linear 0 xpos 1355 ypos 565
+        linear 0 xpos 1310 ypos 337
     $ realpoints = points
     jump Changeview
     return
@@ -1395,7 +1412,7 @@ label point7:
     $ q1 = question[7][0]
     $ q2 = question[7][1]
     show test1 with dissolve  :
-        linear 0 xpos 1355 ypos 410
+        linear 0 xpos 1313 ypos 190
     
     jump Changeview
     return
@@ -1405,7 +1422,7 @@ label point8:
     $ q1 = question[8][0]
     $ q2 = question[8][1]
     show test1 with dissolve  :
-        linear 0 xpos 1100 ypos 410
+        linear 0 xpos 1055 ypos 190
     jump Changeview
     return
 
@@ -1415,7 +1432,7 @@ label point9:
     $ q1 = question[9][0]
     $ q2 = question[9][1]
     show test1 with dissolve  :
-        linear 0 xpos 880 ypos 410
+        linear 0 xpos 835 ypos 190
     jump Changeview
     return
 
@@ -1425,7 +1442,7 @@ label point10:
     $ q1 = question[10][0]
     $ q2 = question[10][1]
     show test1 with dissolve  :
-        linear 0 xpos 660 ypos 410
+        linear 0 xpos 620 ypos 190
     jump Changeview
     return
 
@@ -1435,7 +1452,7 @@ label point11:
     $ q1 = question[11][0]
     $ q2 = question[11][1]
     show test1 with dissolve  :
-        linear 0 xpos 445 ypos 410
+        linear 0 xpos 405 ypos 190
     jump Changeview
     return
 
@@ -1445,7 +1462,7 @@ label point12:
     $ q1 = question[12][0]
     $ q2 = question[12][1]
     show test1 with dissolve  :
-        linear 0 xpos 450 ypos 225
+        linear 0 xpos 405 ypos 50
     jump Changeview
     return
 
@@ -1455,24 +1472,18 @@ label point13:
     $ q1 = question[13][0]
     $ q2 = question[13][1]
     show test1 with dissolve  :
-        linear 0 xpos 445 ypos 30
-    $ points = '13'
+        linear 0 xpos 410 ypos 360
     jump Changeview
     return
 
-label point13_2:
-    show test1 with dissolve  :
-        linear 0 xpos 445 ypos 690
-    $ ans_g1 = 'null' 
-    $ points = 14
-    jump ans
-    return
+
 
   
     
 label point14:
   
-    
+    $ q1 = question[14][0]
+    $ q2 = question[14][1]
     show test1 with dissolve  :
         linear 0 xpos 445 ypos 515
     jump Changeview
@@ -1484,8 +1495,9 @@ label point15:
     $ q1 = question[15][0]
     $ q2 = question[15][1]
     show test1 with dissolve  :
-        linear 0 xpos 255 ypos 395
-    jump Changeview
+        linear 0 xpos 215 ypos 420
+    # jump minigame1
+    jump minigame1
     return
 
     
@@ -1494,7 +1506,7 @@ label point16:
     $ q1 = question[16][0]
     $ q2 = question[16][1]
     show test1 with dissolve  :
-        linear 0 xpos 190 ypos 210
+        linear 0 xpos 155 ypos 235
     jump Changeview
     return
 
@@ -1504,23 +1516,16 @@ label point17:
     $ q1 = question[17][0]
     $ q2 = question[17][1]
     show test1 with dissolve  :
-        linear 0 xpos 170 ypos 50
+        linear 0 xpos 150 ypos 35
     jump Changeview
     return
 
-label point17_2:
-    $ q1 = question[17][0]
-    $ q2 = question[17][1]
-    show test1 with dissolve  :
-        linear 0 xpos 175 ypos 865
-    jump wait
-    return 
     
 label point18:
     $ q1 = question[18][0]
     $ q2 = question[18][1]
     show test1 with dissolve  :
-        linear 0 xpos 175 ypos 730
+        linear 0 xpos 73 ypos 435
     jump Changeview
     return
 
@@ -1530,7 +1535,7 @@ label point19:
     $ q1 = question[19][0]
     $ q2 = question[19][1]
     show test1 with dissolve  :
-        linear 0 xpos 175 ypos 560
+        linear 0 xpos 72 ypos 270
     jump Changeview
     return
 
@@ -1550,7 +1555,7 @@ label point21:
     $ q1 = question[21][0]
     $ q2 = question[21][1]
     show test1 with dissolve  :
-        linear 0 xpos 350 ypos 460
+        linear 0 xpos 250 ypos 520
     jump Changeview
     return
 
@@ -1560,7 +1565,7 @@ label point22:
     $ q1 = question[22][0]
     $ q2 = question[22][1]
     show test1 with dissolve  :
-        linear 0 xpos 495 ypos 480
+        linear 0 xpos 390 ypos 537
     jump Changeview
     return
 
@@ -1570,7 +1575,7 @@ label point23:
     $ q1 = question[23][0]
     $ q2 = question[23][1]
     show test1 with dissolve  :
-        linear 0 xpos 630 ypos 485
+        linear 0 xpos 535 ypos 537
     jump Changeview
     return
 
@@ -1580,7 +1585,7 @@ label point24:
     $ q1 = question[24][0]
     $ q2 = question[24][1]
     show test1 with dissolve  :
-        linear 0 xpos 765 ypos 475
+        linear 0 xpos 665 ypos 537
     jump Changeview
     return
 
@@ -1590,7 +1595,7 @@ label point25:
     $ q1 = question[25][0]
     $ q2 = question[25][1]
     show test1 with dissolve  :
-        linear 0 xpos 900 ypos 370
+        linear 0 xpos 805 ypos 425
     jump Changeview
     return
 
@@ -1600,7 +1605,7 @@ label point26:
     $ q1 = question[26][0]
     $ q2 = question[26][1]
     show test1 with dissolve  :
-        linear 0 xpos 1000 ypos 260
+        linear 0 xpos 900 ypos 330
     jump Changeview
     return
 
@@ -1610,7 +1615,7 @@ label point27:
     $ q1 = question[27][0]
     $ q2 = question[27][1]
     show test1 with dissolve  :
-        linear 0 xpos 1090 ypos 175
+        linear 0 xpos 990 ypos 227
     jump Changeview
     return
 
@@ -1620,7 +1625,7 @@ label point28:
     $ q1 = question[28][0]
     $ q2 = question[28][1]
     show test1 with dissolve  :
-        linear 0 xpos 1235 ypos 250
+        linear 0 xpos 1130 ypos 310
     jump Changeview
     return
 
@@ -1630,7 +1635,7 @@ label point29:
     $ q1 = question[29][0]
     $ q2 = question[29][1]
     show test1 with dissolve  :
-        linear 0 xpos 1370 ypos 340
+        linear 0 xpos 1270 ypos 400
     jump Changeview
     return
 
@@ -1640,7 +1645,7 @@ label point30:
     $ q1 = question[30][0]
     $ q2 = question[30][1]
     show test1 with dissolve  :
-        linear 0 xpos 1355 ypos 515
+        linear 0 xpos 1260 ypos 320
     jump Changeview
     return
 
@@ -1648,19 +1653,13 @@ label point30:
     
 label point31:
     show test1 with dissolve  :
-        linear 0 xpos 1335 ypos 640
+        linear 0 xpos 1230 ypos 445
     jump Changeview
     return
 
     
 
-label point31_2:
-    $ q1 = question[31][0]
-    $ q2 = question[31][1]
-    show test1 with dissolve  :
-        linear 0 xpos 1335 ypos 65
-    jump wait
-    return
+
 
    
 
@@ -1668,7 +1667,7 @@ label point32:
     $ q1 = question[32][0]
     $ q2 = question[32][1]
     show test1 with dissolve  :
-        linear 0 xpos 1310 ypos 195
+        linear 0 xpos 1210 ypos 575
     jump Changeview
     return
 
@@ -1678,7 +1677,7 @@ label point33:
     $ q1 = question[33][0]
     $ q2 = question[33][1]
     show test1 with dissolve  :
-        linear 0 xpos 1270 ypos 360
+        linear 0 xpos 1160 ypos 240
     jump Changeview
     return
 
@@ -1688,7 +1687,7 @@ label point34:
     $ q1 = question[34][0]
     $ q2 = question[34][1]
     show test1 with dissolve  :
-        linear 0 xpos 1150 ypos 515
+        linear 0 xpos 1050 ypos 390
     jump Changeview
     return
 
@@ -1698,35 +1697,26 @@ label point35:
     $ q1 = question[35][0]
     $ q2 = question[35][1]
     show test1 with dissolve  :
-        linear 0 xpos 1000 ypos 600
+        linear 0 xpos 897 ypos 476
     jump Changeview
     return
 
   
 
 label point36:
-     
+    $ q1 = question[36][0]
+    $ q2 = question[36][1]
     
     show test1 with dissolve  :
-        linear 0 xpos 830 ypos 565
+        linear 0 xpos 720 ypos 443
     jump Changeview
     return
-
-    
-
-label point36_2:
-    show test1 with dissolve  :
-        linear 0 xpos 815 ypos -30
-    jump minigame2
-    return
-
-    
 
 label point37:
     $ q1 = question[37][0]
     $ q2 = question[37][1]
     show test1 with dissolve  :
-        linear 0 xpos 780 ypos 180
+        linear 0 xpos 680 ypos 255
     jump Changeview
     return
 
@@ -1736,7 +1726,7 @@ label point38:
     $ q1 = question[38][0]
     $ q2 = question[38][1]
     show test1 with dissolve  :
-        linear 0 xpos 890 ypos 340
+        linear 0 xpos 785 ypos 415
     jump Changeview
     return
 
@@ -1746,7 +1736,7 @@ label point39:
     $ q1 = question[39][0]
     $ q2 = question[39][1]
     show test1 with dissolve  :
-        linear 0 xpos 1090 ypos 360
+        linear 0 xpos 990 ypos 430
     jump Changeview
     return
 
@@ -1756,7 +1746,7 @@ label point40:
     $ q1 = question[40][0]
     $ q2 = question[40][1]
     show test1 with dissolve  :
-        linear 0 xpos 1290 ypos 380
+        linear 0 xpos 1180 ypos 460
     jump Changeview
     return
 
@@ -1766,7 +1756,7 @@ label point41:
     $ q1 = question[41][0]
     $ q2 = question[41][1]
     show test1 with dissolve  :
-        linear 0 xpos 1480 ypos 415
+        linear 0 xpos 1376 ypos 485
     jump Changeview
     return
 
@@ -1776,7 +1766,7 @@ label point42:
     $ q1 = question[42][0]
     $ q2 = question[42][1]
     show test1 with dissolve  :
-        linear 0 xpos 1640 ypos 430
+        linear 0 xpos 1537 ypos 510
     jump Changeview
     return
 
@@ -1785,18 +1775,12 @@ label point42:
 label point43:
     
     show test1 with dissolve  :
-        linear 0 xpos 1640 ypos 585
+        linear 0 xpos 1537 ypos 18
     jump Changeview
     return
 
    
-label point43_2:
-    $ q1 = question[43][0]
-    $ q2 = question[43][1]
-    show test1 with dissolve  :
-        linear 0 xpos 1640 ypos 285
-    jump wait
-    return
+
 
    
 
@@ -1804,7 +1788,7 @@ label point44:
     $ q1 = question[44][0]
     $ q2 = question[44][1]
     show test1 with dissolve  :
-        linear 0 xpos 1640 ypos 410
+        linear 0 xpos 1537 ypos 310
     jump Changeview
     return
 
@@ -1814,7 +1798,7 @@ label point45:
     $ q1 = question[45][0]
     $ q2 = question[45][1]
     show test1 with dissolve  :
-        linear 0 xpos 1640 ypos 535
+        linear 0 xpos 1537 ypos 430
     jump Changeview
     return
 
@@ -1843,7 +1827,7 @@ label point_GG:
         $ grade = 'F'
         show screen final 
     show test1 with dissolve  :
-        linear 0 xpos 1640 ypos 690
+        linear 0 xpos 1537 ypos 550
     pause
     return
 
@@ -1858,46 +1842,78 @@ label realend2:
    
     
 label Changeview:
-    if points == 43:
+    if points > 42:
         show img with move :
-            linear 1.0 xpos -110 ypos -1900
-        jump point43_2
-    if points >= 43 :
+            linear 1.0 xpos -170 ypos -1980
+    elif points == 42:
         show img with move :
-            linear 1.0 xpos -110 ypos -1900
-    elif points >= 37 :
+            linear 1.0 xpos -170 ypos -1980
+        show test1 with dissolve  :
+            linear 0 xpos 1537 ypos 27
+    elif points > 36:
         show img with move :
-            linear 1.0 xpos -110 ypos -1600
-    elif points == 36 :
+            linear 1.0 xpos -170 ypos -1500
+    elif points == 36:
         show img with move :
-            linear 1.0 xpos -110 ypos -1600
-        jump point36_2
-    elif points == 31:
+            linear 1.0 xpos -170 ypos -1500
+        show test1 with dissolve  :
+            linear 0 xpos 720 ypos 40
+    elif points > 32:
         show img with move :
-            linear 1.0 xpos -110 ypos -1000
-        jump point31_2
-    elif points >= 31:
+            linear 1.0 xpos -170 ypos -1100
+    elif points == 32:
         show img with move :
-            linear 1.0 xpos -110 ypos -1000
+            linear 1.0 xpos -170 ypos -1100
+        show test1 with dissolve  :
+            linear 0 xpos 1207 ypos 79
+    elif points > 29:
+        show img with move :
+            linear 1.0 xpos -170 ypos -600
+    elif points == 29:
+        show img with move :
+            linear 1.0 xpos -170 ypos -600
+        show test1 with dissolve  :
+            linear 0 xpos 1270 ypos 160
+    elif points > 20:
+        show img with move :
+            linear 1.0 xpos -170 ypos -350
+    elif points == 20:
+        show img with move :
+            linear 1.0 xpos -170 ypos -350
+        show test1 with dissolve  :
+            linear 0 xpos 97 ypos 490
+    elif points > 17:
+        show img with move :
+            linear 1.0 xpos -170 ypos -700
     elif points == 17:
         show img with move :
-            linear 1.0 xpos -110 ypos -430
-        jump point17_2
-    elif points >= 17:
-        show img with move :
-            linear 1.0 xpos -110 ypos -430
-            
-    elif points == 13:
-            
-        show img with move :
-            linear 1.0 xpos -110 ypos -1250
-        jump point13_2
-    elif points == 14:    
-        show img with move :
-            linear 1.0 xpos -110 ypos -1250
+            linear 1.0 xpos -170 ypos -700
         show test1 with dissolve  :
-            linear 0 xpos 445 ypos 30
-        jump minigame1
+            linear 0 xpos 70 ypos 580
+    elif points == 17:
+        show img with move :
+            linear 1.0 xpos -110 ypos -700
+        jump point17_2
+    elif points > 14:
+        show img with move :
+            linear 1.0 xpos -110 ypos -1200
+        
+    elif points == 14:
+        show img with move :
+            linear 1.0 xpos -110 ypos -1200
+        show test1 with dissolve  :
+            linear 0 xpos 415 ypos 540
+    elif  points== 13 :    
+        show img with move :
+            linear 1.0 xpos -110 ypos -1550
+            
+    
+    elif points >= 12 and points< 13 :    
+        show img with move :
+            linear 1.0 xpos -110 ypos -1550
+        show test1 with dissolve  :
+            linear 0 xpos 405 ypos 560
+        jump ans
 
         
         
@@ -1915,19 +1931,19 @@ screen question1:
         ypos 725
         text "[question[1][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[1][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[1][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[1][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[1][4]]" size 50
 
@@ -1937,19 +1953,19 @@ screen question2:
         ypos 725
         text "[question[2][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[2][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[2][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[2][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[2][4]]" size 50
 
@@ -1959,19 +1975,19 @@ screen question3:
         ypos 725
         text "[question[3][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[3][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[3][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[3][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[3][4]]" size 50
 
@@ -1981,19 +1997,19 @@ screen question4:
         ypos 725
         text "[question[4][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[4][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[4][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[4][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[4][4]]" size 50
 
@@ -2003,19 +2019,19 @@ screen question5:
         ypos 725
         text "[question[5][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[5][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[5][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[5][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[5][4]]" size 50
 
@@ -2025,19 +2041,19 @@ screen question6:
         ypos 725
         text "[question[6][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[6][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[6][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[6][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[6][4]]" size 50
 
@@ -2047,19 +2063,19 @@ screen question7:
         ypos 725
         text "[question[7][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[7][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[7][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[7][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[7][4]]" size 50
 
@@ -2069,19 +2085,19 @@ screen question8:
         ypos 725
         text "[question[8][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[8][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[8][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[8][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[8][4]]" size 50
 
@@ -2091,19 +2107,19 @@ screen question9:
         ypos 725
         text "[question[9][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[9][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[9][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[9][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[9][4]]" size 50
 
@@ -2113,19 +2129,19 @@ screen question10:
         ypos 725
         text "[question[10][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[10][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[10][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[10][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[10][4]]" size 50
 
@@ -2135,19 +2151,19 @@ screen question11:
         ypos 725
         text "[question[11][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[11][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[11][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[11][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[11][4]]" size 50
 
@@ -2157,19 +2173,19 @@ screen question12:
         ypos 725
         text "[question[12][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[12][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[12][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[12][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[12][4]]" size 50
 
@@ -2179,19 +2195,19 @@ screen question13:
         ypos 725
         text "[question[13][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[13][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[13][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[13][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[13][4]]" size 50
 
@@ -2201,19 +2217,19 @@ screen question14:
         ypos 725
         text "[question[14][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[14][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[14][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[14][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[14][4]]" size 50
 
@@ -2223,19 +2239,19 @@ screen question15:
         ypos 725
         text "[question[15][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[15][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[15][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[15][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[15][4]]" size 50
 
@@ -2245,19 +2261,19 @@ screen question16:
         ypos 725
         text "[question[16][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[16][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[16][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[16][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[16][4]]" size 50
 
@@ -2267,19 +2283,19 @@ screen question17:
         ypos 725
         text "[question[17][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[17][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[17][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[17][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[17][4]]" size 50
 
@@ -2289,19 +2305,19 @@ screen question18:
         ypos 725
         text "[question[18][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[18][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[18][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[18][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[18][4]]" size 50
 
@@ -2311,19 +2327,19 @@ screen question19:
         ypos 725
         text "[question[19][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[19][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[19][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[19][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[19][4]]" size 50
 
@@ -2333,19 +2349,19 @@ screen question20:
         ypos 725
         text "[question[20][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[20][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[20][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[20][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[20][4]]" size 50
 
@@ -2355,19 +2371,19 @@ screen question21:
         ypos 725
         text "[question[21][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[21][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[21][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[21][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[21][4]]" size 50
 
@@ -2377,19 +2393,19 @@ screen question22:
         ypos 725
         text "[question[22][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[22][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[22][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[22][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[22][4]]" size 50
 
@@ -2399,19 +2415,19 @@ screen question23:
         ypos 725
         text "[question[23][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[23][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[23][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[23][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[23][4]]" size 50
 
@@ -2421,19 +2437,19 @@ screen question24:
         ypos 725
         text "[question[24][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[24][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[24][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[24][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[24][4]]" size 50
 
@@ -2443,19 +2459,19 @@ screen question25:
         ypos 725
         text "[question[25][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[25][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[25][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[25][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[25][4]]" size 50
 
@@ -2465,19 +2481,19 @@ screen question26:
         ypos 725
         text "[question[26][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[26][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[26][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[26][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[26][4]]" size 50
 
@@ -2487,19 +2503,19 @@ screen question27:
         ypos 725
         text "[question[27][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[27][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[27][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[27][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[27][4]]" size 50
 
@@ -2509,19 +2525,19 @@ screen question28:
         ypos 725
         text "[question[28][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[28][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[28][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[28][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[28][4]]" size 50
 
@@ -2531,19 +2547,19 @@ screen question29:
         ypos 725
         text "[question[29][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[29][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[29][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[29][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[29][4]]" size 50
 
@@ -2553,19 +2569,19 @@ screen question30:
         ypos 725
         text "[question[30][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[30][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[30][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[30][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[30][4]]" size 50
 
@@ -2575,19 +2591,19 @@ screen question31:
         ypos 725
         text "[question[31][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[31][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[31][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[31][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[31][4]]" size 50
 
@@ -2597,19 +2613,19 @@ screen question32:
         ypos 725
         text "[question[32][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[32][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[32][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[32][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[32][4]]" size 50
 
@@ -2619,19 +2635,19 @@ screen question33:
         ypos 725
         text "[question[33][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[33][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[33][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[33][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[33][4]]" size 50
 
@@ -2641,19 +2657,19 @@ screen question34:
         ypos 725
         text "[question[34][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[34][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[34][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[34][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[34][4]]" size 50
 
@@ -2663,19 +2679,19 @@ screen question35:
         ypos 725
         text "[question[35][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[35][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[35][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[35][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[35][4]]" size 50
 
@@ -2685,19 +2701,19 @@ screen question36:
         ypos 725
         text "[question[36][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[36][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[36][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[36][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[36][4]]" size 50
 
@@ -2707,19 +2723,19 @@ screen question37:
         ypos 725
         text "[question[37][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[37][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[37][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[37][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[37][4]]" size 50
 
@@ -2729,19 +2745,19 @@ screen question38:
         ypos 725
         text "[question[38][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[38][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[38][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[38][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[38][4]]" size 50
 
@@ -2751,19 +2767,19 @@ screen question39:
         ypos 725
         text "[question[39][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[39][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[39][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[39][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[39][4]]" size 50
 
@@ -2775,19 +2791,19 @@ screen question40:
         ypos 725
         text "[question[40][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[40][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[40][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[40][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[40][4]]" size 50
 
@@ -2797,19 +2813,19 @@ screen question41:
         ypos 725
         text "[question[41][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[41][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[41][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[41][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[41][4]]" size 50
 
@@ -2819,19 +2835,19 @@ screen question42:
         ypos 725
         text "[question[42][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[42][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[42][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[42][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[42][4]]" size 50
 
@@ -2841,19 +2857,19 @@ screen question43:
         ypos 725
         text "[question[43][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[43][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[43][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[43][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[43][4]]" size 50
 
@@ -2863,19 +2879,19 @@ screen question44:
         ypos 725
         text "[question[44][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[44][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[44][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[44][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[44][4]]" size 50
 
@@ -2885,18 +2901,18 @@ screen question45:
         ypos 725
         text "[question[45][0]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 840
         text "[question[45][1]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 840
         text "[question[45][2]]" size 50
     vbox:
-        xpos 300
+        xpos 390
         ypos 950
         text "[question[45][3]]" size 50
     vbox:
-        xpos 1020
+        xpos 1110
         ypos 950
         text "[question[45][4]]" size 50

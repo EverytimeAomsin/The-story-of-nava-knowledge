@@ -65,9 +65,12 @@ screen pnc(p , g, isMap = False):
         add g.darkness pos mouse align .5,.5 at additive(.02)
 
     if g.items_left():
+        imagebutton:
+            xalign 0.24 yalign 0.05
+            idle "minig1p.jpg"
         button:
             align 1.0,0.0 background "#944" padding 10,10 margin 20,20
-            text "Skip"
+            text "ค้นหาเสร็จสิ้น"
             action Return(False)
     else:
         button:

@@ -25,6 +25,9 @@ define grade_g2 = 'null'
 
 define G2 = 1 # จำนวนเกมที่ต้องเล่นในทดสอบ 2
 
+define ans_show = '--'
+define ans_g1check = '0'
+
 define abyss = 1
 define fisherman = 1
 define fishermanstavern = 1
@@ -50,10 +53,13 @@ screen fail:
 
 screen ans_label:
     imagebutton:
-        xalign 0.99 yalign 0.45
-        idle "next.png"
-        hover "next2.png"
+        xalign 0.5 yalign 0.965
+        idle "g1_buttonans.jpg"
+        hover "g1_buttonans2.jpg"
         action Jump("game_1") alt "ejection"
+    vbox:
+        xalign 0.5 yalign 0.98
+        text "ข้อต่อไป" size 70
 
 screen scoreboard_g1:
     
@@ -113,6 +119,10 @@ screen finalscore:
         ypos 750
         text "{color=#000000}{size=55}ภาพที่ 5 : {color=#C65A77}[picture4]{/color} {/size}{/color}"
 
+    vbox:
+        xalign 0.97 yalign 0.5
+        text "คุณได้ตอบคำตอบ\nทั้งหมดแล้ว" size 40
+
     imagebutton:
         xalign 0.5 yalign 0.85
         idle "final_bt1.png"
@@ -159,7 +169,9 @@ label game_1:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-   
+    $ ans_show = '--'
+    $ ingame2_score = 0
+    $ ans_g1check = 0
     
     show screen my_button1(x=None)
     show screen my_button2(x=None)
@@ -176,12 +188,16 @@ label game_1:
     show screen my_button13(x=None)
     show screen my_button14(x=None)
     show screen my_button15(x=None)
-    
+    show screen sideans
     hide screen true
     hide screen fail
     hide screen ans_label
     show screen scoreboard_g1
     
+
+    
+    hide screen g1_buttonans
+    show screen waitans
     jump random
     return
 
@@ -210,8 +226,8 @@ label random:
         
         $ ingame2_score = ingame2_score * 0
         $ ingame2_score = ingame2_score + 25
-        $ randomG2 = renpy.random.choice(['abyss', 'fisherman','ropes','fishermanstavern','cabana','wonderland','lockers','massage','cabana'])
-        if randomG2 == 'abyss':
+        $ randomG2 = renpy.random.choice(['อะบิส', 'ฟิชเชอร์แมนส์คาเฟ่','โรพส์คอร์ส','ฟิชเชอร์แมนส์ทาเวิร์น','คาบาน่าและบีชฮัท','วานา วันเดอร์แลนด์','ล็อกเกอร์และห้องอาบน้ำ','ร้านนวดไทย','โคโคนัทบีช'])
+        if randomG2 == 'อะบิส':
             if abyss == 1:
                 scene abyss_background
                 $ abyss = 0
@@ -220,7 +236,7 @@ label random:
                 $ picturecheck = picturecheck - 1
                 jump random
                 
-        elif randomG2 == 'fisherman':
+        elif randomG2 == 'ฟิชเชอร์แมนส์คาเฟ่':
             if fisherman == 1:
                 scene fisherman_background
                 $ fisherman = 0
@@ -228,7 +244,7 @@ label random:
             elif fisherman == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'fishermanstavern':
+        elif randomG2 == 'ฟิชเชอร์แมนส์ทาเวิร์น':
             if fishermanstavern == 1:
                 scene fishermanstavern_background
                 $ fishermanstavern = 0
@@ -236,7 +252,7 @@ label random:
             elif fishermanstavern == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'cabana':
+        elif randomG2 == 'คาบาน่าและบีชฮัท':
             if cabana == 1:
                 scene cabana_background
                 $ cabana = 0
@@ -244,7 +260,7 @@ label random:
             elif cabana == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'wonderland':
+        elif randomG2 == 'วานา วันเดอร์แลนด์':
             if wonderland == 1:
                 scene wonderland_background
                 $ wonderland = 0
@@ -252,15 +268,15 @@ label random:
             elif wonderland == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'coconut':
-            if wonderland == 1:
+        elif randomG2 == 'โคโคนัทบีช':
+            if coconut == 1:
                 scene coconut_background
-                $ wonderland = 0
+                $ coconut = 0
                 jump ans1
-            elif wonderland == 0:
+            elif coconut == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'lockers':
+        elif randomG2 == 'ล็อกเกอร์และห้องอาบน้ำ':
             if lockers == 1:
                 scene lockers_background
                 $ fishermanstavern = 0
@@ -268,7 +284,7 @@ label random:
             elif lockers == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'massage':
+        elif randomG2 == 'ร้านนวดไทย':
             if massage == 1:
                 scene massage_background
                 $ massage = 0
@@ -276,7 +292,7 @@ label random:
             elif massage == 0:
                 $ picturecheck = picturecheck - 1
                 jump random
-        elif randomG2 == 'ropes':
+        elif randomG2 == 'โรพส์คอร์ส':
             if ropes == 1:
                 scene ropes_background
                 $ ropes = 0
@@ -302,9 +318,12 @@ label ans1:
     hide screen ejection
     hide screen cant_g1
     hide screen cancel
-    show screen ans1(x=None)
+    # show screen ans1(x=None)
     $ anscheck = anscheck * 0
     jump waitroom
+
+label showans:
+    
 label score:
     hide screen ejection
     hide screen choiceppicture
@@ -312,111 +331,123 @@ label score:
     show screen cancel
     $ anscheck = anscheck + 1
 
-label choices1: 
-    menu:
-        "อะบิส":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'abyss':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "ฟิชเชอร์แมนส์คาเฟ่":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'fisherman':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "ฟิชเชอร์แมนส์ทาเวิร์น":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'fishermanstavern':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "คาบาน่าและบีชฮัท":
-            $ anscheck = anscheck * 0
-            if randomG2 == 'cabana':
-                $ ingame2_score = ingame2_score + 5
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen true
-            else:
-                $ ingame2_score = ingame2_score * 0
-                $ scoreG2 = scoreG2 + ingame2_score
-                show screen fail
-        "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 2)":
-            jump choices2
-    jump score2
-       
 
-label choices2:
-    menu:
-            "วานา วันเดอร์แลนด์":
-                $ anscheck = anscheck * 0
-                if randomG2 == 'wonderland':
-                    $ ingame2_score = ingame2_score + 5
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen true
-                else:
-                    $ ingame2_score = ingame2_score * 0
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen fail
-            "โคโคนัทบีช":
-                $ anscheck = anscheck * 0
-                if randomG2 == 'coconut':
-                    $ ingame2_score = ingame2_score + 5
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen true
-                else:
-                    $ ingame2_score = ingame2_score * 0
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen fail
-            "ล็อกเกอร์และห้องอาบน้ำ":
-                $ anscheck = anscheck * 0
-                if randomG2 == 'lockers':
-                    $ ingame2_score = ingame2_score + 5
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen true
-                else:
-                    $ ingame2_score = ingame2_score * 0
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen fail
-            "ร้านนวดไทย":
-                $ anscheck = anscheck * 0
-                if randomG2 == 'massage':
-                    $ ingame2_score = ingame2_score + 5
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen true
-                else:
-                    $ ingame2_score = ingame2_score * 0
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen fail
-            "โรพส์คอร์ส":
-                $ anscheck = anscheck * 0
-                if randomG2 == 'ropes':
-                    $ ingame2_score = ingame2_score + 5
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen true
-                else:
-                    $ ingame2_score = ingame2_score * 0
-                    $ scoreG2 = scoreG2 + ingame2_score
-                    show screen fail
-            "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 1)":
-                jump choices1
-    jump score2
+# label choices1: 
+#     menu:
+#         "อะบิส":
+#             $ anscheck = anscheck * 0
+#             if randomG2 == 'abyss':
+#                 $ ingame2_score = ingame2_score + 5
+#                 $ scoreG2 = scoreG2 + ingame2_score
+                
+#                 show screen true
+#             else:
+#                 $ ingame2_score = ingame2_score * 0
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen fail
+#         "ฟิชเชอร์แมนส์คาเฟ่":
+#             $ anscheck = anscheck * 0
+#             if randomG2 == 'fisherman':
+#                 $ ingame2_score = ingame2_score + 5
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen true
+#             else:
+#                 $ ingame2_score = ingame2_score * 0
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen fail
+#         "ฟิชเชอร์แมนส์ทาเวิร์น":
+#             $ anscheck = anscheck * 0
+#             if randomG2 == 'fishermanstavern':
+#                 $ ingame2_score = ingame2_score + 5
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen true
+#             else:
+#                 $ ingame2_score = ingame2_score * 0
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen fail
+#         "คาบาน่าและบีชฮัท":
+#             $ anscheck = anscheck * 0
+#             if randomG2 == 'cabana':
+#                 $ ingame2_score = ingame2_score + 5
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen true
+#             else:
+#                 $ ingame2_score = ingame2_score * 0
+#                 $ scoreG2 = scoreG2 + ingame2_score
+#                 show screen fail
+#         "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 2)":
+#             jump choices2
+#     jump score2
+       
+# label choices2:
+
+# label choices2:
+#     menu:
+#             "วานา วันเดอร์แลนด์":
+#                 $ anscheck = anscheck * 0
+#                 if randomG2 == 'wonderland':
+#                     $ ingame2_score = ingame2_score + 5
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen true
+#                 else:
+#                     $ ingame2_score = ingame2_score * 0
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen fail
+#             "โคโคนัทบีช":
+#                 $ anscheck = anscheck * 0
+#                 if randomG2 == 'coconut':
+#                     $ ingame2_score = ingame2_score + 5
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen true
+#                 else:
+#                     $ ingame2_score = ingame2_score * 0
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen fail
+#             "ล็อกเกอร์และห้องอาบน้ำ":
+#                 $ anscheck = anscheck * 0
+#                 if randomG2 == 'lockers':
+#                     $ ingame2_score = ingame2_score + 5
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen true
+#                 else:
+#                     $ ingame2_score = ingame2_score * 0
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen fail
+#             "ร้านนวดไทย":
+#                 $ anscheck = anscheck * 0
+#                 if randomG2 == 'massage':
+#                     $ ingame2_score = ingame2_score + 5
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen true
+#                 else:
+#                     $ ingame2_score = ingame2_score * 0
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen fail
+#             "โรพส์คอร์ส":
+#                 $ anscheck = anscheck * 0
+#                 if randomG2 == 'ropes':
+#                     $ ingame2_score = ingame2_score + 5
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen true
+#                 else:
+#                     $ ingame2_score = ingame2_score * 0
+#                     $ scoreG2 = scoreG2 + ingame2_score
+#                     show screen fail
+#             "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 1)":
+#                 jump choices1
+#     jump score2
 
 label score2:
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
     if anscheck > 0 :
         jump ans1
     else:
@@ -440,7 +471,22 @@ label score2:
         hide screen my_button14
         hide screen my_button15
         hide screen ans1
+        hide screen waitans
         show screen ans_label
+
+        hide screen g1_ans
+        hide screen g1_button1
+        hide screen g1_button2
+        hide screen g1_button3
+        hide screen g1_button4
+        hide screen g1_button5
+        hide screen g1_button6
+        hide screen g1_button7
+        hide screen g1_button8
+        hide screen g1_button9
+        hide screen g1_button10
+        hide screen g1_button10
+
         $ G2 = G2+1
         if picturecheck == 1:
             $ picture1 = picture1 + ingame2_score
@@ -457,6 +503,7 @@ label score2:
 label waitend:
     window hide   
     pause
+    
     jump waitend
     return
 
@@ -468,6 +515,7 @@ label waitroom:
     jump waitroom
     return
 label end1:
+    hide screen waitans
     show screen finalscore
     if scoreG2 >= 80:
         $ grade_g2 = 'A'
@@ -482,6 +530,22 @@ label end1:
     jump waitend
     return
 label wait1:
+    hide screen waitans
+    show screen g1_button1
+    show screen g1_button2
+    show screen g1_button3
+    show screen g1_button4
+    show screen g1_button5
+    show screen g1_button6
+    show screen g1_button7
+    show screen g1_button8
+    show screen g1_button9
+    show screen g1_button10
+    show screen g1_button10
+    
+    show screen g1_ans
+    show screen g1_ans2
+    show screen g1_buttonans
     if ingame2_score == 5:
         jump score
     elif ingame2_score < 4:
@@ -746,4 +810,403 @@ screen my_button15:
         hover "hide2_15.jpg"
         insensitive "hide3.png"
         action Jump("ejection15") alt "ejection"
+
+screen sideans:
+    imagebutton:
+        xalign 0.995 yalign 0.5
+        idle "matchroomside.png"
+
+
+
+screen g1_button1:
+    
+    imagebutton:
+        xalign 0.985 yalign 0.12
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button1") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.12
+        text "อะบิส" 
+
+screen g1_button2:
+    imagebutton:
+        xalign 0.985 yalign 0.20
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button2") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.20
+        text "ฟิชเชอร์แมนส์คาเฟ่" 
+
+screen g1_button3:
+    imagebutton:
+        xalign 0.985 yalign 0.28
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button3") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.28
+        text "ฟิชเชอร์แมนส์ทาเวิร์น" 
+screen g1_button4:
+    imagebutton:
+        xalign 0.985 yalign 0.36
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button4") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.36
+        text "คาบาน่าและบีชฮัท" 
+screen g1_button5:
+    imagebutton:
+        xalign 0.985 yalign 0.44
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button5") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.44
+        text "วานา วันเดอร์แลนด์" 
+screen g1_button6:
+    imagebutton:
+        xalign 0.985 yalign 0.52
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button6") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.52
+        text "โคโคนัทบีช" 
+screen g1_button7:
+    imagebutton:
+        xalign 0.985 yalign 0.60
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button7") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.60
+        text "ล็อกเกอร์และห้องอาบน้ำ" 
+screen g1_button8:
+    imagebutton:
+        xalign 0.985 yalign 0.68
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button8") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.68
+        text "ร้านนวดไทย" 
+screen g1_button9:
+    imagebutton:
+        xalign 0.985 yalign 0.76
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button9") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.76
+        text "โรพส์คอร์ส" 
+
+screen g1_button10:
+    imagebutton:
+        xalign 0.985 yalign 0.84
+        idle "g1_button.jpg"
+        hover "g1_button2.jpg"
+        action Jump("g1_button10") alt "ejection"
+    vbox:
+        xalign 0.975 yalign 0.84
+        text "ล็อกเกอร์และห้องอาบน้ำ"
+
+screen g1_buttonans:
+    imagebutton:
+        xalign 0.5 yalign 0.965
+        idle "g1_buttonans.jpg"
+        hover "g1_buttonans2.jpg"
+        action Jump("choices") alt "ejection"
+    vbox:
+        xalign 0.5 yalign 0.98
+        text "ส่งคำตอบ" size 70
+
+screen g1_ans:
+
+    vbox:
+        xalign 0.989 yalign 0.04
+        text "เลือกคำตอบจากเมนู" size 50
+    
+
+
+screen g1_ans2:
+    imagebutton:
+        xalign 0.985 yalign 0.985
+        idle "g1_ans.jpg"
+    vbox:
+        xalign 0.98 yalign 0.94
+        text "[ans_show]" size 40
+    vbox:
+        xalign 0.945 yalign 0.99
+        text "คำตอบที่เลือก" 
+
+screen waitans:
+    vbox:
+        xalign 0.97 yalign 0.5
+        text "กรุณาเลือกแผ่นป้าย\nจึงจะเลือกคำตอบได้" size 40
+
+
+
+
+
+label choices:
+   
+    if ans_g1check == 5:
+        $ ingame2_score = ingame2_score 
+        $ scoreG2 = scoreG2 + ingame2_score
+        show screen true
+    else:
+        $ ingame2_score = ingame2_score * 0
+        $ scoreG2 = scoreG2 + ingame2_score
+        show screen fail
+    jump score2 
+
+label g1_button1:
+
+    show screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'อะบิส'
+    if randomG2 == 'อะบิส':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button2:
+
+    hide screen g1_sbutton1
+    show screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'ฟิชเชอร์แมนส์คาเฟ่'
+    if randomG2 == 'ฟิชเชอร์แมนส์คาเฟ่':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button3:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    show screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'ฟิชเชอร์แมนส์ทาเวิร์น'
+    if randomG2 == 'ฟิชเชอร์แมนส์ทาเวิร์น':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button4:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    show screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'คาบาน่าและบีชฮัท'
+    if randomG2 == 'คาบาน่าและบีชฮัท':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button5:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    show screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'วานา วันเดอร์แลนด์'
+    if randomG2 == 'วานา วันเดอร์แลนด์':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button6:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    show screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'โคโคนัทบีช'
+    if randomG2 == 'โคโคนัทบีช':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button7:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    show screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'ล็อกเกอร์และห้องอาบน้ำ'
+    if randomG2 == 'ล็อกเกอร์และห้องอาบน้ำ':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button8:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    show screen g1_sbutton8
+    hide screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'ร้านนวดไทย'
+    if randomG2 == 'ร้านนวดไทย':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button9:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    show screen g1_sbutton9
+    hide screen g1_sbutton10
+
+    $ ans_show = 'โรพส์คอร์ส'
+    if randomG2 == 'โรพส์คอร์ส':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+label g1_button10:
+
+    hide screen g1_sbutton1
+    hide screen g1_sbutton2
+    hide screen g1_sbutton3
+    hide screen g1_sbutton4
+    hide screen g1_sbutton5
+    hide screen g1_sbutton6
+    hide screen g1_sbutton7
+    hide screen g1_sbutton8
+    hide screen g1_sbutton9
+    show screen g1_sbutton10
+
+    $ ans_show = 'ล็อกเกอร์และห้องอาบน้ำ'
+    if randomG2 == 'ล็อกเกอร์และห้องอาบน้ำ':
+        $ ans_g1check = 5
+    else:
+        $ ans_g1check = 0
+    jump waitend
+
+
+
+screen g1_sbutton1:
+    imagebutton:
+        xalign 0.989 yalign 0.115
+        idle "g1_sbutton.png"
+
+screen g1_sbutton2:
+    imagebutton:
+        xalign 0.989 yalign 0.1959
+        idle "g1_sbutton.png"
+
+screen g1_sbutton3:
+    imagebutton:
+        xalign 0.989 yalign 0.277
+        idle "g1_sbutton.png"
+
+screen g1_sbutton4:
+    imagebutton:
+        xalign 0.989 yalign 0.357
+        idle "g1_sbutton.png"
+
+screen g1_sbutton5:
+    imagebutton:
+        xalign 0.989 yalign 0.44
+        idle "g1_sbutton.png"
+
+screen g1_sbutton6:
+    imagebutton:
+        xalign 0.989 yalign 0.52
+        idle "g1_sbutton.png"
+
+screen g1_sbutton7:
+    imagebutton:
+        xalign 0.989 yalign 0.60
+        idle "g1_sbutton.png"
+
+screen g1_sbutton8:
+    imagebutton:
+        xalign 0.989 yalign 0.68
+        idle "g1_sbutton.png"
+
+screen g1_sbutton9:
+    imagebutton:
+        xalign 0.989 yalign 0.762
+        idle "g1_sbutton.png"
+
+screen g1_sbutton10:
+    imagebutton:
+        xalign 0.989 yalign 0.843
+        idle "g1_sbutton.png"
+
+
+
+
 
