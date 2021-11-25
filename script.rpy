@@ -88,7 +88,7 @@ label menu3:
     $ skip = 1
     hide screen mainmenu
     $ Player = renpy.input("ใส่ชื่อของคุณ \nกด Enter เพื่อเริ่ม", length=25)
-    jump game_2
+    jump chapter3_1
 
 label intro:
         play sound "audio/mumei_bgm.mp3" volume 1.0 loop
@@ -442,16 +442,94 @@ label chapter2_1 :
         #การทดสอบครั้งที่ 1
         Yuri            "เอาละคะ ขอแนะนำก่อนนะคะ พี่ชื่อยูริ พี่จะมาแนะนำวิธีการแข่งขันนะค่ะ"
         Yuri            "เริ่มแรกจากผู้เข้าคัดเลือก 15 คน จะมีผู้เข้าผ่านการเข้าเลือก 2 คน ที่นอกจากจบการฝึกงานแล้วยังได้มีโอกาสเข้ารับการทำงาน"
-        Yuri            "เริ่มแรกเกมนี้จะมีคะแนนเต็ม 100 คะแนน ให้ผู้เข้าแข่งขันตอบภาพปริศนาที่อยู่หลังจิ๊กซอว์ 25 ช่อง โดยผู้เข้าแข่งขันจะมีสิทธิ์เปิดได้ 1 ช่อง หากตอบถูกจะได้คะแนนเต็ม 25 คะแนน แต่ถ้าหากผู้เข้าแข่งขันไม่แน่ใจในคำตอบ สามารถ เปิดเพิ่ม ได้ครั้งละ 1 ช่อง แต่คะแนนจะลดลงครั้งละ 5 คะแนน หากตอบถูกจะได้คะแนนในขณะนั้น แต่ถ้าหากตอบผิดจะได้ 0 คะแนนทันทีในข้อนั้น"
-        Yuri            "ตัวภาพที่ทายจะสุ่มมา 5  ภาพไม่ซ้ำกัน"
-
-        Npc             "แล้วในกรณีที่คะแนนเท่ากันละครับ"
-        Yuri            "สำหรับในกรณีที่ตะแนนเท่ากัน จะมีรอบตอบคำถามพิเศษค่ะ"
-        Yuri            "สำหรับในรอบนี้ ผู้เข้าแข่งขันจะต้องแข่งกันทายสถานที่ จากข้อความที่ถูกปิดไว้"
-        Yuri            "ในรอบที่สอง จะเป็นด่านตอบคำถาม ในด่านตอบคำถามจะมีมินิเกมซ่อนไว้ เกมจะนำผู้เล่นเดินไปคามช่อง ถ้าตอบถูกจะเดินไปทอยลูกเต๋าซค่งจะเดินได้สูงสุด 6 ช่อง แต่ถ้าตอบผิดจะสุ่มลูกเต๋าเหมือนกัน แต่สุ่มได้สูงสุดคือ 1 - 3 แต้ม"
-        Yuri            "ในสำหรับวันนี้วันแรกจะเป็นการแข่งด่านแรก เริ่มได้ ขอให้โชคดี"
-
-        jump game_1                
+        jump g1how1
+screen playg1: 
+    imagebutton:
+        xalign 0.5 yalign 0.95
+        idle "g1_play.png"
+        action Jump("playg1") alt "ejection"
+screen g1h1: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g1_how1.png"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+        action Jump("g1how2") alt "ejection"
+screen g1h2: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g1_how2.png"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+        action Jump("g1how1") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+        action Jump("g1how3") alt "ejection"
+screen g1h3: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g1_how3.jpg"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+        action Jump("g1how2") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+        action Jump("g1how4") alt "ejection"
+screen g1h4: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g1_how4.jpg"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+        action Jump("g1how3") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+label waithow2:
+        window hide   
+        pause
+        
+        jump waitend
+        return
+label g1how1:
+        show screen playg1  
+        show screen g1h1
+        hide screen g1h2
+        jump waithow2
+        # jump game_1  
+label g1how2:
+        hide screen g1h1
+        show screen g1h2
+        hide screen g1h3
+        jump waithow2
+        # jump game_1     
+label g1how3:
+        hide screen g1h2
+        show screen g1h3
+        hide screen g1h4
+        jump waithow2
+        # jump game_1  
+label g1how4:
+        hide screen g1h3
+        show screen g1h4
+        jump waithow2
+        # jump game_1   
+label playg1:
+        hide screen g1h1
+        hide screen g1h2
+        hide screen g1h3
+        hide screen g1h4
+        hide screen playg1
+        jump game_1            
 label chapter2_1_1:
         
         
@@ -552,12 +630,105 @@ label chapter3:
         Yuri            "เอาละคะๆ ก่อนอื่นก็ขอต้อนรับและยินดีทุนคนที่ผ่านเข้ารอบนะค่ะ ยินดีด้วย เย้"
         Npc             "เย้....."
         Yuri            "ก่อนอื่นขออธิบายด่านนี้ซ้ำอีกรอบนะคะ"
+        jump chapter3_1
+label chapter3_1:
+        scene matchroom
+        hide screen yuri1
+        show yuri1:
+            xzoom 1.5 yzoom 1.5
         Yuri            "การทดสอบรอบที่ 2 "
         Yuri            "กติกาก็คือผู้เข้าแข่งขันจะต้องตอบคำถามจากคำถามที่เจอ"
         Yuri            "หากตอบถูกจะสุ่มการเดินโดยอ้างอิงจากกาารสุ่มลูกเต๋ามากถึง 6 ช่อง หากตอบผิดจะสุ่มได้มมากสุ่ม 3 ช่อง"
         Yuri            "ในนั้นจะมีมินิเกม 2 เกมคือเกมหาของ และ เกมทำอาหาร"
+        jump g2how1
 
-
+screen playg2: 
+    imagebutton:
+        xalign 0.5 yalign 0.95
+        idle "g1_play.png"
+        action Jump("playg2") alt "ejection"
+screen g2h1: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g1_how1.png"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+        action Jump("g2how2") alt "ejection"
+screen g2h2: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g2_how2.png"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+        action Jump("g2how1") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+        action Jump("g2how3") alt "ejection"
+screen g2h3: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g2_how3.png"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+        action Jump("g2how2") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+        action Jump("g2how4") alt "ejection"
+screen g2h4: 
+    imagebutton:
+        xalign 0.5 yalign 0.5
+        idle "g2_how4.png"
+    imagebutton:
+        xalign 0.05 yalign 0.5
+        idle "g1_next1.png"
+        action Jump("g2how3") alt "ejection"
+    imagebutton:
+        xalign 0.95 yalign 0.5
+        idle "g1_next2.png"
+label waithow:
+        window hide   
+        pause
+        
+        jump waitend
+        return
+label g2how1:
+        show screen playg2 
+        show screen g2h1
+        hide screen g2h2
+        jump waithow
+        # jump game_1  
+label g2how2:
+        hide screen g1h1
+        show screen g2h2
+        hide screen g2h3
+        jump waithow
+        # jump game_1     
+label g2how3:
+        hide screen g2h2
+        show screen g2h3
+        hide screen g2h4
+        jump waithow
+        # jump game_1  
+label g2how4:
+        hide screen g2h3
+        show screen g2h4
+        jump waithow
+        # jump game_1   
+label playg2:
+        hide screen g2h1
+        hide screen g2h2
+        hide screen g2h3
+        hide screen g2h4
+        hide screen playg2
+        scene bgg2
         jump game_2
 label chapter3_0:
         hide screen scoreboard_g1

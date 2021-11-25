@@ -249,9 +249,9 @@ screen final:
         ypos 630
         text "{color=#000000}{size=70}ได้ตอบผิด : [scorefail_g1]{/size}{/color}"
     vbox:
-        xalign 0.43
+        xalign 0.47
         ypos 720
-        text "{color=#000000}{size=70}เป็นเปอร์เซ็น : [percent_g1] %{/size}{/color}"
+        text "{color=#000000}{size=70}เปอร์เซ็น : [percent_g1] %{/size}{/color}"
 
     imagebutton:
         xalign 0.605 yalign 0.84
@@ -317,12 +317,12 @@ screen next:
 
     imagebutton:
         xalign 0.975 yalign 0.71
-        idle "final_bt1.png"
-        hover "final_bt2.png"
+        idle "next_bt1.png"
+        hover "next_bt2.png"
         action Jump("next") alt "ejection"
     vbox:
-        xalign 0.969 yalign 0.71
-        text "กดเพื่อไปข้อต่อไป =>" size 43
+        xalign 0.958 yalign 0.71
+        text "กดเพื่อไปข้อต่อไป =>" size 38
 
 
 
@@ -517,6 +517,8 @@ label minigame1:
     jump hidden_object
     return
 label minigame2:
+    hide screen choice_menu
+    hide screen question30
     $ ans_g1 = 'null'
     $ pass_minigame2 = 'true'
     $ roll = 0
@@ -1164,7 +1166,7 @@ label check2:
         else:
             
             $ ans_g1 = 'false'
-        hide screen choice_menu
+        show screen question36
         hide screen question29
         hide screen question30
         hide screen question31
@@ -1646,7 +1648,7 @@ label point30:
     $ q2 = question[30][1]
     show test1 with dissolve  :
         linear 0 xpos 1260 ypos 320
-    jump Changeview
+    jump minigame2
     return
 
    
@@ -1809,7 +1811,7 @@ label point_GG:
     $ scorefail_g1 =  scorefail_g1
     $ percent_g1 = (realscore * 100) 
     $ percent_g1 = percent_g1 / totalAns_g1
-    $ scorefail_g1 = totalAns_g1 - score_g1
+    $ scorefail_g1 = totalAns_g1 - realscore
     hide screen choice_menu
     if percent_g1 >= 80:
         $ grade = 'A'
