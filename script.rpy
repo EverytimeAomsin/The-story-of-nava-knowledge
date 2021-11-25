@@ -54,18 +54,18 @@ label start:
 screen mainmenu:
     imagebutton:
         xalign 0.05 yalign 0.5
-        idle "menu_story.png"
-        hover "menu_story2.png"
+        idle "menu_story2.png"
+        hover "menu_story.png"
         action Jump("menu1") alt "ejection"
     imagebutton:
         xalign 0.5 yalign 0.5
-        idle "menu_jigsaw.png"
-        hover "menu_jigsaw2.png"
+        idle "menu_jigsaw2.png"
+        hover "menu_jigsaw.png"
         action Jump("menu2") alt "ejection"
     imagebutton:
         xalign 0.95 yalign 0.5
-        idle "menu_quiz.png"
-        hover "menu_quiz2.png"
+        idle "menu_quiz2.png"
+        hover "menu_quiz.png"
         action Jump("menu3") alt "ejection"
 label menu0:
     scene menu_bg
