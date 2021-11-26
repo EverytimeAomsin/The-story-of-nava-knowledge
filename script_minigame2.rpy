@@ -1,8 +1,13 @@
 define e = Character("Eileen")
+screen howmini2:
+    imagebutton:
+        xalign 0.5 yalign 0.2
+        idle "g1_howm2.jpg"
 
 label inminigame2:
     
     scene vana_fb
+    show screen howmini2
     "ถึงเวลาเล่นเกม minigame ที่สองแล้ว กติกาคือผู้เล่นจะต้องกดโน็ตตามจังหวะดนตรี ยิ่งกดถูกมากจะยิ่งได้แต้มเดินเยอะ"
     "ให้ใช้ปุ่ม ลูกศรบนคีย์บอร์ดในการควบคุม ( Arrow keys )"
     "งั้นเริ่มกันเลย"
@@ -17,7 +22,7 @@ label in1:
     $ ui.timer(1.0, ui.jumps("in0"))
     
 label in0:
-    
+    hide screen howmini2
     # start the rhythm game
     # window hide
     $ quick_menu = False

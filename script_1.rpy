@@ -41,7 +41,7 @@ define wonderland = 1
 screen ejection:
     vbox:
         xalign 0.500 yalign 0.12
-        text "ได้เอาป้ายออกเหลือ [ingame2_score] คะแนน เลือกป้ายต่อไปได้เลย" size 50
+        text "ได้เอาป้ายออกเหลือ [ingame2_score] คะแนนในข้อนี้" size 50
 screen true:
     vbox:
         xalign 0.500 yalign 0.12
@@ -155,7 +155,7 @@ screen ans1:
 screen choiceppicture:
     vbox:
         xalign 0.500 yalign 0.12
-        text "ให้เลือกแผ่นป้ายที่จะหยิบ" size 70
+        text "กรุณาเลือกแผ่นป้ายที่คุณต้องการ 1 - 15" size 70
 
 
 

@@ -511,12 +511,30 @@ label minigame1:
     $ ans_g1 = 'null'
     $ pass_minigame1 = 'true'
     $ roll = 0
+    hide screen question11
+    hide screen question12
+    hide screen question13
+    hide screen question14
     hide screen question15
     hide screen question16
     hide screen question17
+    hide screen question18
+    hide screen question19
+    hide screen question20
+    hide screen question21
+    
     jump hidden_object
     return
 label minigame2:
+    hide screen question26
+    hide screen question27
+    hide screen question28
+    hide screen question29
+    hide screen question31
+    hide screen question32
+    hide screen question33
+    hide screen question34
+    hide screen question35
     hide screen choice_menu
     hide screen question30
     $ ans_g1 = 'null'
