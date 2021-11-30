@@ -156,6 +156,10 @@ screen choiceppicture:
     vbox:
         xalign 0.500 yalign 0.12
         text "กรุณาเลือกแผ่นป้ายที่คุณต้องการ 1 - 15" size 70
+screen failg1:
+    vbox:
+        xalign 0.500 yalign 0.12
+        text "คุณไม่สามารถนำแผ่นป้ายออกได้แล้ว หากเอาออกเพิ่มคะแนนจะเหลือ 0" size 40
 
 
 
@@ -332,110 +336,7 @@ label score:
     $ anscheck = anscheck + 1
 
 
-# label choices1: 
-#     menu:
-#         "อะบิส":
-#             $ anscheck = anscheck * 0
-#             if randomG2 == 'abyss':
-#                 $ ingame2_score = ingame2_score + 5
-#                 $ scoreG2 = scoreG2 + ingame2_score
-                
-#                 show screen true
-#             else:
-#                 $ ingame2_score = ingame2_score * 0
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen fail
-#         "ฟิชเชอร์แมนส์คาเฟ่":
-#             $ anscheck = anscheck * 0
-#             if randomG2 == 'fisherman':
-#                 $ ingame2_score = ingame2_score + 5
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen true
-#             else:
-#                 $ ingame2_score = ingame2_score * 0
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen fail
-#         "ฟิชเชอร์แมนส์ทาเวิร์น":
-#             $ anscheck = anscheck * 0
-#             if randomG2 == 'fishermanstavern':
-#                 $ ingame2_score = ingame2_score + 5
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen true
-#             else:
-#                 $ ingame2_score = ingame2_score * 0
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen fail
-#         "คาบาน่าและบีชฮัท":
-#             $ anscheck = anscheck * 0
-#             if randomG2 == 'cabana':
-#                 $ ingame2_score = ingame2_score + 5
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen true
-#             else:
-#                 $ ingame2_score = ingame2_score * 0
-#                 $ scoreG2 = scoreG2 + ingame2_score
-#                 show screen fail
-#         "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 2)":
-#             jump choices2
-#     jump score2
-       
-# label choices2:
 
-# label choices2:
-#     menu:
-#             "วานา วันเดอร์แลนด์":
-#                 $ anscheck = anscheck * 0
-#                 if randomG2 == 'wonderland':
-#                     $ ingame2_score = ingame2_score + 5
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen true
-#                 else:
-#                     $ ingame2_score = ingame2_score * 0
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen fail
-#             "โคโคนัทบีช":
-#                 $ anscheck = anscheck * 0
-#                 if randomG2 == 'coconut':
-#                     $ ingame2_score = ingame2_score + 5
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen true
-#                 else:
-#                     $ ingame2_score = ingame2_score * 0
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen fail
-#             "ล็อกเกอร์และห้องอาบน้ำ":
-#                 $ anscheck = anscheck * 0
-#                 if randomG2 == 'lockers':
-#                     $ ingame2_score = ingame2_score + 5
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen true
-#                 else:
-#                     $ ingame2_score = ingame2_score * 0
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen fail
-#             "ร้านนวดไทย":
-#                 $ anscheck = anscheck * 0
-#                 if randomG2 == 'massage':
-#                     $ ingame2_score = ingame2_score + 5
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen true
-#                 else:
-#                     $ ingame2_score = ingame2_score * 0
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen fail
-#             "โรพส์คอร์ส":
-#                 $ anscheck = anscheck * 0
-#                 if randomG2 == 'ropes':
-#                     $ ingame2_score = ingame2_score + 5
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen true
-#                 else:
-#                     $ ingame2_score = ingame2_score * 0
-#                     $ scoreG2 = scoreG2 + ingame2_score
-#                     show screen fail
-#             "ตัวเลือกเพิ่มเติม (ตัวเลือกหน้า 1)":
-#                 jump choices1
-#     jump score2
 
 label score2:
     hide screen g1_sbutton1
@@ -509,7 +410,14 @@ label waitend:
 
 
 label waitroom:
-    show screen choiceppicture
+    if ingame2_score <= 20 and ingame2_score > 5:
+        hide screen choiceppicture
+    elif ingame2_score <= 5:
+        show screen failg1
+    else:
+        show screen choiceppicture
+        
+    
     window hide   
     pause
     jump waitroom
@@ -952,14 +860,16 @@ screen waitans:
 
 
 label choices:
-   
+    
     if ans_g1check == 5:
         $ ingame2_score = ingame2_score 
         $ scoreG2 = scoreG2 + ingame2_score
+        hide screen failg1
         show screen true
     else:
         $ ingame2_score = ingame2_score * 0
         $ scoreG2 = scoreG2 + ingame2_score
+        hide screen failg1
         show screen fail
     jump score2 
 

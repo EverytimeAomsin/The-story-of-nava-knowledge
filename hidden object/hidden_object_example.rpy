@@ -61,8 +61,8 @@ default hidden_object = pncs(
 
 label hidden_object:
     show screen hide_item
-    "นี้คือ minigame ที่ 1 "
-    "ของที่ต้องหา\n หนังสือ  ห่วงยาง ตุ๊กตา  ขวด มือถือ และโปสเตอร์\nถ้าหาได้ครบจะได้โอกาศเดินฟรี 4-8 ช่อง ถ้าไม่ครบจะได้แค่่ 1-4 ช่อง"
+    "เมื่อคุณผ่านช่องที่ 15 จะแสดง minigame ที่ 1 "
+    "กติกาคือต้องหาของ คือ\n หนังสือ  ห่วงยาง ตุ๊กตา  ขวด มือถือ และโปสเตอร์\nถ้าหาได้ครบจะได้โอกาศเดินฟรี 4-8 ช่อง ถ้าไม่ครบจะได้แค่่ 1-4 ช่อง"
     hide screen hide_item
     hide img with dissolve
     hide test1 with dissolve

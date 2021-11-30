@@ -8,7 +8,7 @@ label inminigame2:
     
     scene vana_fb
     show screen howmini2
-    "ถึงเวลาเล่นเกม minigame ที่สองแล้ว กติกาคือผู้เล่นจะต้องกดโน็ตตามจังหวะดนตรี ยิ่งกดถูกมากจะยิ่งได้แต้มเดินเยอะ"
+    "เมื่อผู้เล่นผ่านช่องที่ 30 จะมี minigame ที่สอง กติกาคือผู้เล่นจะต้องกดโน็ตตามจังหวะดนตรี ยิ่งกดถูกมากจะยิ่งได้แต้มเดินเยอะ"
     "ให้ใช้ปุ่ม ลูกศรบนคีย์บอร์ดในการควบคุม ( Arrow keys )"
     "งั้นเริ่มกันเลย"
     $ ui.timer(1.5, ui.jumps("in2"))
@@ -20,22 +20,22 @@ label in1:
     $ ui.timer(1.5, ui.jumps("in0"))
     "จะเริ่มใน 1"
     $ ui.timer(1.0, ui.jumps("in0"))
-    
-label in0:
     hide screen howmini2
+label in0:
+    
     # start the rhythm game
     # window hide
     $ quick_menu = False
 
     # avoid rolling back and losing game state
-    $ renpy.block_rollback()
+    # $ renpy.block_rollback()
     scene vana_fb
     call screen rhythm_game(
         'audio/my-music.mp3' , 
         'audio/my-music.beatmap.txt'
         )
     # avoid rolling back and entering the game again
-    $ renpy.block_rollback()
+    # $ renpy.block_rollback()
 
     # restore rollback from this point on
     $ renpy.checkpoint()
