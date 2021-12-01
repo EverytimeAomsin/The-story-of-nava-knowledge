@@ -26,7 +26,7 @@ default classroom_kobe = pnco(
 default classroom_lube = pnco(
     "Lube",
     "hidden object/classroom/lube.png",
-    (1182, 849),
+    (1182, 750),
     items = ["ขวด"]
     )
 default classroom_note = pnco(
@@ -62,7 +62,7 @@ default hidden_object = pncs(
 label hidden_object:
     show screen hide_item
     "เมื่อคุณผ่านช่องที่ 15 จะแสดง minigame ที่ 1 "
-    "กติกาคือต้องหาของ คือ\n หนังสือ  ห่วงยาง ตุ๊กตา  ขวด มือถือ และโปสเตอร์\nถ้าหาได้ครบจะได้โอกาศเดินฟรี 4-8 ช่อง ถ้าไม่ครบจะได้แค่่ 1-4 ช่อง"
+    "กติกาคือต้องหาของ คือ\n หนังสือ  ห่วงยาง ตุ๊กตา  ขวด มือถือ และโปสเตอร์"
     hide screen hide_item
     hide img with dissolve
     hide test1 with dissolve
@@ -77,7 +77,7 @@ label hidden_object:
     show office
     call screen pnc(p = None, g=hidden_object)
     if _return:
-        "คุณได้ของทั้งหมดเจอ ระบบจะสุ่มการเดิน 4 - 6 ช่อง"
+        "คุณได้ของทั้งหมดเจอ ขอให้โชคดีในก่อนทำแบบทดสอบ"
         $ roll = renpy.random.randint(4, 8)
         show screen choice_menu(x=None) 
         image img  = Image("images/map2.png", xpos = 0, ypos = 0)
@@ -89,7 +89,7 @@ label hidden_object:
 
         jump check
     else:
-        "คุณยังหาได้ไม่ครบ ระบบจะสุ่มการเดิน 1- 4 ช่อง"
+        "คุณยังหาได้ไม่ครบ ขอให้โชคดีในก่อนทำแบบทดสอบ"
         # $ roll = 2
         if randomq == 1:
             $ roll = 2

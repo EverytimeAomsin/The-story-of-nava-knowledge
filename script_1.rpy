@@ -93,7 +93,7 @@ screen finalscore:
     vbox:
         xalign 0.5
         ypos 405
-        text "{color=#000000}{size=70}คุณได้ตอบถูก{/size}{/color}"
+        text "{color=#000000}{size=70}ตอบถูก{/size}{/color}"
     vbox:
         xalign 0.5
         ypos 455
