@@ -46,14 +46,16 @@ label in0:
     $ num_hits, num_notes = _return
     play sound "audio/gura_bgm.mp3" volume 0.5 loop
     e "คุณได้ [num_hits] จากทั้งหมด [num_notes]. ขอบคุณที่มาเล่นนะ"
-    if num_hits >= 22:
-        $ roll = 4
-    elif num_hits >= 17:
-        $ roll = 3
-    elif num_hits >= 12:
-        $ roll = 2
-    elif num_hits < 7:
-        $ roll = 1
+    if randomq == 1:
+            $ roll = 2
+    elif randomq == 2:
+            $ roll = 1
+    elif randomq == 3:
+            $ roll = 2
+    elif randomq == 4:
+            $ roll = 2
+    elif randomq == 5:
+            $ roll = 2
     show screen choice_menu(x=None) 
     show screen scoreboard_g2
     show img with dissolve:

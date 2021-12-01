@@ -22,6 +22,10 @@ define realpoints = 1
 define roll = 0
 define grade = 'null'
 
+define randomq = 1
+
+define real = 0
+
 define realscore = 1
 
 define q1 = 'null'
@@ -209,7 +213,7 @@ label next:
     if points == 45:
         if ans_g1 == '4':
             $ realscore = realscore + 1
-
+    $ real = real + 1
     $ roll = renpy.random.choice([1, 2, 3, 4,'c'])
     if roll == 'c':
         if roll == 'c':
@@ -223,7 +227,314 @@ label next:
     else:
         $ roll = roll
 
-    $ roll = 1
+    # $ roll = 1
+
+    if randomq == 1:
+        if real == 1:
+            $ roll = 2
+
+        elif real == 2:
+            $ roll = 1
+
+        elif real == 3:
+            $ roll = 3
+
+        elif real == 4:
+            $ roll = 4
+
+        elif real == 5:
+            $ roll = 2
+
+        elif real == 6:
+            $ roll = 1
+
+        elif real == 7:
+            $ roll = 1
+
+        elif real == 8:
+            $ roll = 2
+
+        elif real == 9:
+            $ roll = 3
+
+        elif real == 10:
+            $ roll = 2
+
+        elif real == 11:
+            $ roll = 2
+
+        elif real == 12:
+            $ roll = 2
+
+        elif real == 13:
+            $ roll = 2
+
+        elif real == 14:
+            $ roll = 3
+
+        elif real == 15:
+            $ roll = 2
+
+        elif real == 16:
+            $ roll = 2
+
+        elif real == 17:
+            $ roll = 3
+
+        elif real == 18:
+            $ roll = 1
+
+        elif real == 19:
+            $ roll = 2
+
+        elif real == 20:
+            $ roll = 1
+
+
+    elif randomq == 2:
+        if real == 1:
+            $ roll = 1
+
+        elif real == 2:
+            $ roll = 3
+
+        elif real == 3:
+            $ roll = 1
+
+        elif real == 4:
+            $ roll = 1
+
+        elif real == 5:
+            $ roll = 3
+
+        elif real == 6:
+            $ roll = 1
+
+        elif real == 7:
+            $ roll = 2
+
+        elif real == 8:
+            $ roll = 2
+
+        elif real == 9:
+            $ roll = 2
+
+        elif real == 10:
+            $ roll = 4
+
+        elif real == 11:
+            $ roll = 2
+
+        elif real == 12:
+            $ roll = 2
+
+        elif real == 13:
+            $ roll = 3
+
+        elif real == 14:
+            $ roll = 1
+
+        elif real == 15:
+            $ roll = 2
+
+        elif real == 16:
+            $ roll = 2
+
+        elif real == 17:
+            $ roll = 5
+
+        elif real == 18:
+            $ roll = 2
+
+        elif real == 19:
+            $ roll = 1
+
+        elif real == 20:
+            $ roll = 2
+
+    elif randomq == 3:
+        if real == 1:
+            $ roll = 3
+
+        elif real == 2:
+            $ roll = 1
+
+        elif real == 3:
+            $ roll = 1
+
+        elif real == 4:
+            $ roll = 2
+
+        elif real == 5:
+            $ roll = 1
+
+        elif real == 6:
+            $ roll = 3
+
+        elif real == 7:
+            $ roll = 1
+
+        elif real == 8:
+            $ roll = 2
+
+        elif real == 9:
+            $ roll = 2
+
+        elif real == 10:
+            $ roll = 1
+
+        elif real == 11:
+            $ roll = 3
+
+        elif real == 12:
+            $ roll = 1
+
+        elif real == 13:
+            $ roll = 3
+
+        elif real == 14:
+            $ roll = 1
+
+        elif real == 15:
+            $ roll = 2
+
+        elif real == 16:
+            $ roll = 2
+
+        elif real == 17:
+            $ roll = 2
+
+        elif real == 18:
+            $ roll = 4
+
+        elif real == 19:
+            $ roll = 3
+
+        elif real == 20:
+            $ roll = 2
+
+    elif randomq == 4:
+        if real == 1:
+            $ roll = 5
+
+        elif real == 2:
+            $ roll = 3
+
+        elif real == 3:
+            $ roll = 1
+
+        elif real == 4:
+            $ roll = 1
+
+        elif real == 5:
+            $ roll = 2
+
+        elif real == 6:
+            $ roll = 1
+
+        elif real == 7:
+            $ roll = 1
+
+        elif real == 8:
+            $ roll = 1
+
+        elif real == 9:
+            $ roll = 2
+
+        elif real == 10:
+            $ roll = 1
+
+        elif real == 11:
+            $ roll = 2
+
+        elif real == 12:
+            $ roll = 4
+
+        elif real == 13:
+            $ roll = 1
+
+        elif real == 14:
+            $ roll = 1
+
+        elif real == 15:
+            $ roll = 2
+
+        elif real == 16:
+            $ roll = 2
+
+        elif real == 17:
+            $ roll = 2
+
+        elif real == 18:
+            $ roll = 4
+
+        elif real == 19:
+            $ roll = 3
+
+        elif real == 20:
+            $ roll = 2
+
+    elif randomq == 5:
+        if real == 1:
+            $ roll = 3
+
+        elif real == 2:
+            $ roll = 4
+
+        elif real == 3:
+            $ roll = 2
+
+        elif real == 4:
+            $ roll = 2
+
+        elif real == 5:
+            $ roll = 1
+
+        elif real == 6:
+            $ roll = 2
+
+        elif real == 7:
+            $ roll = 3
+
+        elif real == 8:
+            $ roll = 3
+
+        elif real == 9:
+            $ roll = 2
+
+        elif real == 10:
+            $ roll = 2
+
+        elif real == 11:
+            $ roll = 2
+
+        elif real == 12:
+            $ roll = 1
+
+        elif real == 13:
+            $ roll = 1
+
+        elif real == 14:
+            $ roll = 1
+
+        elif real == 15:
+            $ roll = 1
+
+        elif real == 16:
+            $ roll = 4
+
+        elif real == 17:
+            $ roll = 2
+
+        elif real == 18:
+            $ roll = 2
+
+        elif real == 19:
+            $ roll = 3
+
+        elif real == 20:
+            $ roll = 1
+
     hide screen next
     $ check_ans = check_ans * 0
     jump ans
@@ -239,15 +550,15 @@ screen final:
     vbox:
         xalign 0.5
         ypos 400
-        text "{color=#000000}{size=70}คุณได้ตอบถูก{/size}{/color}"
+        text "{color=#000000}{size=70}ตอบถูก{/size}{/color}"
     vbox:
         xalign 0.5
         ypos 450
-        text "{color=#C65A77}{size=140}[realscore] / [totalAns_g1]{/size}{/color}"
+        text "{color=#C65A77}{size=140}[realscore] / 20{/size}{/color}"
     vbox:
-        xalign 0.435
+        xalign 0.45
         ypos 630
-        text "{color=#000000}{size=70}ได้ตอบผิด : [scorefail_g1]{/size}{/color}"
+        text "{color=#000000}{size=70}ตอบผิด : [scorefail_g1]{/size}{/color}"
     vbox:
         xalign 0.47
         ypos 720
@@ -719,6 +1030,10 @@ label check2:
         hide screen question8
         hide screen question9
         show screen question10(x=None)
+
+        if points >= 15:
+            jump point15
+        
         jump point10
     elif points == 11:
         $ ans_real = '1'
@@ -736,6 +1051,9 @@ label check2:
         hide screen question9
         hide screen question10
         show screen question11(x=None)
+
+        if points >= 15:
+            jump point15
         jump point11
     elif points == 12:
         $ ans_real = '1'
@@ -753,6 +1071,9 @@ label check2:
         hide screen question10
         hide screen question11
         show screen question12(x=None)
+
+        if points >= 15:
+            jump point15
         jump point12
     elif points == 13:
        
@@ -770,6 +1091,9 @@ label check2:
         hide screen question11
         hide screen question12
         show screen question13(x=None)
+
+        if points >= 15:
+            jump point15
         jump point13
     elif points == '13':
         $ ans_real = '1'
@@ -804,6 +1128,9 @@ label check2:
         hide screen question16
         hide screen question17
         # show screen question14(x=None)
+
+        if points >= 15:
+            jump point15
         
         jump point14
     elif points == 15:
@@ -1665,7 +1992,7 @@ label point30:
     $ q1 = question[30][0]
     $ q2 = question[30][1]
     show test1 with dissolve  :
-        linear 0 xpos 1260 ypos 320
+        linear 0 xpos 1260 ypos 550
     jump minigame2
     return
 
@@ -1795,7 +2122,7 @@ label point42:
 label point43:
     
     show test1 with dissolve  :
-        linear 0 xpos 1537 ypos 18
+        linear 0 xpos 1537 ypos 170
     jump Changeview
     return
 
@@ -1828,8 +2155,8 @@ label point_GG:
     hide screen next
     $ scorefail_g1 =  scorefail_g1
     $ percent_g1 = (realscore * 100) 
-    $ percent_g1 = percent_g1 / totalAns_g1
-    $ scorefail_g1 = totalAns_g1 - realscore
+    $ percent_g1 = percent_g1 / 20
+    $ scorefail_g1 = 20 - realscore
     hide screen choice_menu
     if percent_g1 >= 80:
         $ grade = 'A'
@@ -1953,19 +2280,19 @@ screen question1:
     vbox:
         xpos 390
         ypos 840
-        text "[question[1][1]]" size 50
+        text "[question[1][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[1][2]]" size 50
+        text "[question[1][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[1][3]]" size 50
+        text "[question[1][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[1][4]]" size 50
+        text "[question[1][4]]" size 45
 
 screen question2:
     vbox:
@@ -1975,19 +2302,19 @@ screen question2:
     vbox:
         xpos 390
         ypos 840
-        text "[question[2][1]]" size 50
+        text "[question[2][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[2][2]]" size 50
+        text "[question[2][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[2][3]]" size 50
+        text "[question[2][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[2][4]]" size 50
+        text "[question[2][4]]" size 45
 
 screen question3:
     vbox:
@@ -1997,19 +2324,19 @@ screen question3:
     vbox:
         xpos 390
         ypos 840
-        text "[question[3][1]]" size 50
+        text "[question[3][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[3][2]]" size 50
+        text "[question[3][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[3][3]]" size 50
+        text "[question[3][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[3][4]]" size 50
+        text "[question[3][4]]" size 45
 
 screen question4:
     vbox:
@@ -2019,19 +2346,19 @@ screen question4:
     vbox:
         xpos 390
         ypos 840
-        text "[question[4][1]]" size 50
+        text "[question[4][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[4][2]]" size 50
+        text "[question[4][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[4][3]]" size 50
+        text "[question[4][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[4][4]]" size 50
+        text "[question[4][4]]" size 45
 
 screen question5:
     vbox:
@@ -2041,19 +2368,19 @@ screen question5:
     vbox:
         xpos 390
         ypos 840
-        text "[question[5][1]]" size 50
+        text "[question[5][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[5][2]]" size 50
+        text "[question[5][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[5][3]]" size 50
+        text "[question[5][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[5][4]]" size 50
+        text "[question[5][4]]" size 45
 
 screen question6:
     vbox:
@@ -2063,19 +2390,19 @@ screen question6:
     vbox:
         xpos 390
         ypos 840
-        text "[question[6][1]]" size 50
+        text "[question[6][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[6][2]]" size 50
+        text "[question[6][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[6][3]]" size 50
+        text "[question[6][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[6][4]]" size 50
+        text "[question[6][4]]" size 45
 
 screen question7:
     vbox:
@@ -2085,19 +2412,19 @@ screen question7:
     vbox:
         xpos 390
         ypos 840
-        text "[question[7][1]]" size 50
+        text "[question[7][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[7][2]]" size 50
+        text "[question[7][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[7][3]]" size 50
+        text "[question[7][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[7][4]]" size 50
+        text "[question[7][4]]" size 45
 
 screen question8:
     vbox:
@@ -2107,19 +2434,19 @@ screen question8:
     vbox:
         xpos 390
         ypos 840
-        text "[question[8][1]]" size 50
+        text "[question[8][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[8][2]]" size 50
+        text "[question[8][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[8][3]]" size 50
+        text "[question[8][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[8][4]]" size 50
+        text "[question[8][4]]" size 45
 
 screen question9:
     vbox:
@@ -2129,19 +2456,19 @@ screen question9:
     vbox:
         xpos 390
         ypos 840
-        text "[question[9][1]]" size 50
+        text "[question[9][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[9][2]]" size 50
+        text "[question[9][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[9][3]]" size 50
+        text "[question[9][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[9][4]]" size 50
+        text "[question[9][4]]" size 45
 
 screen question10:
     vbox:
@@ -2151,19 +2478,19 @@ screen question10:
     vbox:
         xpos 390
         ypos 840
-        text "[question[10][1]]" size 50
+        text "[question[10][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[10][2]]" size 50
+        text "[question[10][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[10][3]]" size 50
+        text "[question[10][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[10][4]]" size 50
+        text "[question[10][4]]" size 45
 
 screen question11:
     vbox:
@@ -2173,19 +2500,19 @@ screen question11:
     vbox:
         xpos 390
         ypos 840
-        text "[question[11][1]]" size 50
+        text "[question[11][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[11][2]]" size 50
+        text "[question[11][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[11][3]]" size 50
+        text "[question[11][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[11][4]]" size 50
+        text "[question[11][4]]" size 45
 
 screen question12:
     vbox:
@@ -2195,19 +2522,19 @@ screen question12:
     vbox:
         xpos 390
         ypos 840
-        text "[question[12][1]]" size 50
+        text "[question[12][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[12][2]]" size 50
+        text "[question[12][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[12][3]]" size 50
+        text "[question[12][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[12][4]]" size 50
+        text "[question[12][4]]" size 45
 
 screen question13:
     vbox:
@@ -2217,19 +2544,19 @@ screen question13:
     vbox:
         xpos 390
         ypos 840
-        text "[question[13][1]]" size 50
+        text "[question[13][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[13][2]]" size 50
+        text "[question[13][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[13][3]]" size 50
+        text "[question[13][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[13][4]]" size 50
+        text "[question[13][4]]" size 45
 
 screen question14:
     vbox:
@@ -2239,19 +2566,19 @@ screen question14:
     vbox:
         xpos 390
         ypos 840
-        text "[question[14][1]]" size 50
+        text "[question[14][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[14][2]]" size 50
+        text "[question[14][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[14][3]]" size 50
+        text "[question[14][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[14][4]]" size 50
+        text "[question[14][4]]" size 45
 
 screen question15:
     vbox:
@@ -2261,19 +2588,19 @@ screen question15:
     vbox:
         xpos 390
         ypos 840
-        text "[question[15][1]]" size 50
+        text "[question[15][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[15][2]]" size 50
+        text "[question[15][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[15][3]]" size 50
+        text "[question[15][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[15][4]]" size 50
+        text "[question[15][4]]" size 45
 
 screen question16:
     vbox:
@@ -2283,19 +2610,19 @@ screen question16:
     vbox:
         xpos 390
         ypos 840
-        text "[question[16][1]]" size 50
+        text "[question[16][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[16][2]]" size 50
+        text "[question[16][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[16][3]]" size 50
+        text "[question[16][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[16][4]]" size 50
+        text "[question[16][4]]" size 45
 
 screen question17:
     vbox:
@@ -2305,19 +2632,19 @@ screen question17:
     vbox:
         xpos 390
         ypos 840
-        text "[question[17][1]]" size 50
+        text "[question[17][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[17][2]]" size 50
+        text "[question[17][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[17][3]]" size 50
+        text "[question[17][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[17][4]]" size 50
+        text "[question[17][4]]" size 45
 
 screen question18:
     vbox:
@@ -2327,19 +2654,19 @@ screen question18:
     vbox:
         xpos 390
         ypos 840
-        text "[question[18][1]]" size 50
+        text "[question[18][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[18][2]]" size 50
+        text "[question[18][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[18][3]]" size 50
+        text "[question[18][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[18][4]]" size 50
+        text "[question[18][4]]" size 45
 
 screen question19:
     vbox:
@@ -2349,19 +2676,19 @@ screen question19:
     vbox:
         xpos 390
         ypos 840
-        text "[question[19][1]]" size 50
+        text "[question[19][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[19][2]]" size 50
+        text "[question[19][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[19][3]]" size 50
+        text "[question[19][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[19][4]]" size 50
+        text "[question[19][4]]" size 45
 
 screen question20:
     vbox:
@@ -2371,19 +2698,19 @@ screen question20:
     vbox:
         xpos 390
         ypos 840
-        text "[question[20][1]]" size 50
+        text "[question[20][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[20][2]]" size 50
+        text "[question[20][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[20][3]]" size 50
+        text "[question[20][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[20][4]]" size 50
+        text "[question[20][4]]" size 45
 
 screen question21:
     vbox:
@@ -2393,19 +2720,19 @@ screen question21:
     vbox:
         xpos 390
         ypos 840
-        text "[question[21][1]]" size 50
+        text "[question[21][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[21][2]]" size 50
+        text "[question[21][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[21][3]]" size 50
+        text "[question[21][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[21][4]]" size 50
+        text "[question[21][4]]" size 45
 
 screen question22:
     vbox:
@@ -2415,19 +2742,19 @@ screen question22:
     vbox:
         xpos 390
         ypos 840
-        text "[question[22][1]]" size 50
+        text "[question[22][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[22][2]]" size 50
+        text "[question[22][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[22][3]]" size 50
+        text "[question[22][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[22][4]]" size 50
+        text "[question[22][4]]" size 45
 
 screen question23:
     vbox:
@@ -2437,19 +2764,19 @@ screen question23:
     vbox:
         xpos 390
         ypos 840
-        text "[question[23][1]]" size 50
+        text "[question[23][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[23][2]]" size 50
+        text "[question[23][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[23][3]]" size 50
+        text "[question[23][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[23][4]]" size 50
+        text "[question[23][4]]" size 45
 
 screen question24:
     vbox:
@@ -2459,19 +2786,19 @@ screen question24:
     vbox:
         xpos 390
         ypos 840
-        text "[question[24][1]]" size 50
+        text "[question[24][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[24][2]]" size 50
+        text "[question[24][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[24][3]]" size 50
+        text "[question[24][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[24][4]]" size 50
+        text "[question[24][4]]" size 45
 
 screen question25:
     vbox:
@@ -2481,19 +2808,19 @@ screen question25:
     vbox:
         xpos 390
         ypos 840
-        text "[question[25][1]]" size 50
+        text "[question[25][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[25][2]]" size 50
+        text "[question[25][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[25][3]]" size 50
+        text "[question[25][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[25][4]]" size 50
+        text "[question[25][4]]" size 45
 
 screen question26:
     vbox:
@@ -2503,19 +2830,19 @@ screen question26:
     vbox:
         xpos 390
         ypos 840
-        text "[question[26][1]]" size 50
+        text "[question[26][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[26][2]]" size 50
+        text "[question[26][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[26][3]]" size 50
+        text "[question[26][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[26][4]]" size 50
+        text "[question[26][4]]" size 45
 
 screen question27:
     vbox:
@@ -2525,19 +2852,19 @@ screen question27:
     vbox:
         xpos 390
         ypos 840
-        text "[question[27][1]]" size 50
+        text "[question[27][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[27][2]]" size 50
+        text "[question[27][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[27][3]]" size 50
+        text "[question[27][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[27][4]]" size 50
+        text "[question[27][4]]" size 45
 
 screen question28:
     vbox:
@@ -2547,19 +2874,19 @@ screen question28:
     vbox:
         xpos 390
         ypos 840
-        text "[question[28][1]]" size 50
+        text "[question[28][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[28][2]]" size 50
+        text "[question[28][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[28][3]]" size 50
+        text "[question[28][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[28][4]]" size 50
+        text "[question[28][4]]" size 45
 
 screen question29:
     vbox:
@@ -2569,19 +2896,19 @@ screen question29:
     vbox:
         xpos 390
         ypos 840
-        text "[question[29][1]]" size 50
+        text "[question[29][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[29][2]]" size 50
+        text "[question[29][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[29][3]]" size 50
+        text "[question[29][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[29][4]]" size 50
+        text "[question[29][4]]" size 45
 
 screen question30:
     vbox:
@@ -2591,19 +2918,19 @@ screen question30:
     vbox:
         xpos 390
         ypos 840
-        text "[question[30][1]]" size 50
+        text "[question[30][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[30][2]]" size 50
+        text "[question[30][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[30][3]]" size 50
+        text "[question[30][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[30][4]]" size 50
+        text "[question[30][4]]" size 45
 
 screen question31:
     vbox:
@@ -2613,19 +2940,19 @@ screen question31:
     vbox:
         xpos 390
         ypos 840
-        text "[question[31][1]]" size 50
+        text "[question[31][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[31][2]]" size 50
+        text "[question[31][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[31][3]]" size 50
+        text "[question[31][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[31][4]]" size 50
+        text "[question[31][4]]" size 45
 
 screen question32:
     vbox:
@@ -2635,19 +2962,19 @@ screen question32:
     vbox:
         xpos 390
         ypos 840
-        text "[question[32][1]]" size 50
+        text "[question[32][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[32][2]]" size 50
+        text "[question[32][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[32][3]]" size 50
+        text "[question[32][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[32][4]]" size 50
+        text "[question[32][4]]" size 45
 
 screen question33:
     vbox:
@@ -2657,19 +2984,19 @@ screen question33:
     vbox:
         xpos 390
         ypos 840
-        text "[question[33][1]]" size 50
+        text "[question[33][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[33][2]]" size 50
+        text "[question[33][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[33][3]]" size 50
+        text "[question[33][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[33][4]]" size 50
+        text "[question[33][4]]" size 45
 
 screen question34:
     vbox:
@@ -2679,19 +3006,19 @@ screen question34:
     vbox:
         xpos 390
         ypos 840
-        text "[question[34][1]]" size 50
+        text "[question[34][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[34][2]]" size 50
+        text "[question[34][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[34][3]]" size 50
+        text "[question[34][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[34][4]]" size 50
+        text "[question[34][4]]" size 45
 
 screen question35:
     vbox:
@@ -2701,19 +3028,19 @@ screen question35:
     vbox:
         xpos 390
         ypos 840
-        text "[question[35][1]]" size 50
+        text "[question[35][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[35][2]]" size 50
+        text "[question[35][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[35][3]]" size 50
+        text "[question[35][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[35][4]]" size 50
+        text "[question[35][4]]" size 45
 
 screen question36:
     vbox:
@@ -2723,19 +3050,19 @@ screen question36:
     vbox:
         xpos 390
         ypos 840
-        text "[question[36][1]]" size 50
+        text "[question[36][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[36][2]]" size 50
+        text "[question[36][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[36][3]]" size 50
+        text "[question[36][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[36][4]]" size 50
+        text "[question[36][4]]" size 45
 
 screen question37:
     vbox:
@@ -2745,19 +3072,19 @@ screen question37:
     vbox:
         xpos 390
         ypos 840
-        text "[question[37][1]]" size 50
+        text "[question[37][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[37][2]]" size 50
+        text "[question[37][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[37][3]]" size 50
+        text "[question[37][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[37][4]]" size 50
+        text "[question[37][4]]" size 45
 
 screen question38:
     vbox:
@@ -2767,19 +3094,19 @@ screen question38:
     vbox:
         xpos 390
         ypos 840
-        text "[question[38][1]]" size 50
+        text "[question[38][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[38][2]]" size 50
+        text "[question[38][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[38][3]]" size 50
+        text "[question[38][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[38][4]]" size 50
+        text "[question[38][4]]" size 45
 
 screen question39:
     vbox:
@@ -2789,19 +3116,19 @@ screen question39:
     vbox:
         xpos 390
         ypos 840
-        text "[question[39][1]]" size 50
+        text "[question[39][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[39][2]]" size 50
+        text "[question[39][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[39][3]]" size 50
+        text "[question[39][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[39][4]]" size 50
+        text "[question[39][4]]" size 45
 
 
 
@@ -2813,19 +3140,19 @@ screen question40:
     vbox:
         xpos 390
         ypos 840
-        text "[question[40][1]]" size 50
+        text "[question[40][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[40][2]]" size 50
+        text "[question[40][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[40][3]]" size 50
+        text "[question[40][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[40][4]]" size 50
+        text "[question[40][4]]" size 45
 
 screen question41:
     vbox:
@@ -2835,19 +3162,19 @@ screen question41:
     vbox:
         xpos 390
         ypos 840
-        text "[question[41][1]]" size 50
+        text "[question[41][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[41][2]]" size 50
+        text "[question[41][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[41][3]]" size 50
+        text "[question[41][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[41][4]]" size 50
+        text "[question[41][4]]" size 45
 
 screen question42:
     vbox:
@@ -2857,19 +3184,19 @@ screen question42:
     vbox:
         xpos 390
         ypos 840
-        text "[question[42][1]]" size 50
+        text "[question[42][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[42][2]]" size 50
+        text "[question[42][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[42][3]]" size 50
+        text "[question[42][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[42][4]]" size 50
+        text "[question[42][4]]" size 45
 
 screen question43:
     vbox:
@@ -2879,19 +3206,19 @@ screen question43:
     vbox:
         xpos 390
         ypos 840
-        text "[question[43][1]]" size 50
+        text "[question[43][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[43][2]]" size 50
+        text "[question[43][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[43][3]]" size 50
+        text "[question[43][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[43][4]]" size 50
+        text "[question[43][4]]" size 45
 
 screen question44:
     vbox:
@@ -2901,19 +3228,19 @@ screen question44:
     vbox:
         xpos 390
         ypos 840
-        text "[question[44][1]]" size 50
+        text "[question[44][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[44][2]]" size 50
+        text "[question[44][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[44][3]]" size 50
+        text "[question[44][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[44][4]]" size 50
+        text "[question[44][4]]" size 45
 
 screen question45:
     vbox:
@@ -2923,16 +3250,16 @@ screen question45:
     vbox:
         xpos 390
         ypos 840
-        text "[question[45][1]]" size 50
+        text "[question[45][1]]" size 45
     vbox:
         xpos 1110
         ypos 840
-        text "[question[45][2]]" size 50
+        text "[question[45][2]]" size 45
     vbox:
         xpos 390
         ypos 950
-        text "[question[45][3]]" size 50
+        text "[question[45][3]]" size 45
     vbox:
         xpos 1110
         ypos 950
-        text "[question[45][4]]" size 50
+        text "[question[45][4]]" size 45

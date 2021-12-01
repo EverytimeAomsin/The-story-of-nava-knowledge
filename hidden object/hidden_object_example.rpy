@@ -90,7 +90,17 @@ label hidden_object:
         jump check
     else:
         "คุณยังหาได้ไม่ครบ ระบบจะสุ่มการเดิน 1- 4 ช่อง"
-        $ roll = renpy.random.randint(1, 4)
+        # $ roll = 2
+        if randomq == 1:
+            $ roll = 2
+        elif randomq == 2:
+            $ roll = 1
+        elif randomq == 3:
+            $ roll = 2
+        elif randomq == 4:
+            $ roll = 4
+        elif randomq == 5:
+            $ roll = 1
         show screen choice_menu(x=None) 
         show screen scoreboard_g2
         show img with dissolve:

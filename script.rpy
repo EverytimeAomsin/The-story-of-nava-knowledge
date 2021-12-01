@@ -739,6 +739,8 @@ label playg2:
         hide screen g2h4
         hide screen playg2
         scene bgg2
+        $ randomq = renpy.random.randint(1, 5)
+        # $ randomq = 5
         jump game_2
 label chapter3_0:
         hide screen scoreboard_g1
